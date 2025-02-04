@@ -6,6 +6,29 @@
     <title>Mon Compte</title>
 </head>
 <body>
-    
+    <h1>Bienvenue sur votre profil !</h1>
+    <div class="">
+        <img src="https://institutcommotions.com/wp-content/uploads/2018/05/blank-profile-picture-973460_960_720-1.png" alt="photo de profil" widht="150" height="150">
+    </div>
+    <div id="profil">
+        <h2>Informations de l'utilisateur :</h2>
+        <p>Nom d'utilisateur : <span id="nomUtilisateur"><span></p>
+        <p>Mot de passe : <span id="motDePasse"></span></p>
+    </div>
+    <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const nomUtilisateur = urlParams.get("NomUtilisateur");
+        const motDePasse = urlParams.get("MotDePasse");
+
+        
+        document.getElementById("nomUtilisateur").textContent = nomUtilisateur || "Non renseigné";
+        document.getElementById("motDePasse").textContent = motDePasse || "Non renseigné";
+    </script>
+
+    <br>
+    <a href="connexion.html">Retour à la page de connexion</a>
+
+
 </body>
 </html>
