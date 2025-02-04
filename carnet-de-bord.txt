@@ -6,3 +6,9 @@ CHARTE GRAPHIQUE :
 CALENDRIER :
 1/02/25 :
 - Commit initial : création du dépot et des fichiers nécessaires
+
+4/02/25 :
+- Choix éditorial
+- Construction des formulaires
+- Début de la construction de la page d'accueil
+- Ajout d'image

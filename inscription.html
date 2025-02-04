@@ -6,6 +6,22 @@
     <title>Inscription</title>
 </head>
 <body>
-    
+    <fieldset>
+        <legend>Formulaire d'Inscription</legend>
+        <form action="https://www.cafe-it.fr/cytech/post.php " method="post">
+            <p>
+                <input type="radio" name="pres" value="mademoiselle" /> Mademoiselle
+                <input type="radio" name="pres" value="madame"/> Madame
+                <input type="radio" name="pres" value="monsieur"/> Monsieur <br />
+            </p>
+            <label for="prenom"> Prénom : </label> <input type="text" name="prenom" placeholder="Philippe" maxlength="50" required> <br />
+            <label for="nom"> Nom(s) : </label> <input type="text" name="nom" placeholder="DUPONT" maxlength="50" required> <br />
+            <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
+            <label for="date"> Date de naissance : </label> <input type="date" required> <br />
+            <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
+            <input type="reset" value="Reset">
+            <input type="submit" value="Valider">
+        </form>
+    </fieldset>
 </body>
 </html>
