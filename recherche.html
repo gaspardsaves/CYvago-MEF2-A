@@ -6,9 +6,11 @@
     <title>Recherche</title>
 </head>
 <body>
-    <div>
-        <input type="text" placeholder="Rechercher...">
-        <button>🔍</button>
-    </div>
+    <form action="/recherche" method="GET">
+        <div>
+            <input type="text" name="q" placeholder="Rechercher...">
+            <button type="submit">🔍</button>
+        </div>
+    </form>
 </body>
 </html>
