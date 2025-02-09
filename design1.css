@@ -34,7 +34,8 @@ header {
 }
 
 footer{
-    background-color: rgb(58, 55, 55);
+    background-color: black;
     color : white;
-    font-size: 10px;
+    font-size: 7px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
 }
