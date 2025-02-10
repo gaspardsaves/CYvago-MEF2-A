@@ -5,6 +5,7 @@ p {
         padding: 0px 3px;
         font-weight: 400px;
         font-family: "Inter Tight", serif;
+      
       }
        
 label {
@@ -55,10 +56,22 @@ input[type="reset"]:hover, input[type="submit"]:hover {
 /* Conteneur des boutons */
 .button-form {
   text-align: center;        
-  margin-top: 20px;           
+  margin-top: 20px;    }       
       
 /* Espace entre les boutons */
 input[type="reset"] {
   margin-right: 20px;        
       }
-      
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+   /* Occupe toute la largeur disponible */
+  padding: 10px 13px; /* Espacement confortable autour du texte */
+  margin-bottom: 15px; /* Espacement entre les champs */
+  border: 2px solid #ffd1a7; /* Bordure subtile pour les champs */
+  border-radius: 8px; /* Coins arrondis */
+  background-color: #fff; /* Fond blanc pour plus de clarté */
+  font-size: 16px; /* Taille du texte dans le champ */
+  font-family: "Inter Tight", serif; /* Utilisation de la police que tu as définie */
+  transition: all 0.3s ease; /* Transition fluide pour les interactions */
+ }
+
