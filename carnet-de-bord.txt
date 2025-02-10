@@ -14,5 +14,10 @@ CALENDRIER :
 - Ajout d'image
 
 9/02/25 :
+
 - Réalisation du favicon
 - Redirection entre les pages
+
+10/02/25 :
+- Page des séjours
+- Page de recherche
