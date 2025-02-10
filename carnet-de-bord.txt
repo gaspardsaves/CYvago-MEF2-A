@@ -12,3 +12,7 @@ CALENDRIER :
 - Construction des formulaires
 - Début de la construction de la page d'accueil
 - Ajout d'image
+
+9/02/25 :
+- Réalisation du favicon
+- Redirection entre les pages
