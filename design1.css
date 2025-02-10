@@ -39,3 +39,12 @@ footer{
     font-size: 7px;
     font-family: Comic Sans MS, Comic Sans, cursive;
 }
+
+img.sejour {
+    transition-duration: 0.3ms;
+    cursor: pointer;
+}
+
+img.sejour:hover {
+    opacity : 0.5;
+}
