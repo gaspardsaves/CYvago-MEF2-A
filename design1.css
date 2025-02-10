@@ -55,3 +55,12 @@ img.sejour {
 img.sejour:hover {
     opacity : 0.5;
 }
+
+.base .sejour:hover .description{
+    color: black;
+    text-align: center;
+}
+
+.base .sejour .description{
+    display: none;
+}
