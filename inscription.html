@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="formulaire.css">
 </head>
 <body>
-    <fieldset>
-        <legend> <b>Formulaire d'Inscription :</b></legend>
+
         <form action="https://www.cafe-it.fr/cytech/post.php " method="post">
+            <p style="font-size: 20px;"></p><b> S'inscrire:</b></p>
             <p>
                 <input type="radio" name="pres" value="mademoiselle" /> Mademoiselle
                 <input type="radio" name="pres" value="madame"/> Madame
@@ -25,9 +25,12 @@
             <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
             <label for="date"> Date de naissance : </label> <input type="date" required> <br />
             <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
-            <input type="reset" value="Reset">
-            <input type="submit" value="Valider">
+
+            <div class="button-form">
+                <input type="reset" value="Reset">
+                <input type="submit" value="Valider">
+            </div>
         </form>
-    </fieldset>
+    
 </body>
 </html>
