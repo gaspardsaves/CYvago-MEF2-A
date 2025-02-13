@@ -12,41 +12,48 @@
     <link rel="stylesheet" href="design1.css">
 </head>
 <body>
-    <header>
-        <form action="connexion.html">
-            <button class="button" type="submit">🔐 Connexion</button>
-        </form>
-        <form action="inscription.html">
-            <button class="button" type="submit">Inscription</button>
-        </form>
+    <header class="top-bar">
+        <div class="buttons-top">
+            <form action="inscription.html">
+                <button class="button" type="submit">Inscription</button>
+            </form>
+            <form action="connexion.html">
+                <button class="button" type="submit">🔐 Connexion</button>
+            </form>
+        </div>
     </header>
-    <nav>
-        <form action="accueil.html">
+
+    <nav class="nav-bar">
+        <div class="buttons-nav">
+            <form action="accueil.html">
                 <button class="button2" type="submit"><h1><img src="Image/logodef.png" height="50" weight="50">   ZanimoTrip</h1></button>
             </form>
             <form action="presentation.html">
-                <button class="button2" type="submit">A propos de ZanimoTrip</button>
+                <button class="button2" type="submit">L'expérience ZanimoTrip</button>
             </form>
             <form action="sejours.html">
                 <button class="button2" type="submit">Séjours</button>
             </form>
+        </div>
     </nav>
-    <div class="search">
-        <form action="recherche.html">
-            <button class="button2" type="submit">🔍</button>
-        </form>
+
+    <div class="search-bar">
+            <input type="text" placeholder="🔍 Rechercher une destination, un animal...">
+            <button class="button2" type="submit">En Route !</button>
     </div>
+
     <article>
         <img src="Image/desertchameau.png" height="120" weight="50">
         <img src="Image/Panda.jpg" height="120" weight="50">
         <img src="Image/Dauphin2.jpeg" height="120" weight="50">
-        <p>
-         Ceci est un site touristique en lien avec les animaux
-        </p>
+        <p>Ceci est un site touristique en lien avec les animaux</p>
     </article>
-</br>
-<footer>
-    <a href="mentions-legales.html" >Mentions Légales</a>
-</footer>
+
+    <footer class="footer-bar">
+        <a href="mentions-legales.html" >Mentions Légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGU</a>
+        <a href="#">Contact</a>
+    </footer>
 </body>
 </html>

@@ -21,3 +21,8 @@ CALENDRIER :
 10/02/25 :
 - Page des séjours
 - Page de recherche
+
+11/02/25 :
+- Interface de recherche
+- Rubrique d'accueil et eléments d'accueil devant être présent sur toutes les pages
+- Tri des séjours
