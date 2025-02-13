@@ -142,20 +142,37 @@ header {
     text-decoration: none;
 }
 
+.image-interactive {
+    position: relative;
+    display: inline-block;
+}
+
+.image-interactive .description {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    display: none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1;
+}
+
+.image-interactive:hover .description {
+    display: block;
+}
+
+.image-interactive:hover img.sejour {
+    opacity: 0.5;
+}
+
 img.sejour {
-    transition-duration: 0.3ms;
+    transition: opacity 0.3s ease;
     cursor: pointer;
 }
 
-img.sejour:hover {
-    opacity : 0.5;
-}
+.cocher {
+    border : 7px;
 
-.base .sejour:hover .description{
-    color: black;
-    text-align: center;
-}
-
-.base .sejour .description{
-    display: none;
 }
