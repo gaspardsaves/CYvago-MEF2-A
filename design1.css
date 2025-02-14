@@ -2,22 +2,15 @@ body{
     background:rgba(9, 29, 83, 0.692);
     margin: 0;
     padding: 0;
-}
-
-/*header h1{
-    text-align: center;
-    font-family :Verdana, Geneva, Tahoma, sans-serif ;
-    text-transform: capitalize;
-    font-size: 34px;
-    text-shadow: 1px 2px black;
-}
-
-header {
+    overflow: hidden;
+    height: 100vh;
     display: flex;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-}*/
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
 
 .top-bar {
     background: #2C3E50;
@@ -26,36 +19,19 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 100%
 }
 
-.buttons-container {
+.buttons-top {
     display: flex;
     gap: 10px;
-    display: inline-block;
 }
-
-/*nav {
-    list-style: none;
-    background: #34495E;
-    padding: 15px;
-    text-align: center;
-}*/
 
 .nav-bar {
     background: #34495E;
     padding: 15px;
     text-align: right;
     display: flex;
-    width: 100%;
 }
-/*
-.nav-bar a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 18px;
-}*/
 
 .buttons-nav {
     display: flex;
@@ -68,7 +44,6 @@ header {
     align-items: center;
     background: #2C3E50;
     padding: 20px;
-    width: 100%;
 }
 .search-bar input {
     width: 60%;
@@ -130,7 +105,6 @@ header {
     font-size: 12px;
     text-align: center;
     padding: 15px;
-    width: 100%;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -140,6 +114,33 @@ header {
 .footer-bar a {
     color: white;
     text-decoration: none;
+}
+
+.contact {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.contact .mailcontact{
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.contact:hover .mailcontact {
+    visibility: visible;
+    opacity: 1;
 }
 
 .image-interactive {
