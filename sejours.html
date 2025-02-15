@@ -21,21 +21,34 @@
         <div>
             Date : <input type="date" name="date" min="2025-02-13">
         </div>
-        <div class="filtre">
-            <div>Choisissez une fourchette de prix</div>
-            <input type="checkbox" class="cocher" name="Price" value="100-1000" />100&euro;-1000&euro;
-            <input type="checkbox" name="Price" value="100-1000" />1000&euro;-1500&euro;
-            <input type="checkbox" name="Price" value="100-1000" />1500&euro;-2000&euro;
-            <input type="checkbox" name="Price" value="100-1000" />2000&euro;-2500&euro;
+        <div>Choisissez une fourchette de prix</div>
+        <div class="filtre"></div>
+            <div class="check">
+            <input type="checkbox" name="Price" value="100-1000" />
+            <label for="cov">
+                100&euro;-1000&euro;
+            </label>
+            <input type="checkbox" name="Price" value="100-1000" />
+            <label>
+                1000&euro;-1500&euro;
+            </label>
+            <input type="checkbox" name="Price" value="100-1000" />
+            <label>
+                1500&euro;-2000&euro;
+            </label>
+            <input type="checkbox" name="Price" value="100-1000" />
+            <label>
+                2000&euro;-2500&euro;
+            </label>
         </div>
-        <div>
+        <div class="check">
             <div>Filtrer par pays</div>
-            <input type="checkbox" name="Country" value="China">China
-            <input type="checkbox" name="Country" value="Australie">Australie
-            <input type="checkbox" name="Country" value="Brésil">Brésil
-            <input type="checkbox" name="Country" value="Imaginaire">Imaginaire
-            <input type="checkbox" name="Country" value="Népal">Népal
-            <input type="checkbox" name="Country" value="Antarctique">Antarctique
+            <input type="checkbox" name="Country" value="China"><label>Chine</label>
+            <input type="checkbox" name="Country" value="Australie"><label>Australie</label>
+            <input type="checkbox" name="Country" value="Brésil"><label>Brésil</label>
+            <input type="checkbox" name="Country" value="Imaginaire"><label>Imaginaire</label>
+            <input type="checkbox" name="Country" value="Népal"><label>Népal</label>
+            <input type="checkbox" name="Country" value="Antarctique"><label>Antarctique</label>
         </div>
     </aside>
     <article>
