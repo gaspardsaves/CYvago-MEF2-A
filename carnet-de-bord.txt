@@ -26,3 +26,7 @@ CALENDRIER :
 - Interface de recherche
 - Rubrique d'accueil et eléments d'accueil devant être présent sur toutes les pages
 - Tri des séjours
+
+14/02/25 :
+- Affichage correct interface de base
+- Correction diverse affichage
