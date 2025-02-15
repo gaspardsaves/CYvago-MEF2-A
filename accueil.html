@@ -12,34 +12,26 @@
     <link rel="stylesheet" href="design1.css">
 </head>
 <body>
-    <header class="top-bar">
-        <div class="buttons-top">
-            <form action="inscription.html">
-                <button class="button" type="submit">Inscription</button>
-            </form>
-            <form action="connexion.html">
-                <button class="button" type="submit">🔐 Connexion</button>
-            </form>
-        </div>
-    </header>
-
     <nav class="nav-bar">
+        <div class="logo">
+            <a href="accueil.html"> <img src="Image/ZanimoTripDef.png"> </a>
+        </div>
         <div class="buttons-nav">
-            <form action="accueil.html">
-                <button class="button2" type="submit"><h1><img src="Image/logodef.png" height="50" weight="50">   ZanimoTrip</h1></button>
-            </form>
             <form action="presentation.html">
-                <button class="button2" type="submit">L'expérience ZanimoTrip</button>
+                <button class="button1" type="submit">L'expérience ZanimoTrip</button>
             </form>
             <form action="sejours.html">
-                <button class="button2" type="submit">Séjours</button>
+                <button class="button1" type="submit">Séjours</button>
+            </form>
+            <form action="connexion.html">
+                <button class="button1" type="submit">🔐 Connexion</button>
             </form>
         </div>
     </nav>
 
     <div class="search-bar">
             <input type="text" placeholder="🔍 Rechercher une destination, un animal...">
-            <button class="button2" type="submit">En Route !</button>
+            <button class="button1" type="submit">🐫 En Route !</button>
     </div>
 
     <main>
@@ -52,12 +44,42 @@
     </main>
 
     <footer class="footer-bar">
-        <a href="mentions-legales.html" >Mentions Légales</a>
-        <a href="#">Politique de confidentialité</a>
-        <a href="#">CGU</a>
-        <a href="#" class="contact">Contact
-            <span class="mailcontact">contact@zanimotrip.com</span>
-        </a>
+        <div class="footer-begin">
+            <div class="footer-categories">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="legal/mentions-legales.html" >Mentions Légales</a></li>
+                    <li><a href="legal/confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="legal/cgv.html">Conditions générales de vente</a></li>
+                    <li><a href="legal/cgu.html">Conditions générales d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-categories">
+                <h3 class="contact">Contact
+                    <span class="mailcontact">contact@zanimotrip.com</span>
+                </h3>
+                <p>📧 <a href="mailto:contact@zanimotrip.com">contact@zanimotrip.com</a></p>
+            </div>
+            <div class="footer-categories">
+                <h3>Moyens de Paiement</h3>
+                <div class="payment">
+                    <img src="Image/footer/visa.png" alt="Visa">
+                    <img src="Image/footer/mastercard.png" alt="MasterCard">
+                    <img src="Image/footer/tether.png" alt="Tether">
+                </div>
+            </div>
+            <div class="footer-categories">
+                <h3>Nous Suivre</h3>
+                <div class="socials">
+                    <a href="#"><img src="Image/footer/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="Image/footer/x.png" alt="X"></a>
+                    <a href="#"><img src="Image/footer/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-end">
+            <p>© Copyright 2025 ZanimoTrip Tous droits réservés</p>
+        </div>
     </footer>
 </body>
 </html>
