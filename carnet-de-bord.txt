@@ -29,4 +29,10 @@ CALENDRIER :
 
 14/02/25 :
 - Affichage correct interface de base
-- Correction diverse affichage
+- Corrections diverses affichage
+
+15/02/25 :
+Interface :
+- Implémentation logo définitif
+- Footer bar définitive
+- Boutons et transitions
