@@ -187,14 +187,11 @@ main {
 
 .image-interactive .description {
     position: absolute;
-    top: 25%;
-    left: 25%;
-    transform: translate(-50%, -50%);
+    top: 60%;
     display: none;
     color: white;
-    font-size: 16px;
-    text-align: center;
-    z-index: 1;
+    font-size: 11px;
+    text-align: auto;
 }
 
 .image-interactive:hover .description {
@@ -208,9 +205,12 @@ main {
 img.sejour {
     transition: opacity 0.3s ease;
     cursor: pointer;
+    border-radius: 35px;
 }
 
-.cocher {
-    border : 7px;
-
+.filtre {
+    display : block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
 }
