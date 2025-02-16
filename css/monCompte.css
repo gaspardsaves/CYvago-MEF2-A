@@ -7,6 +7,7 @@
     max-width: 500px;
     margin: 50px auto;
     background: var(--background-profile);
+    font-family: "Inter Tight", serif;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 10px var(--shadow-03);

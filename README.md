@@ -34,4 +34,16 @@
 [sejours.html](sejours.html) est la page permettant de découvrir et trier les différents séjours  
 
 ### Dans le répertoire CSS :
+[accueil.css](css/accueil.css) est la feuille de style de la page [accueil.html](accueil.html)  
+[administrateur.css](css/administrateur.css) est la feuille de style de la page [administrateur.html](administrateur.html)  
+[def.css](css/def.css) est la feuille de style générale contenant la police de caractère utilisée, les variables de couleur définies ainsi qu'une transition d'écriture  
+[designSite.css](ccs/designSite.css) est la feuille de style contenant la barre de navigation, la barre de recherche ainsi que le pied de page et plus généralement l'ensemble des paramétres graphiques communs à chaque page.  
+[formulaire.css](css/formulaire.css) est la feuille de style des page [connexion.html](connexion.html) et [inscription.html](inscription.html)  
+[legal.css](css/legal.css) est la feuille de style des page [mentions-legales.html](legal/mentions-legales.html), [confidentialite.html](legal/confidentialite.html), [cgu.html](legal/cgu.html) et [cgv.html](legal/cgv.html)  
+[monCompte.css](css/monCompte.css) est la feuille de style de la page [monCompte.html](monCompte.html)  
+[presentation.css](css/presentation.css) est la feuille de style de la page [presentation.html](presentation.html)  
+[sejours.css](css/sejours.css) est la feuille de style de la page [sejours.html](sejours.html)  
 
+### Important pour les tests :
+**Dans l'attente de la partie backend la page permettant de voir le profil d'un utilisateur est accessible grâce à un lien situé sur la page de connexion.**  
+**De même, la page administrateur est accessible grâce à un lien situé sur la page d'inscription.**
