@@ -1,7 +1,7 @@
-/* Importation des couleurs et des polices de caractères*/
-@import url('color.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
-
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
 
 p {
   padding: 0px 3px;

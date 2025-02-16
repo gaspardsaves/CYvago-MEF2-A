@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Accueil</title>
-    <link rel="stylesheet" href="css/designSite.css">
+    <link rel="stylesheet" href="css/accueil.css">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -39,13 +39,15 @@
 
     <!-- Contenu de la page -->
     <main>
-        <video class="video-background" autoplay loop muted>
-            <source src="clipZanimoTrip.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas les vidéos.
-        </video>
         <article>
-            <h1>L'aventure au plus près des animaux</h1>
+            <h1 class="slogan">L'aventure au plus près des animaux !</h1>
         </article>
+        <div class="video-container">
+            <video class="video-background" autoplay loop muted>
+                <source src="clipZanimoTrip.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos.
+            </video>
+        </div>
     </main>
 
     <!-- Barre de pied de page -->
@@ -64,7 +66,7 @@
                 <h3 class="contact">Contact
                     <span class="mailcontact">contact@zanimotrip.com</span>
                 </h3>
-                <p>📧 <a href="mailto:contact@zanimotrip.com">contact@zanimotrip.com</a></p>
+                <p>📧 <a href="mailto:contact@zanimotrip.com" class="link">contact@zanimotrip.com</a></p>
             </div>
             <div class="footer-categories">
                 <h3>Moyens de Paiement</h3>

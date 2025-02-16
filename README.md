@@ -22,7 +22,7 @@
 
 ### A la racine :
 [accueil.html](accueil.html) est la page d'accueil du site web, elle est accessible depuis n'importe quelle autre page en cliquant sur le logo ZanimoTrip  
-[administrateur.html](administrateur.html) est
+[administrateur.html](administrateur.html) est la page permettant de voir la liste des utilisateurs afin de pouvoir, le cas échéant les bannir ou les faire profiter du programme VIP  
 [carnet-de-bord.txt](carnet-de-bord.txt) est le fichier de suivi des collaborateurs, il nous permet de suivre le travail menés par les autres.  
 [clipZanimoTrip.mp4](clipZanimoTrip.mp4) est le clip présent sur la page d'accueil  
 [connexion.html](connexion.html) est la page de connexion des utilisateurs  

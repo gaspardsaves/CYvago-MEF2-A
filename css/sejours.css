@@ -1,0 +1,97 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+.image-interactive {
+    position: relative;
+    display: inline-block;
+}
+
+.image-interactive .description {
+    position: absolute;
+    top: 60%;
+    display: none;
+    color: white;
+    font-size: 8px;
+    text-align: auto;
+}
+
+.image-interactive:hover .description {
+    display: block;
+}
+
+.image-interactive:hover img.sejour {
+    opacity: 0.5;
+}
+
+img.sejour {
+    transition: opacity 0.3s ease;
+    cursor:pointer;
+    border-radius: 35px;
+}
+
+.filtre {
+    display : block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.check{
+    --checkfond : white;
+    --curseur : grey;
+    position: relative;
+    font-size: 5px;
+    display: flex;
+}
+
+.check input{
+    position: absolute;
+    opacity:0;
+    z-index: 1;
+}
+
+.check label{
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    grid-template-areas:"checkbox label";
+    gap: 0.7em;
+}
+
+.check label::before,
+.check label::after {
+    grid-area: checkbox;
+    content:'';
+    display : block;
+    margin-top : .1em;
+}
+
+.check label::before{
+    width: 100%;
+    height: 1em;
+    border-radius: 1em;
+    border: solid 1px var(--checkfond);
+    margin-top : .1em;
+    transition: background-color .4s, border-color .4s;
+}
+
+.check label::after{
+    position: relative;
+    width: 1em;
+    left: 2px;
+    top: 2px;
+    height: 1em;
+    background-color: var(--curseur);
+    border-radius: 50%;
+}
+
+.check input:checked + label::before{
+    background-color: aqua;
+    border-color : aqua;
+}
+
+.check input:checked + label::after {
+    background-color: white;
+    transform: translateX(1em);
+}
