@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre, favicon et feuilles de style -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -12,101 +13,161 @@
     <link rel="stylesheet" href="css/sejours.css">
 </head>
 <body>
-    <header>
-        <h2><img src="img/logodef.png" height="50" weight="50">Venez découvrir nos animaux</h2>
-    </header>
-    <nav>
+    <!-- Barre de menu -->
+    <nav class="nav-bar">
+        <div class="logo">
+            <a href="accueil.html"> <img src="img/ZanimoTripDef.png"> </a>
+        </div>
+        <div class="buttons-nav">
+            <form action="presentation.html">
+                <button class="button1" type="submit">L'expérience ZanimoTrip</button>
+            </form>
+            <form action="sejours.html">
+                <button class="button1" type="submit">Séjours</button>
+            </form>
+            <form action="connexion.html">
+                <button class="button1" type="submit">🔐 Connexion</button>
+            </form>
+        </div>
     </nav>
-    <div class="contenu">
-        <div class="offre">
-            <div class="image-interactive">
-                <img class="sejour" src="img/Desert.webp" alt="Desert" height="200" width="200">
-                <div class="description">Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques à couper le souffle. Traversez des dunes dorées sous un ciel infini, profitez du silence apaisant du désert et découvrez la culture nomade autour d’un thé traditionnel.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Pingouin.webp" alt="Antarctique" height="200" width="200">
-                <div class="description">Partez à la découverte en Antarctique, où les pingouins règnent en maîtres ! Explorez des paysages enneigés spectaculaires, observez ces adorables oiseaux glisser sur la glace et plonger dans les eaux cristallines.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Africa.jpg" alt="Africa" height="200" width="200">
-                <div class="description">Plongez au cœur de la savane africaine pour un safari inoubliable ! Partez à la rencontre des lions majestueux, des éléphants imposants, des girafes élégantes et des troupeaux de zèbres sous un ciel doré.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Dauphin3.jpg" alt="Costa Rica" height="200" width="200">
-                <div class="description">Partez pour une aventure magique au cœur des océans et nagez aux côtés de dauphins joueurs dans des eaux cristallines. Observez-les sauter et danser avec les vagues sous un soleil éclatant. Une expérience inoubliable entre nature, liberté et émerveillement marin.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Panda2.jpg" alt="Chine" height="200" width="200">
-                <div class="description">Partez à la découverte des paysages enchanteurs de la Chine et observez de près les adorables pandas dans leur habitat naturel. Explorez des forêts de bambous verdoyantes, visitez des sanctuaires dédiés à leur préservation et vivez une expérience unique au cœur de la nature.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Licorne.webp" alt="Licorne" height="200" width="200">
-                <div class="description">Plongez dans un monde féerique où des licornes majestueuses errent à travers des prairies enchantées. Vivez une aventure magique au milieu de paysages féeriques, entre forêts mystiques et rivières étincelantes, aux côtés de ces créatures légendaires.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Yeti.jpg" alt="Everest" height="200" width="200">
-                <div class="description">Embarquez pour une aventure palpitante à la recherche du légendaire Yéti dans les montagnes himalayennes. Explorez des sentiers enneigés, découvrez des paysages à couper le souffle et suivez les mystères de la créature mythique au cœur de la neige et des brumes.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Dragon2.jpg" alt="Dragon" height="200" width="200">
-                <div class="description">Envolez-vous pour une aventure épique à dos de dragon, traversant des cieux infinis et des paysages fantastiques ! Explorez des montagnes majestueuses, des forêts mystiques et des vallées cachées, tout en ressentant la puissance et la liberté de votre compagnon légendaire.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Capybara.avif" alt="Capybara" height="200" width="200">
-                <div class="description">Partez à l’aventure dans les marais et rivières d’Amérique du Sud pour rencontrer les adorables capybaras ! Observez ces paisibles rongeurs se prélasser au soleil, nager en groupe et interagir avec d’autres animaux exotiques. Une immersion unique au cœur de la nature sauvage</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/Kangourou.jpg" alt="Australie" height="200" width="200">
-                <div class="description">Venez explorer l’outback australien et rencontrer des kangourous dans leur habitat naturel ! Sautez d’une aventure à l’autre à travers des paysages sauvages, des plaines infinies et des montagnes majestueuses, tout en observant ces animaux emblématiques dans leur environnement unique</div>
-            </div>
-            
-            <div class="image-interactive">
-                <img class="sejour" src="img/Yaks.jpeg" alt="Mongolie" height="200" width="200">
-                <div class="description">Partez à l'aventure dans les majestueuses montagnes chinoises à dos de yak ! Traversez des paysages spectaculaires, entre pics enneigés et vallées verdoyantes, et découvrez la culture locale au rythme de ces animaux puissants. Une expérience authentique, au cœur de la nature et des traditions.</div>
-            </div>
-            <div class="image-interactive">
-                <img class="sejour" src="img/chewbacca.jpg" alt="Chewbaca" height="200" width="200">
-                <div class="description">Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee le plus fiable de la galaxie, en train de gérer des portefeuilles d'investissement ! Entre ses rugissements rassurants et son expertise inattendue, il vous guide à travers des stratégies financières intergalactiques, tout en vous offrant une expérience unique de gestion de patrimoine.</div>
-            </div>
-        </div>
-    <div class="filtrage">
-        <div class="zonedefiltrage">
-            <div class ="titre">
-                Date : <input type="date" name="date" min="2025-02-13">
-            </div>
-            <br>
-            <div class="titre">Choisissez une fourchette de prix</div>
-            <div>
-                <div class>
-                <input type="checkbox" name="Price" value="100-1000" />
-                <label>
-                    100&euro;-1000&euro;
-                </label>
-                <input type="checkbox" name="Price" value="100-1000" />
-                <label>
-                    1000&euro;-1500&euro;
-                </label>
-                <input type="checkbox" name="Price" value="100-1000" />
-                <label>
-                    1500&euro;-2000&euro;
-                </label>
-                <input type="checkbox" name="Price" value="100-1000" />
-                <label>
-                    2000&euro;-2500&euro;
-                </label>
-                </div>
-                <br>
-            <div class>
-                <div class="titre">Filtrer par pays</div>
-                <input type="checkbox" name="Country" value="China"><label>Chine</label>
-                <input type="checkbox" name="Country" value="Australie"><label>Australie</label>
-                <input type="checkbox" name="Country" value="Brésil"><label>Brésil</label>
-                <input type="checkbox" name="Country" value="Imaginaire"><label>Imaginaire</label>
-                <input type="checkbox" name="Country" value="Népal"><label>Népal</label>
-                <input type="checkbox" name="Country" value="Antarctique"><label>Antarctique</label>
-            </div>
-        </div>
+    
+    <!-- Barre de recherche -->
+    <div class="search-bar">
+        <input type="text" placeholder="🔍 Rechercher une destination, un animal...">
+        <button class="button1" type="submit">🐫 En Route !</button>
     </div>
-</div>
+
+    <!-- Contenu de la page -->
+    <main>
+        <div class="contenu">
+            <div class="offre">
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Desert.webp" alt="Desert" height="200" width="200">
+                    <div class="description">Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques à couper le souffle. Traversez des dunes dorées sous un ciel infini, profitez du silence apaisant du désert et découvrez la culture nomade autour d’un thé traditionnel.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Pingouin.webp" alt="Antarctique" height="200" width="200">
+                    <div class="description">Partez à la découverte en Antarctique, où les pingouins règnent en maîtres ! Explorez des paysages enneigés spectaculaires, observez ces adorables oiseaux glisser sur la glace et plonger dans les eaux cristallines.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Africa.jpg" alt="Africa" height="200" width="200">
+                    <div class="description">Plongez au cœur de la savane africaine pour un safari inoubliable ! Partez à la rencontre des lions majestueux, des éléphants imposants, des girafes élégantes et des troupeaux de zèbres sous un ciel doré.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Dauphin3.jpg" alt="Costa Rica" height="200" width="200">
+                    <div class="description">Partez pour une aventure magique au cœur des océans et nagez aux côtés de dauphins joueurs dans des eaux cristallines. Observez-les sauter et danser avec les vagues sous un soleil éclatant. Une expérience inoubliable entre nature, liberté et émerveillement marin.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Panda2.jpg" alt="Chine" height="200" width="200">
+                    <div class="description">Partez à la découverte des paysages enchanteurs de la Chine et observez de près les adorables pandas dans leur habitat naturel. Explorez des forêts de bambous verdoyantes, visitez des sanctuaires dédiés à leur préservation et vivez une expérience unique au cœur de la nature.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Licorne.webp" alt="Licorne" height="200" width="200">
+                    <div class="description">Plongez dans un monde féerique où des licornes majestueuses errent à travers des prairies enchantées. Vivez une aventure magique au milieu de paysages féeriques, entre forêts mystiques et rivières étincelantes, aux côtés de ces créatures légendaires.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Yeti.jpg" alt="Everest" height="200" width="200">
+                    <div class="description">Embarquez pour une aventure palpitante à la recherche du légendaire Yéti dans les montagnes himalayennes. Explorez des sentiers enneigés, découvrez des paysages à couper le souffle et suivez les mystères de la créature mythique au cœur de la neige et des brumes.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Dragon2.jpg" alt="Dragon" height="200" width="200">
+                    <div class="description">Envolez-vous pour une aventure épique à dos de dragon, traversant des cieux infinis et des paysages fantastiques ! Explorez des montagnes majestueuses, des forêts mystiques et des vallées cachées, tout en ressentant la puissance et la liberté de votre compagnon légendaire.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Capybara.avif" alt="Capybara" height="200" width="200">
+                    <div class="description">Partez à l’aventure dans les marais et rivières d’Amérique du Sud pour rencontrer les adorables capybaras ! Observez ces paisibles rongeurs se prélasser au soleil, nager en groupe et interagir avec d’autres animaux exotiques. Une immersion unique au cœur de la nature sauvage</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Kangourou.jpg" alt="Australie" height="200" width="200">
+                    <div class="description">Venez explorer l’outback australien et rencontrer des kangourous dans leur habitat naturel ! Sautez d’une aventure à l’autre à travers des paysages sauvages, des plaines infinies et des montagnes majestueuses, tout en observant ces animaux emblématiques dans leur environnement unique</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/Yaks.jpeg" alt="Mongolie" height="200" width="200">
+                    <div class="description">Partez à l'aventure dans les majestueuses montagnes chinoises à dos de yak ! Traversez des paysages spectaculaires, entre pics enneigés et vallées verdoyantes, et découvrez la culture locale au rythme de ces animaux puissants. Une expérience authentique, au cœur de la nature et des traditions.</div>
+                </div>
+                <div class="image-interactive">
+                    <img class="sejour" src="img/chewbacca.jpg" alt="Chewbaca" height="200" width="200">
+                    <div class="description">Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee le plus fiable de la galaxie, en train de gérer des portefeuilles d'investissement ! Entre ses rugissements rassurants et son expertise inattendue, il vous guide à travers des stratégies financières intergalactiques, tout en vous offrant une expérience unique de gestion de patrimoine.</div>
+                </div>
+            </div>
+            <div class="filtrage">
+                <div class="zonedefiltrage">
+                    <div class ="titre">
+                        Date : <input type="date" name="date" min="2025-02-13">
+                    </div>
+                    <br>
+                    <div class="titre">Choisissez une fourchette de prix</div>
+                    <div>
+                        <div class>
+                            <input type="checkbox" name="Price" value="100-1000" />
+                            <label>
+                                100&euro;-1000&euro;
+                            </label>
+                            <input type="checkbox" name="Price" value="100-1000" />
+                            <label>
+                                1000&euro;-1500&euro;
+                            </label>
+                            <input type="checkbox" name="Price" value="100-1000" />
+                            <label>
+                                1500&euro;-2000&euro;
+                            </label>
+                            <input type="checkbox" name="Price" value="100-1000" />
+                            <label>
+                                2000&euro;-2500&euro;
+                            </label>
+                        </div>
+                        <br>
+                    <div class>
+                        <div class="titre">Filtrer par pays</div>
+                        <input type="checkbox" name="Country" value="China"><label>Chine</label>
+                        <input type="checkbox" name="Country" value="Australie"><label>Australie</label>
+                        <input type="checkbox" name="Country" value="Brésil"><label>Brésil</label>
+                        <input type="checkbox" name="Country" value="Imaginaire"><label>Imaginaire</label>
+                        <input type="checkbox" name="Country" value="Népal"><label>Népal</label>
+                        <input type="checkbox" name="Country" value="Antarctique"><label>Antarctique</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Barre de pied de page -->
+    <footer class="footer-bar">
+        <div class="footer-begin">
+            <div class="footer-categories">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="legal/mentions-legales.html" >Mentions Légales</a></li>
+                    <li><a href="legal/confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="legal/cgv.html">Conditions générales de vente</a></li>
+                    <li><a href="legal/cgu.html">Conditions générales d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-categories">
+                <h3 class="contact">Contact
+                    <span class="mailcontact">contact@zanimotrip.com</span>
+                </h3>
+                <a href="mailto:contact@zanimotrip.com" class="link-contact">📧 contact@zanimotrip.com</a>
+            </div>
+            <div class="footer-categories">
+                <h3>Moyens de Paiement</h3>
+                <div class="payment">
+                    <img src="img/footer/visa.png" alt="Visa">
+                    <img src="img/footer/mastercard.png" alt="MasterCard">
+                    <img src="img/footer/tether.png" alt="Tether">
+                </div>
+            </div>
+            <div class="footer-categories">
+                <h3>Nous Suivre</h3>
+                <div class="socials">
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/footer/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/" target="_blank"><img src="img/footer/x.png" alt="X"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/footer/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-end">
+            <p>© Copyright 2025 ZanimoTrip Tous droits réservés</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -3,14 +3,22 @@
 /* Importation du style général du site */
 @import url('designSite.css');
 
-p {
-  padding: 0px 3px;
-  font-weight: 400px;
-  font-family: "Inter Tight", serif;
-      
+/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  margin: 0;
+  background-color: var(--background-body-form);
+} */
+
+.connexion-contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-       
-label {
+
+.connexion-contain label {
   width: 200px;
   display: inline-block;
   vertical-align: top;
@@ -18,22 +26,19 @@ label {
   font-family: "Inter Tight", serif;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  height: 100vh; 
-  margin: 0;
-  background-color: var(--background-body-form);
+.connexion-contain p {
+  padding: 0px 3px;
+  font-weight: 400px;
+  font-family: "Inter Tight", serif;
+      
 }
-      
-      
+
 form {
-        width: 500px;
-        padding: 20px;
-        border: 1px solid var(--black);
-        border-radius: 10px;
-        background-color: var(--background-form);
+  width: 500px;
+  padding: 20px;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  background-color: var(--background-form);
 }
 
 

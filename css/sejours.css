@@ -12,7 +12,8 @@
     position: absolute;
     top: 60%;
     display: none;
-    color: white;
+    color: var(--white);
+    font-family: "Inter Tight", serif;
     font-size: 8px;
     text-align: auto;
 }
@@ -41,17 +42,17 @@ img.sejour {
 .offre {
     flex: 2;
     min-height: 200px;
-    background-color: aqua;
+    background-color: var(--aqua);
 }
 
 .filtrage {
     flex: 1;
     min-height: 200px;
-    background-color: brown;
+    background-color: var(--brown-filtr);
 }
 
 .filtrage .zonedefiltrage {
-    background-color: bisque;
+    background-color: var(--bisque-filtr-zone);
 }
 
 .filtrage .zonedefiltrage .titre {
@@ -65,7 +66,7 @@ img.sejour {
         flex-direction: column; /* Inverse l'ordre des éléments */
         height: auto;
     }
-
+}
 
 .filtre {
     display : block;
@@ -75,8 +76,8 @@ img.sejour {
 }
 
 .check{
-    --checkfond : white;
-    --curseur : grey;
+    --checkfond : var(--white);
+    --curseur : var(--grey);
     position: relative;
     font-size: 5px;
     display: flex;
@@ -123,11 +124,11 @@ img.sejour {
 }
 
 .check input:checked + label::before{
-    background-color: aqua;
-    border-color : aqua;
+    background-color: var(--aqua);
+    border-color : var(--aqua);
 }
 
 .check input:checked + label::after {
-    background-color: white;
+    background-color: var(--white);
     transform: translateX(1em);
 }
