@@ -1,0 +1,62 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+.legal {
+    max-width: 800px;
+    background: var(--white);
+    font-family: "Inter Tight", serif;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-01);
+    text-align: left;
+}
+
+/* Titres */
+h1 {
+    color: var(--blue-legal);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2 {
+    color: var(--subtitle-legal);
+    border-left: 5px solid var(--blue-legal);
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+/* Paragraphes et listes */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Sections */
+section {
+    background: var(--section-legal);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Liens */
+a {
+    color: var(--blue-legal);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

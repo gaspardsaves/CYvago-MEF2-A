@@ -6,10 +6,10 @@
 .profile-container {
     max-width: 500px;
     margin: 50px auto;
-    background: #3E4E5E;
+    background: var(--background-profile);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px var(--shadow-03);
 }
 
 .profile-card {
@@ -23,13 +23,13 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #E5B80B;
+    border: 3px solid var(--link-profile);
 }
 
 .modify {
     display: block;
     margin-top: 10px;
-    color: #E5B80B;
+    color: var(--link-profile);
     text-decoration: none;
     font-size: 14px;
     font-style: italic;
@@ -40,7 +40,7 @@
 }
 
 .profile-info {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--background-profile-shadow);
     padding: 15px;
     border-radius: 10px;
     text-align: left;
@@ -49,7 +49,7 @@
 
 .profile-info h2 {
     font-size: 18px;
-    color: #FFD700;
+    color: var(--profile-h2);
     margin-bottom: 10px;
 }
 
@@ -61,16 +61,16 @@
 .back-link {
     display: inline-block;
     margin-top: 20px;
-    color: #E5B80B;
+    color: var(--link-profile);
     font-weight: bold;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 8px;
-    border: 2px solid #E5B80B;
+    border: 2px solid var(--link-profile);
     transition: 0.3s;
 }
 
 .back-link:hover {
-    background-color: #E5B80B;
-    color: #2F3B4A;
+    background-color: var(--link-profile);
+    color: var(--profile-link-hover)
 }

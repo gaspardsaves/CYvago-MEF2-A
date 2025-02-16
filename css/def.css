@@ -9,6 +9,11 @@
     --grey: #808080;
     --brown-filtr: #a52a2a;
     --bisque-filtr-zone: #ffe4c4;
+    --blue-legal: #1E88E5;
+    --section-legal: #f1f1f1;
+    --subtitle-legal: #37474F;
+    --profile-h2: #FFD700;
+    --profile-link-hover: #2F3B4A;
     --blue-background: #34495E;
     --blue-nav: #34495E;
     --button1: #d4a017;
@@ -23,11 +28,16 @@
     --link-active: #20201f;
     --link-visited: #9e9e9e;
     --link-hover: #777d8d;
+    --link-profile: #E5B80B;
     --footer-text: #7E9CB0;
     --background-contact: #000000cc;
+    --shadow-01: #0000001a;
+    --shadow-03: #0000004d;
     --footer-end: #ffffff33;
     --background-body-form: #ffd8a5;
     --background-form:  #DDE2E6;
+    --background-profile: #3E4E5E;
+    --background-profile-shadow: #ffffff1a;
     --background-input-form: #f8d09c;
     --background-input-hover-form: #f59c38;
     --background-border-input-form:#ffd1a7;
