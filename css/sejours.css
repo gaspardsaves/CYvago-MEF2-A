@@ -31,6 +31,42 @@ img.sejour {
     border-radius: 35px;
 }
 
+.contenu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+.offre {
+    flex: 2;
+    min-height: 200px;
+    background-color: aqua;
+}
+
+.filtrage {
+    flex: 1;
+    min-height: 200px;
+    background-color: brown;
+}
+
+.filtrage .zonedefiltrage {
+    background-color: bisque;
+}
+
+.filtrage .zonedefiltrage .titre {
+    font-size : 2rem;
+    font-family: "Inter Tight", serif;
+}
+
+/* Media query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+    .contenu {
+        flex-direction: column; /* Inverse l'ordre des éléments */
+        height: auto;
+    }
+
+
 .filtre {
     display : block;
     position: relative;
