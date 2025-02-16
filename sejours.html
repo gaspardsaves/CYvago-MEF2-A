@@ -79,53 +79,50 @@
                 </div>
                 <div class="image-interactive">
                     <img class="sejour" src="img/Kangourou.jpg" alt="Australie" height="200" width="200">
-                    <div class="description">Venez explorer l’outback australien et rencontrer des kangourous dans leur habitat naturel ! Sautez d’une aventure à l’autre à travers des paysages sauvages, des plaines infinies et des montagnes majestueuses, tout en observant ces animaux emblématiques dans leur environnement unique</div>
+                    <div class="description">Venez explorer l’outback australien et rencontrer des kangourous dans leur habitat naturel ! Sautez d’une aventure à l’autre à travers des paysages sauvages.</div>
                 </div>
                 <div class="image-interactive">
                     <img class="sejour" src="img/Yaks.jpeg" alt="Mongolie" height="200" width="200">
-                    <div class="description">Partez à l'aventure dans les majestueuses montagnes chinoises à dos de yak ! Traversez des paysages spectaculaires, entre pics enneigés et vallées verdoyantes, et découvrez la culture locale au rythme de ces animaux puissants. Une expérience authentique, au cœur de la nature et des traditions.</div>
+                    <div class="description">Partez à l'aventure dans les majestueuses montagnes chinoises à dos de yak ! Traversez des paysages spectaculaires, entre pics enneigés et vallées verdoyantes, et découvrez la culture locale au rythme de ces animaux puissants.</div>
                 </div>
                 <div class="image-interactive">
                     <img class="sejour" src="img/chewbacca.jpg" alt="Chewbaca" height="200" width="200">
-                    <div class="description">Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee le plus fiable de la galaxie, en train de gérer des portefeuilles d'investissement ! Entre ses rugissements rassurants et son expertise inattendue, il vous guide à travers des stratégies financières intergalactiques, tout en vous offrant une expérience unique de gestion de patrimoine.</div>
+                    <div class="description">Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee le plus fiable de la galaxie, en train de gérer des portefeuilles d'investissement ! Il vous guide à travers des stratégies financières intergalactiques, et en offrant une expérience unique de gestion de patrimoine.</div>
                 </div>
             </div>
             <div class="filtrage">
                 <div class="zonedefiltrage">
+                    <h2 class="titre">Filtrer en fonction de vos préférences</h2>
                     <div class ="titre">
                         Date : <input type="date" name="date" min="2025-02-13">
                     </div>
                     <br>
                     <div class="titre">Choisissez une fourchette de prix</div>
-                    <div>
-                        <div class>
-                            <input type="checkbox" name="Price" value="100-1000" />
-                            <label>
-                                100&euro;-1000&euro;
-                            </label>
-                            <input type="checkbox" name="Price" value="100-1000" />
-                            <label>
-                                1000&euro;-1500&euro;
-                            </label>
-                            <input type="checkbox" name="Price" value="100-1000" />
-                            <label>
-                                1500&euro;-2000&euro;
-                            </label>
-                            <input type="checkbox" name="Price" value="100-1000" />
-                            <label>
-                                2000&euro;-2500&euro;
-                            </label>
-                        </div>
+                        <select name="Prix">
+                            <option value="100euro-1000euro">100&euro;-1000&euro;</option>
+                            <option value="1000euro-1500euro">1000&euro;-1500&euro;</option>
+                            <option value="1500euro-2000euro">1500&euro;-2000&euro;</option>
+                            <option value="200euro-2500euro">2000&euro;-2500&euro;</option>
+                        </select>
                         <br>
-                    <div class>
+                    <div class="filtre">
                         <div class="titre">Filtrer par pays</div>
-                        <input type="checkbox" name="Country" value="China"><label>Chine</label>
-                        <input type="checkbox" name="Country" value="Australie"><label>Australie</label>
-                        <input type="checkbox" name="Country" value="Brésil"><label>Brésil</label>
-                        <input type="checkbox" name="Country" value="Imaginaire"><label>Imaginaire</label>
-                        <input type="checkbox" name="Country" value="Népal"><label>Népal</label>
-                        <input type="checkbox" name="Country" value="Antarctique"><label>Antarctique</label>
-                    </div>
+                        <div class="check">
+                        <table>
+                        <tr>
+                        <td><input type="checkbox" name="Country" value="China"><label>Chine</label></td>
+                        <td><input type="checkbox" name="Country" value="Australie"><label>Australie</label></td>
+                        </tr>
+                        <tr>
+                        <td><input type="checkbox" name="Country" value="Brésil"><label>Brésil</label></td>
+                        <td><input type="checkbox" name="Country" value="Imaginaire"><label>Imaginaire</label></td>
+                        </tr>
+                        <tr>
+                        <td><input type="checkbox" name="Country" value="Népal"><label>Népal</label></td>
+                        <td><input type="checkbox" name="Country" value="Antarctique"><label>Antarctique</label></td>
+                        </tr>
+                    </table>  
+                </div>
                 </div>
             </div>
         </div>

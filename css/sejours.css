@@ -6,15 +6,18 @@
 .image-interactive {
     position: relative;
     display: inline-block;
+    
 }
 
 .image-interactive .description {
     position: absolute;
-    top: 60%;
+    top: 50%;
+    left: 5%;
+    right: 4%;
     display: none;
     color: var(--white);
     font-family: "Inter Tight", serif;
-    font-size: 8px;
+    font-size: 24px;
     text-align: auto;
 }
 
@@ -29,7 +32,10 @@
 img.sejour {
     transition: opacity 0.3s ease;
     cursor:pointer;
-    border-radius: 35px;
+    border-radius: 60px;
+    width: 500px;
+    height: 500px;
+    padding: 25px;
 }
 
 .contenu {
@@ -40,19 +46,25 @@ img.sejour {
 }
 
 .offre {
-    flex: 2;
-    min-height: 200px;
-    background-color: var(--aqua);
+    flex: 1;
+
 }
 
 .filtrage {
-    flex: 1;
+    flex : 1;
+    top: 20%;
+    max-height : calc(90vh - 90px);
+    position: sticky;
+    overflow-y: auto;
+    padding-top: 25px;
     min-height: 200px;
-    background-color: var(--brown-filtr);
+    min-width: 450px;
+    max-width: 500px;
 }
 
 .filtrage .zonedefiltrage {
-    background-color: var(--bisque-filtr-zone);
+    background-color: var(--border-form);
+    border-radius: 15px;
 }
 
 .filtrage .zonedefiltrage .titre {
@@ -68,6 +80,11 @@ img.sejour {
     }
 }
 
+.select {
+    padding: 7px;
+    background-color : var(--grey);
+}
+
 .filtre {
     display : block;
     position: relative;
@@ -79,7 +96,7 @@ img.sejour {
     --checkfond : var(--white);
     --curseur : var(--grey);
     position: relative;
-    font-size: 5px;
+    font-size: 23px;
     display: flex;
 }
 
@@ -87,6 +104,7 @@ img.sejour {
     position: absolute;
     opacity:0;
     z-index: 1;
+    
 }
 
 .check label{
