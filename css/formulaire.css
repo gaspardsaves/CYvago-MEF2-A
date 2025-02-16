@@ -4,77 +4,77 @@
 
 
 p {
-        padding: 0px 3px;
-        font-weight: 400px;
-        font-family: "Inter Tight", serif;
+  padding: 0px 3px;
+  font-weight: 400px;
+  font-family: "Inter Tight", serif;
       
-      }
+}
        
 label {
-        width: 200px;
-        display: inline-block;
-        vertical-align: top;
-        margin: 6px;
-        font-family: "Inter Tight", serif;
-      }
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 6px;
+  font-family: "Inter Tight", serif;
+}
 
 body {
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        height: 100vh; 
-        margin: 0;
-        background-color: #ffd8a5;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  margin: 0;
+  background-color: var(--background-body-form);
+}
       
       
 form {
         width: 500px;
         padding: 20px;
-        border: 1px solid #000000;
+        border: 1px solid var(--black);
         border-radius: 10px;
-        background-color: #ffeac3;
-      }
+        background-color: var(--background-form);
+}
 
 
 
 input[type="reset"], input[type="submit"] {
-  background-color: #f8d09c; /* Couleur de fond */
-  color: rgb(0, 0, 0);       /* Couleur du texte */
-  border: none;              /* Pas de bordure */
-  padding: 10px 20px;        /* Espacement intérieur */
-  text-align: center;        /* Centrage du texte */
-  text-decoration: none;     /* Pas de soulignement */
-  display: inline-block;     /* Pour les afficher sur la même ligne */
-  font-size: 16px;           /* Taille du texte */
-  cursor: pointer;          /* Curseur en forme de main */
-  border-radius: 5px;        /* Coins arrondis */
-  transition: background-color 0.3s; /* Transition pour le survol */
-      }
+  background-color: var(--background-input-form);
+  color: var(--black);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
       
 input[type="reset"]:hover, input[type="submit"]:hover {
-  background-color: #f59c38;  
-      }
+  background-color: var(--background-input-hover-form);  
+}
       
 /* Conteneur des boutons */
 .button-form {
   text-align: center;        
-  margin-top: 20px;    }       
+  margin-top: 20px;
+}       
       
 /* Espace entre les boutons */
 input[type="reset"] {
   margin-right: 20px;        
-      }
+}
 
 input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
-   /* Occupe toute la largeur disponible */
-  padding: 10px 13px; /* Espacement confortable autour du texte */
-  margin-bottom: 15px; /* Espacement entre les champs */
-  border: 2px solid #ffd1a7; /* Bordure subtile pour les champs */
-  border-radius: 8px; /* Coins arrondis */
-  background-color: #fff; /* Fond blanc pour plus de clarté */
-  font-size: 16px; /* Taille du texte dans le champ */
-  font-family: "Inter Tight", serif; /* Utilisation de la police que tu as définie */
-  transition: all 0.3s ease; /* Transition fluide pour les interactions */
- }
+  padding: 10px 13px;
+  margin-bottom: 15px;
+  border: 2px solid var(--background-border-input-form);
+  border-radius: 8px;
+  background-color: var(--white);
+  font-size: 16px;
+  font-family: "Inter Tight", serif;
+  transition: all 0.3s ease;
+}
 
