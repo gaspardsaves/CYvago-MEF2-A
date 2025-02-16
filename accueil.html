@@ -3,63 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre, favicon et feuilles de style -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Accueil</title>
-    <link rel="stylesheet" href="design1.css">
+    <link rel="stylesheet" href="css/designSite.css">
 </head>
 <body>
-    <header>
-        <h1><img src="Image/logodef.png" height="50" weight="50">   ZanimoTrip</h1>
-    </header>
-    <nav>
-            <form action="accueil.html">
-                <button class="button" type="submit">Accueil</button>
-            </form>
+    <!-- Barre de menu -->
+    <nav class="nav-bar">
+        <div class="logo">
+            <a href="accueil.html"> <img src="img/ZanimoTripDef.png"> </a>
+        </div>
+        <div class="buttons-nav">
             <form action="presentation.html">
-                <button class="button" type="submit">A propos de ZanimoTrip</button>
+                <button class="button1" type="submit">L'expérience ZanimoTrip</button>
             </form>
             <form action="sejours.html">
-                <button class="button" type="submit">Séjours</button>
+                <button class="button1" type="submit">Séjours</button>
             </form>
             <form action="connexion.html">
-                <button class="button" type="submit">Connexion</button>
+                <button class="button1" type="submit">🔐 Connexion</button>
             </form>
-            <form action="inscription.html">
-                <button class="button" type="submit">Inscription</button>
-            </form>
+        </div>
     </nav>
-    <article>
-        <img src="Image/desertchameau.png" height="120" weight="50">
-        <img src="Image/Panda.jpg" height="120" weight="50">
-        <img src="Image/Dauphin2.jpeg" height="120" weight="50">
-        <p>
-         Ceci est un site touristique en lien avec les animaux
-        </p>
-    </article>
-</br>
-<footer>
-    <p>Mentions Légales :</p>
-    <ul></br>
-        <li>Éditeur du Site</br>Le site Zanimotrip est édité par :</br>Le groupe A des MEF2</br>Contact : Zanimotrip@gmail.com</li>
-    </br>
-        <li>Hébergement</br>Le site est hébergé par Cy Tech</li>
-        /favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-        <link rel="shortcut icon" href="favicon/favicon.ico" /></br>
-        <li>Propriété Intellectuelle</br>Tous les contenus présents sur le site (textes, images, vidéos, logos, etc.) sont la propriété exclusive du groupe A de la MEF2, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation écrite est interdite.</li>
-    </br>
-        <li>Responsabilité</br>Le site Zanimotrip propose des informations sur le tourisme animalier et les activités en lien avec les animaux. Toutefois, nous ne pouvons garantir l’exactitude ou l’exhaustivité des informations publiées. L’utilisateur est responsable de l’utilisation qu’il fait du site et des informations fournies. </li>
-    </br>
-        <li>Protection des Données Personnelles</br>Conformément au Règlement Général sur la Protection des Données (RGPD), les données personnelles collectées (nom, email, etc.) sont traitées avec la plus grande confidentialité. Vous disposez d’un droit d’accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à Zanimotrip@gmail.com.</li>
-    </br>
-        <li>Cookies</br>Le site utilise des cookies pour améliorer l’expérience utilisateur. Vous pouvez gérer vos préférences de cookies via les paramètres de votre navigateur.</li>
-    </br>
-        <li>Droit Applicable</br>Les présentes mentions légales sont régies par la loi française. En cas de litige, les tribunaux compétents seront ceux du ressort du siège social de l’éditeur du site.</li>
-    </ul>
-</footer>
+
+    <!-- Barre de recherche -->
+    <div class="search-bar">
+            <input type="text" placeholder="🔍 Rechercher une destination, un animal...">
+            <button class="button1" type="submit">🐫 En Route !</button>
+    </div>
+
+    <!-- Contenu de la page -->
+    <main>
+        <video class="video-background" autoplay loop muted>
+            <source src="clipZanimoTrip.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas les vidéos.
+        </video>
+        <article>
+            <h1>L'aventure au plus près des animaux</h1>
+        </article>
+    </main>
+
+    <!-- Barre de pied de page -->
+    <footer class="footer-bar">
+        <div class="footer-begin">
+            <div class="footer-categories">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="legal/mentions-legales.html" >Mentions Légales</a></li>
+                    <li><a href="legal/confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="legal/cgv.html">Conditions générales de vente</a></li>
+                    <li><a href="legal/cgu.html">Conditions générales d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-categories">
+                <h3 class="contact">Contact
+                    <span class="mailcontact">contact@zanimotrip.com</span>
+                </h3>
+                <p>📧 <a href="mailto:contact@zanimotrip.com">contact@zanimotrip.com</a></p>
+            </div>
+            <div class="footer-categories">
+                <h3>Moyens de Paiement</h3>
+                <div class="payment">
+                    <img src="img/footer/visa.png" alt="Visa">
+                    <img src="img/footer/mastercard.png" alt="MasterCard">
+                    <img src="img/footer/tether.png" alt="Tether">
+                </div>
+            </div>
+            <div class="footer-categories">
+                <h3>Nous Suivre</h3>
+                <div class="socials">
+                    <a href="#"><img src="img/footer/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/footer/x.png" alt="X"></a>
+                    <a href="#"><img src="img/footer/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-end">
+            <p>© Copyright 2025 ZanimoTrip Tous droits réservés</p>
+        </div>
+    </footer>
 </body>
 </html>
