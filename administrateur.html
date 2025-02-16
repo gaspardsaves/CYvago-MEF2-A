@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Admin</title>
-    <link rel="stylesheet" href="css/designSite.css">
+    <link rel="stylesheet" href="css/administrateur.css">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -38,46 +38,72 @@
     </div>
 
     <!-- Contenu de la page -->
-    <main>
+    <main class="admin">
         <h1>Utilisateurs de ZanimoTrip</h1>
-        <table border="1" width="100%">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nom</th>
                     <th>Email</th>
                     <th>Statut</th>
-                    <th>Actions</th>
+                    <th>VIP</th>
+                    <th>Banni</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1</td>
                     <td>Jean Dupont</td>
-                    <td>jean.dupont@example.com</td>
+                    <td>jean.dupont@cy-tech.fr</td>
                     <td>Client normal</td>
                     <td>
-                        <button>Rendre VIP</button>
-                        <button>Bannir</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Marie Durant</td>
-                    <td>marie.durant@example.com</td>
+                    <td>marie.durant@cy-tech.fr</td>
                     <td>Client VIP</td>
                     <td>
-                        <button>Enlever VIP</button>
-                        <button>Bannir</button>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Paul Martin</td>
-                    <td>paul.martin@example.com</td>
+                    <td>paul.martin@cy-tech.fr</td>
                     <td>Banni</td>
                     <td>
-                        <button>Réintégrer</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
                     </td>
                 </tr>
             </tbody>
