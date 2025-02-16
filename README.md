@@ -10,7 +10,7 @@
 ## Description du projet :
 [:scroll: Lire le sujet et le cahier des charges du projet](Projet_Click_journeY_v1.1_PHASE1.pdf)  
 [:ledger: Lire le rapport de réalisation du projet](rapport-projet-click-journey-mef2-a.pdf)  
-[:pushpin: Lire la charte graphique du projet](charte-graphique-click-journey-mef2-a.pdf)
+[:pushpin: Lire la charte graphique du projet](charte-graphique-click-journey-mef2-a.pdf)  
 [:memo: Lire le carnet de bord des collaborateurs](carnet-de-bord.txt)   
 
 **ZanimoTrip** est le site web d'une agence de voyage spécialisée dans les voyages de découverte de la faune sauvage.
