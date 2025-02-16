@@ -1,8 +1,5 @@
 CYvago - CARNET DE BORD
 
-CHARTE GRAPHIQUE :
-
-
 CALENDRIER :
 1/02/25 :
 - Commit initial : création du dépot et des fichiers nécessaires
