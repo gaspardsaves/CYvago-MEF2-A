@@ -5,7 +5,7 @@
 :root {
     --white: #ffffff;
     --black: #000000;
-    --blue-background: #091d53b0;
+    --blue-background: #34495E;
     --blue-nav: #34495E;
     --button1: #d4a017;
     --button2: #b8860b;
@@ -15,9 +15,10 @@
     --search-bar-button: #1ABC9C;
     --footer-bar: #2c3e50;
     --link: #1ABC9C;
-    --link-active: #f0941c;
-    --link-visited: #4e017a;
-    --link-hover: #aad3cb;
+    --link-active: #20201f;
+    --link-visited: #9e9e9e;
+    --link-hover: #777d8d;
+    --footer-text: #7E9CB0;
     --background-contact: #000000cc;
     --footer-end: #ffffff33;
     --background-body-form: #ffd8a5;

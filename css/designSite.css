@@ -21,6 +21,20 @@ main {
     flex-direction: column;
 }
 
+/* Couleur des liens */
+.link {
+    color: var(--link);
+}
+.link:hover {
+    color: var(--link-hover);
+}
+.link:visited {
+    color: var(--link-visited);
+}
+.link:active {
+    color: var(--link-active);
+}
+
 /* Barre de navigation */
 .nav-bar {
     position: sticky;
@@ -138,19 +152,18 @@ main {
 }
 
 .footer-begin ul li a {
-    color: var(--white);
+    color: var(--footer-text);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .footer-begin ul li a:hover {
-    color: var(--link);
+    color: var(--link-hover);
 }
 
 .contact {
     position: relative;
     font-family: "Inter Tight", serif;
-    text-decoration: none;
     color: var(--white);
 }
 
@@ -175,16 +188,15 @@ main {
     opacity: 1;
 }
 
-.link {
-    color: var(--link);
+.link-contact {
+    color: var(--footer-text);
 }
-.link:hover {
+
+.link-contact:hover {
     color: var(--link-hover);
 }
-.link:visited {
-    color: var(--link-visited);
-}
-.link:active {
+
+.link-contact:active {
     color: var(--link-active);
 }
 
@@ -205,4 +217,5 @@ main {
     border-top: 1px solid var(--footer-end);
     padding-top: 10px;
     font-size: 12px;
+    color: var(--footer-text);
 }

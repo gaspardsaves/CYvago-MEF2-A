@@ -36,3 +36,8 @@ Interface :
 - Implémentation logo définitif
 - Footer bar définitive
 - Boutons et transitions
+
+16/02/2025 :
+- Codage de la partie admin
+- Implémentation des styles définitifs raccords entre les page, choix des couleurs
+- Rédaction du rapport et de la charte graphique
