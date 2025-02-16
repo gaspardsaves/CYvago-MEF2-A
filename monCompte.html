@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Mon Compte</title>
-    <link rel="stylesheet" href="css/designSite.css">
+    <link rel="stylesheet" href="css/monCompte.css">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -39,30 +39,24 @@
     
     <!-- Contenu de la page -->
     <main>
-        <h1>Bienvenue sur votre profil !</h1><br>
-        <div class="">
-            <img src="https://institutcommotions.com/wp-content/uploads/2018/05/blank-profile-picture-973460_960_720-1.png" alt="photo de profil" widht="150" height="150"><br>
-            <a href="connexion.html"> <em>Nouvelle photo de profil</em> </a> <br><br>
+        <div class="profile-container">
+            <h1>Bienvenue sur votre profil !</h1>
+
+            <div class="profile-card">
+                <img src="img/blank-picture-profile.png" 
+                    alt="photo de profil" class="profile-pic">
+                <a href="monCompte.html" class="modify">📸 Changer de photo</a>
+            </div>
+
+            <div class="profile-info">
+                <h2>Vos informations</h2>
+                <p><strong>👤 Nom d'utilisateur :</strong> <span id="nomUtilisateur">Non renseigné</span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
+                <p><strong>🔑 Mot de passe :</strong> <span id="motDePasse">Non renseigné</span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
+            </div></br>
+            <form action="connexion.html">
+                <button class="button1" type="submit">⬅️ Retour à la page de connexion</button>
+            </form>
         </div>
-
-        <div id="profil">
-            <h2> Vos informations </h2><br>
-            <p>Nom d'utilisateur : <span id="nomUtilisateur"><span></p>
-            <p>Mot de passe : <span id="motDePasse"></span></p>
-        </div>
-        <script>
-            
-            const urlParams = new URLSearchParams(window.location.search);
-            const nomUtilisateur = urlParams.get("NomUtilisateur");
-            const motDePasse = urlParams.get("MotDePasse");
-
-            
-            document.getElementById("nomUtilisateur").textContent = nomUtilisateur || "Non renseigné";
-            document.getElementById("motDePasse").textContent = motDePasse || "Non renseigné";
-        </script>
-
-        <br>
-        <a href="connexion.html">Retour à la page de connexion</a>
     </main>
 
     <!-- Barre de pied de page -->

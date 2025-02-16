@@ -1,0 +1,76 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+.profile-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #3E4E5E;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #E5B80B;
+}
+
+.modify {
+    display: block;
+    margin-top: 10px;
+    color: #E5B80B;
+    text-decoration: none;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.modify:hover {
+    text-decoration: underline;
+}
+
+.profile-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.profile-info h2 {
+    font-size: 18px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #E5B80B;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #E5B80B;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    background-color: #E5B80B;
+    color: #2F3B4A;
+}

@@ -12,13 +12,13 @@
   background-color: var(--background-body-form);
 } */
 
-.connexion-contain {
+.container-form {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.connexion-contain label {
+.container-form label {
   width: 200px;
   display: inline-block;
   vertical-align: top;
@@ -26,24 +26,23 @@
   font-family: "Inter Tight", serif;
 }
 
-.connexion-contain p {
+.container-form p {
   padding: 0px 3px;
   font-weight: 400px;
   font-family: "Inter Tight", serif;
       
 }
 
-form {
+.container-form form {
   width: 500px;
   padding: 20px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--border-form);
   border-radius: 10px;
   background-color: var(--background-form);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
-input[type="reset"], input[type="submit"] {
+.container-form input[type="reset"], input[type="submit"] {
   background-color: var(--background-input-form);
   color: var(--black);
   border: none;
@@ -57,25 +56,26 @@ input[type="reset"], input[type="submit"] {
   transition: background-color 0.3s;
 }
       
-input[type="reset"]:hover, input[type="submit"]:hover {
+.container-form input[type="reset"]:hover, input[type="submit"]:hover {
   background-color: var(--background-input-hover-form);  
 }
       
 /* Conteneur des boutons */
 .button-form {
-  text-align: center;        
+  text-align: center;      
   margin-top: 20px;
-}       
-      
-/* Espace entre les boutons */
-input[type="reset"] {
-  margin-right: 20px;        
 }
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+/* Espace entre les boutons */
+.button-form input[type="reset"] {
+  margin-right: 30px;        
+}
+
+.container-form input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
   padding: 10px 13px;
   margin-bottom: 15px;
-  border: 2px solid var(--background-border-input-form);
+  color: #2E3B4E;
+  border: 2px solid var(--border-form);
   border-radius: 8px;
   background-color: var(--white);
   font-size: 16px;

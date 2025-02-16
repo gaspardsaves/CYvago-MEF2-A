@@ -1,0 +1,36 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+.pres-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: "Inter Tight", serif;
+}
+
+.pres-content h1 {
+    color: var(--border-form)
+}
+
+.pres-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.pres-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pres-content ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.pres-content ul li::before {
+    content: "✔️";
+    margin-right: 8px;
+}
