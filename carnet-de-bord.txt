@@ -38,3 +38,4 @@ Interface :
 - Codage de la partie admin
 - Implémentation des styles définitifs raccords entre les page, choix des couleurs
 - Rédaction du rapport et de la charte graphique
+- Rendu Phase 1
