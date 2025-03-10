@@ -45,7 +45,7 @@
     
             <h2>🌟 Vivez une aventure hors du commun avec ZanimoTrip ! 🌟</h2>
             <p>➡️ <strong>Réservez votre séjour dès aujourd’hui !</strong></p>
-            <form action="sejours.html">
+            <form action="sejours.php">
                 <button class="button1" type="submit">Séjours</button>
             </form>
         </div>
