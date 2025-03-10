@@ -14,28 +14,10 @@
 </head>
 <body>
     <!-- Barre de menu -->
-    <nav class="nav-bar">
-        <div class="logo">
-            <a href="accueil.html"> <img src="img/ZanimoTripDef.png"> </a>
-        </div>
-        <div class="buttons-nav">
-            <form action="presentation.html">
-                <button class="button1" type="submit">L'expérience ZanimoTrip</button>
-            </form>
-            <form action="sejours.html">
-                <button class="button1" type="submit">Séjours</button>
-            </form>
-            <form action="connexion.html">
-                <button class="button1" type="submit">🔐 Connexion</button>
-            </form>
-        </div>
-    </nav>
-
+    <?php require('phpFrequent/navbar.php'); ?>
+    
     <!-- Barre de recherche -->
-    <div class="search-bar">
-            <input type="text" placeholder="🔍 Rechercher une destination, un animal...">
-            <button class="button1" type="submit">🐫 En Route !</button>
-    </div>
+    <?php require('phpFrequent/searchbar.php'); ?>
 
     <!-- Contenu de la page -->
     <main class="admin">
@@ -111,43 +93,6 @@
     </main>
 
     <!-- Barre de pied de page -->
-    <footer class="footer-bar">
-        <div class="footer-begin">
-            <div class="footer-categories">
-                <h3>À propos</h3>
-                <ul>
-                    <li><a href="legal/mentions-legales.html" >Mentions Légales</a></li>
-                    <li><a href="legal/confidentialite.html">Politique de confidentialité</a></li>
-                    <li><a href="legal/cgv.html">Conditions générales de vente</a></li>
-                    <li><a href="legal/cgu.html">Conditions générales d'utilisation</a></li>
-                </ul>
-            </div>
-            <div class="footer-categories">
-                <h3 class="contact">Contact
-                    <span class="mailcontact">contact@zanimotrip.com</span>
-                </h3>
-                <a href="mailto:contact@zanimotrip.com" class="link-contact">📧 contact@zanimotrip.com</a>
-            </div>
-            <div class="footer-categories">
-                <h3>Moyens de Paiement</h3>
-                <div class="payment">
-                    <img src="img/footer/visa.png" alt="Visa">
-                    <img src="img/footer/mastercard.png" alt="MasterCard">
-                    <img src="img/footer/tether.png" alt="Tether">
-                </div>
-            </div>
-            <div class="footer-categories">
-                <h3>Nous Suivre</h3>
-                <div class="socials">
-                    <a href="https://www.instagram.com/" target="_blank"><img src="img/footer/instagram.png" alt="Instagram"></a>
-                    <a href="https://x.com/" target="_blank"><img src="img/footer/x.png" alt="X"></a>
-                    <a href="https://www.youtube.com/" target="_blank"><img src="img/footer/youtube.png" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-end">
-            <p>© Copyright 2025 ZanimoTrip Tous droits réservés</p>
-        </div>
-    </footer>
+    <?php require('phpFrequent/footer.php'); ?>
 </body>
 </html>
