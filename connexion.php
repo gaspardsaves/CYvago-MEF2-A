@@ -40,8 +40,8 @@
                 <div class="button-form">
                     <button class="button1" type="submit">Se connecter</button>
                 </div>
-                <p>Pas encore de compte ? <a href="inscription.html" class="link">S'inscrire</a></p>
-                <p>Accès à la page Mon Compte dans l'attente du backend <a href="monCompte.html" class="link">Mon Compte</a></p>
+                <p>Pas encore de compte ? <a href="inscription.php" class="link">S'inscrire</a></p>
+                <p>Accès à la page Mon Compte dans l'attente du backend <a href="monCompte.php" class="link">Mon Compte</a></p>
             </form>
         </div>
         <?php
