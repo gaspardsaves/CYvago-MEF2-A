@@ -22,7 +22,7 @@
     <!-- Contenu de la page -->
     <main>
         <div class="container-form">
-            <form action="https://www.cafe-it.fr/cytech/post.php " method="post">
+            <form action="newaccount.php" method="POST">
                 <p style="font-size: 20px;"><b> S'inscrire:</b></p>
                 <p>
                     <input type="radio" name="pres" value="mademoiselle" /> Mademoiselle
@@ -32,7 +32,7 @@
                 <label for="prenom"> Prénom : </label> <input type="text" name="prenom" placeholder="Philippe" maxlength="50" required> <br />
                 <label for="nom"> Nom(s) : </label> <input type="text" name="nom" placeholder="DUPONT" maxlength="50" required> <br />
                 <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
-                <label for="date"> Date de naissance : </label> <input type="date" required> <br />
+                <label for="date"> Date de naissance : </label> <input type="date" name="date" required> <br />
                 <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
 
                 <div class="button-form">
@@ -43,6 +43,7 @@
                 <p>Accès à la page administrateur dans l'attente du backend  <a href="administrateur.html" class="link">Page Administrateur</a></p>
             </form>
         </div>
+        
     </main>
 
     <!-- Barre de pied de page -->
