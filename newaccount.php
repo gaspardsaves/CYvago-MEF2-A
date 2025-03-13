@@ -20,9 +20,23 @@
     echo $donnees["mail"];
     echo $donnees["date"];
     echo $donnees["tel"];
-    $DOC = file_get_contents('comptes.json');
-    $DOC = json_decode($DOC, true);
-    $DOC[] = $donnees;
-    $DOC = json_encode($DOC, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents('comptes.json', $D);
+    $data = json_encode($donnees, JSON_PRETTY_PRINT);
+    echo $data;
+    $Document = fopen("comptes.json", "w");
+    fwrite($Document, $data);
+    fclose($Document);
+    /*$Document = $fopen("comptes.json", "a+");
+    $data = json_encode($donnees);
+    file_put_contents($Document, $data);
+    fclose($Document);
+    /*
+    class Account {
+        private $nom;
+        private $prenom;
+        private $mail;
+        private $date;
+        private $tel;
+        private $storage = "data.json";
+
+    }*/
 ?>
