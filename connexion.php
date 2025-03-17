@@ -26,17 +26,13 @@
 
     <!-- Contenu de la page -->
     <main>
-        <?php
-            if (!isset($_POST['NomUtilisateur']) || !isset($_POST['MotDePasse'])) {            
-        ?>
         <div class="container-form">
-            <form action="connexion.php" method="post">
+            <form action="verifconnexion.php" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
-                <label for="NomUtilisateur">Adresse Mail :</label>
-                <input type="email" id="NomUtilisateur" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
+                <label for="AdresseMail">Adresse Mail :</label>
+                <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
                 <label for="MotDePasse">Mot de passe :</label>
                 <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/><br>
-                    
                 <div class="button-form">
                     <button class="button1" type="submit">Se connecter</button>
                 </div>
@@ -44,11 +40,6 @@
                 <p>Accès à la page Mon Compte dans l'attente du backend <a href="monCompte.php" class="link">Mon Compte</a></p>
             </form>
         </div>
-        <?php
-            } else {
-                echo "Connexion OK";
-            }
-        ?>
     </main>
 
     <!-- Barre de pied de page -->
