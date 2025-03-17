@@ -22,6 +22,8 @@
     <!-- Contenu de la page -->
     <main class="admin">
         <h1>Utilisateurs de ZanimoTrip</h1>
+
+        <!-- Tableau des utilisateurs -->
         <table>
             <thead>
                 <tr>
@@ -34,65 +36,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Jean Dupont</td>
-                    <td>jean.dupont@cy-tech.fr</td>
-                    <td>Client normal</td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Marie Durant</td>
-                    <td>marie.durant@cy-tech.fr</td>
-                    <td>Client VIP</td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Paul Martin</td>
-                    <td>paul.martin@cy-tech.fr</td>
-                    <td>Banni</td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </td>
-                </tr>
+                <?php
+                // Charger les données
+                $json = file_get_contents('json/comptes.json');
+                $utilisateurs = json_decode($json, true);
+
+                // Vérifier si utilisateurs sont bien chargés
+                if (!$utilisateurs) {
+                    echo "<tr><td colspan='6'>Erreur lors du chargement des utilisateurs.</td></tr>";
+                } else {
+                    // afficher les utilisateurs dans le tableau
+                    foreach ($utilisateurs as $user) {
+                        echo "<tr>
+                                <td>$user{['id']}</td>
+                                <td>{$user['nom']}</td>
+                                <td>{$user['email']}</td>
+                                <td>{$user['statut']}</td>
+                                <td>
+                                    <label class='switch'>
+                                        <input type='checkbox' " . ($user['vip'] ? "checked" : "") . ">
+                                        <span class='slider'></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class='switch'>
+                                        <input type='checkbox' " . ($user['banni'] ? "checked" : "") . ">
+                                        <span class='slider'></span>
+                                    </label>
+                                </td>
+                              </tr>";
+                    }
+                }
+                ?>
             </tbody>
         </table>
     </main>
 
     <!-- Barre de pied de page -->
-    <?php require('phpFrequent/footer.php'); ?>
+    <?php require('phpFrequent/footer.php');
+    header('Content-Type: text/html; charset=UTF-8');?>
+
+    
+    
 </body>
 </html>
