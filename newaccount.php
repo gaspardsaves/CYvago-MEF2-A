@@ -5,38 +5,28 @@
     $NOM = $_POST["nom"];
     $DATE = $_POST["date"];
     $TEL = $_POST["tel"];
+    $MDP = $_POST["mdp"];
     echo $PRENOM;
     echo $NOM;
     echo $EMAIL;
     echo $DATE;
     echo $TEL;
+    echo $MDP;
     $donnees["prenom"] = $PRENOM;
     $donnees["nom"] = $NOM;
     $donnees["mail"] = $EMAIL;
     $donnees["date"] = $DATE;
     $donnees["tel"] = $TEL;
+    $donnees["mdp"] = password_hash($MDP, PASSWORD_DEFAULT);
     echo $donnees["prenom"];
     echo $donnees["nom"];
     echo $donnees["mail"];
     echo $donnees["date"];
     echo $donnees["tel"];
-    $data = json_encode($donnees, JSON_PRETTY_PRINT);
+    echo $donnees["mdp"];
+    $data = json_encode($donnees, JSON_UNESCAPED_UNICODE);
     echo $data;
-    $Document = fopen("comptes.json", "w");
+    $Document = fopen("./json/comptes.json", "a+");
     fwrite($Document, $data);
     fclose($Document);
-    /*$Document = $fopen("comptes.json", "a+");
-    $data = json_encode($donnees);
-    file_put_contents($Document, $data);
-    fclose($Document);
-    /*
-    class Account {
-        private $nom;
-        private $prenom;
-        private $mail;
-        private $date;
-        private $tel;
-        private $storage = "data.json";
-
-    }*/
 ?>

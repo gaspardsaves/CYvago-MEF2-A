@@ -32,8 +32,8 @@
         <div class="container-form">
             <form action="connexion.php" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
-                <label for="NomUtilisateur">Nom d'utilisateur :</label>
-                <input type="text" id="NomUtilisateur" name="NomUtilisateur" placeholder="Champ obligatoire" maxlength="50" required /><br>
+                <label for="NomUtilisateur">Adresse Mail :</label>
+                <input type="email" id="NomUtilisateur" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
                 <label for="MotDePasse">Mot de passe :</label>
                 <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/><br>
                     

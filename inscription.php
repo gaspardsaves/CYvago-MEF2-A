@@ -32,6 +32,7 @@
                 <label for="prenom"> Prénom : </label> <input type="text" name="prenom" placeholder="Philippe" maxlength="50" required> <br />
                 <label for="nom"> Nom(s) : </label> <input type="text" name="nom" placeholder="DUPONT" maxlength="50" required> <br />
                 <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
+                <label for="mdp">Mot de passe : </label> <input type="password" name="mdp" required> <br/>
                 <label for="date"> Date de naissance : </label> <input type="date" name="date" required> <br />
                 <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
 
