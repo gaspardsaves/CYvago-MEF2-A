@@ -48,8 +48,10 @@
                         $found = true;
                         echo '
                         <div class="image-interactive">
-                            <img class="sejour" src="' . $sejour["image"] . '" alt="' . $sejour["alt"] . '" height="200" width="200">
-                            <div class="description">' . $sejour["description"] . '</div>
+                            <a href="personalisationVoyage.php?destination=' . urlencode($sejour["alt"]) . '&description=' . urlencode($sejour["description"]) . '">
+                                <img class="sejour" src="' . $sejour["image"] . '" alt="' . $sejour["alt"] . '" height="200" width="200">
+                                <div class="description">' . $sejour["description"] . '</div>
+                            </a>
                         </div>';
                     }
                 }
