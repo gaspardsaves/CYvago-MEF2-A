@@ -1,36 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
-</head>
-
 <?php
-session_start();
 
-// Récupérer les informations du panier depuis la session
-$destination = isset($_SESSION['destination']) ? $_SESSION['destination'] : '';
-$duree = isset($_SESSION['duree']) ? $_SESSION['duree'] : '';
-$prix = isset($_SESSION['prix']) ? $_SESSION['prix'] : '';
+$destination = isset($_POST['destination']) ? $_POST['destination'] : 'Voyage inconnu';
 
-if (!$destination) {
-    echo 'Votre panier est vide.';
-    exit();
+
+$prixOptions = [
+    'petit_dej' => 10,
+    'assurance' => 25,
+    'guide' => 50,
+    'menage' => 30,
+    'duree' => 100,
+    'transport_avion' => 200,
+    'transport_train' => 80,
+    'chambre_simple' => 70,
+    'chambre_double' => 120,
+    'chambre_suite' => 200,
+    'excursion' => 40,
+    'serviceVIP' => 150,
+    'activites' => 50
+];
+
+
+$total = 0;
+$optionsSelectionnees = [];
+
+foreach ($_POST as $key => $value) {
+    if (isset($prixOptions[$key])) {
+        $prix = is_numeric($value) ? $value * $prixOptions[$key] : $prixOptions[$key];
+        $total += $prix;
+        $optionsSelectionnees[] = [
+            'nom' => ucfirst(str_replace('_', ' ', $key)), 
+            'prix' => $prix
+        ];
+    }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - ZanimoTrip</title>
+    <link rel="stylesheet" href="css/panier.css">
+</head>
 <body>
-    <h1>Récapitulatif de votre panier</h1>
 
-    <p><strong>Destination:</strong> <?php echo $destination; ?></p>
-    <p><strong>Durée:</strong> <?php echo $duree; ?> jours</p>
-    <p><strong>Prix:</strong> <?php echo $prix; ?>€</p>
+    <?php require('phpFrequent/navbar.php'); ?>
 
-    <a href="personalisationVoyage.php?destination=<?php echo urlencode($destination); ?>&description=<?php echo urlencode($description); ?>">Modifier votre voyage</a>
+    <main>
+        <div class="container-form">
+            <h1>Votre panier pour : <?php echo htmlspecialchars($destination); ?></h1>
 
-    <!-- Ajouter un lien vers la page de paiement -->
-    <a href="paiement.php">Passer à la page de paiement</a>
+            <div class="options-container">
+                <p>Options sélectionnées :</p>
+                <?php if (!empty($optionsSelectionnees)): ?>
+                    <div class="options-list">
+                        <?php foreach ($optionsSelectionnees as $option): ?>
+                            <div><?php echo htmlspecialchars($option['nom']) . " - " . $option['prix'] . "€"; ?></div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <p>Aucune option sélectionnée.</p>
+                <?php endif; ?>
+            </div>
+
+            <p class="total">Total : <?php echo $total; ?>€</p>
+
+            <div class="button-form">
+                <button onclick="alert('Paiement non encore disponible')">Procéder au paiement</button>
+            </div>
+        </div>
+    </main>
+
+    <?php require('phpFrequent/footer.php'); ?>
+
 </body>
 </html>
-
