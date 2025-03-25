@@ -27,6 +27,7 @@
     $data = json_encode($donnees, JSON_UNESCAPED_UNICODE);
     echo $data;
     $Document = fopen("./json/comptes.json", "a+");
+    //file_put_contents($Document, $data);
     fwrite($Document, $data);
     fclose($Document);
 ?>
