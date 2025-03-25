@@ -37,15 +37,14 @@
             </thead>
             <tbody>
                 <?php
-                // Charger les données
                 $json = file_get_contents('json/comptes.json');
                 $utilisateurs = json_decode($json, true);
 
-                // Vérifier si utilisateurs sont bien chargés
+                // vérification
                 if (!$utilisateurs) {
                     echo "<tr><td colspan='6'>Erreur lors du chargement des utilisateurs.</td></tr>";
                 } else {
-                    // afficher les utilisateurs dans le tableau
+                    // affichage utilisateurs dans tableaux
                     foreach ($utilisateurs as $user) {
                         echo "<tr>
                                 <td>$user{['id']}</td>

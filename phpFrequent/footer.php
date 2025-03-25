@@ -35,4 +35,4 @@
         <div class="footer-end">
             <p>© Copyright 2025 ZanimoTrip Tous droits réservés</p>
         </div>
-    </footer>
+    </footer> 
