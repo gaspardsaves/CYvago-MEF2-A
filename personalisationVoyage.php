@@ -1,33 +1,22 @@
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personnalisation du Voyage</title>
-    <link rel="stylesheet" href="css/sejours.css">
-</head>
-
 <?php
 // Récupération des paramètres de la destination et description (transmis par l'URL)
 $destination = isset($_GET['destination']) ? $_GET['destination'] : 'Aucune destination';
 $description = isset($_GET['description']) ? $_GET['description'] : 'Aucune description';
 
 // Prix des options
-$prixPetitDej = 10; // Exemple : 10€ pour un petit déjeuner
-$prixAssurance = 25; // Exemple : 25€ pour l'assurance
-$prixGuide = 50; // Exemple : 50€ pour un guide
-$prixMénage = 30; // Exemple : 30€ pour le ménage
-$prixDuréeSupplémentaire = 100; // Exemple : 100€ par jour supplémentaire
-$prixTransportAvion = 200; // Exemple : 200€ pour un vol aller-retour
-$prixTransportTrain = 80; // Exemple : 80€ pour un trajet en train aller-retour
-$prixChambreSimple = 70; // Exemple : 70€ par nuit pour une chambre simple
-$prixChambreDouble = 120; // Exemple : 120€ par nuit pour une chambre double
-$prixChambreSuite = 200; // Exemple : 200€ par nuit pour une suite
-$prixExcursion = 40; // Exemple : 40€ par excursion
-$prixServiceVIP = 150; // Exemple : 150€ pour un service VIP
-$prixActivitéSupplémentaire = 50; // Exemple : 50€ par activité
+$prixPetitDej = 10; // 10€ pour un petit déjeuner
+$prixAssurance = 25; // 25€ pour l'assurance
+$prixGuide = 50; // 50€ pour un guide
+$prixMénage = 30; // 30€ pour le ménage
+$prixDuréeSupplémentaire = 100; //  100€ par jour supplémentaire
+$prixTransportAvion = 200; // 200€ pour un vol aller-retour
+$prixTransportTrain = 80; //  80€ pour un trajet en train aller-retour
+$prixChambreSimple = 70; // 70€ par nuit pour une chambre simple
+$prixChambreDouble = 120; //  120€ par nuit pour une chambre double
+$prixChambreSuite = 200; // 200€ par nuit pour une suite
+$prixExcursion = 40; //  40€ par excursion
+$prixServiceVIP = 150; // 150€ pour un service VIP
+$prixActivitéSupplémentaire = 50; //  50€ par activité
 
 // Calcul total de l'option
 $total = 0;
@@ -76,7 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnalisation du Voyage</title>
+    <link rel="stylesheet" href="css/personnalisation.css">
+</head>
 
 <body>
     <!-- Barre de menu -->
@@ -88,10 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Personnalisez votre voyage : <?php echo $destination; ?></h1>
             <p><?php echo $description; ?></p>
 
-            <form method="POST" action="panier.php">
-                <!-- Ajout des paramètres destination et description dans l'URL -->
-                <input type="hidden" name="destination" value="<?php echo $destination; ?>">
-                <input type="hidden" name="description" value="<?php echo $description; ?>">
+            <form method="POST" action="personalisationVoyage.php?destination=<?php echo urlencode($destination); ?>&description=<?php echo urlencode($description); ?>">
 
                 <!-- Petit Déjeuner -->
                 <div>
@@ -191,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!-- Boutons de validation -->
                 <div>
-                    <button type="submit">Ajouter au Panier</button>
+                    <button type="submit">Valider la personnalisation</button>
                 </div>
             </form>
         </div>
