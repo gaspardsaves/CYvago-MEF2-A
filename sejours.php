@@ -24,10 +24,8 @@
     <div class="contenu">
             <div class="offre">
                 <?php
-                // Récupérer le terme de recherche
                 $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 
-                // Début du contenu statique
                 $sejours = [
                     ["image" => "img/Desert.webp", "alt" => "Desert", "description" => "Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques."],
                     ["image" => "img/Pingouin.webp", "alt" => "Antarctique", "description" => "Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !"],
@@ -43,7 +41,6 @@
                     ["image" => "img/chewbacca.jpg", "alt" => "Chewbacca", "description" => "Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire."]
                 ];
 
-                // Variable pour vérifier si un séjour est trouvé
                 $found = false;
 
                 foreach ($sejours as $sejour) {
