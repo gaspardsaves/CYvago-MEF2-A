@@ -2,7 +2,7 @@
 
 $destination = isset($_POST['destination']) ? $_POST['destination'] : 'Voyage inconnu';
 
-
+// Déclaration des prix des options
 $prixOptions = [
     'petit_dej' => 10,
     'assurance' => 25,
@@ -19,11 +19,12 @@ $prixOptions = [
     'activites' => 50
 ];
 
-
 $total = 0;
 $optionsSelectionnees = [];
 
+// Vérification des options sélectionnées
 foreach ($_POST as $key => $value) {
+    // Vérification des cases à cocher et des valeurs numériques
     if (isset($prixOptions[$key])) {
         $prix = is_numeric($value) ? $value * $prixOptions[$key] : $prixOptions[$key];
         $total += $prix;
@@ -33,6 +34,26 @@ foreach ($_POST as $key => $value) {
         ];
     }
 }
+
+// Gestion spécifique pour les sélections de transport et chambre
+if (isset($_POST['transport']) && isset($prixOptions[$_POST['transport']])) {
+    $transport = $_POST['transport'];
+    $total += $prixOptions[$transport];
+    $optionsSelectionnees[] = [
+        'nom' => ucfirst(str_replace('_', ' ', $transport)),
+        'prix' => $prixOptions[$transport]
+    ];
+}
+
+if (isset($_POST['chambre']) && isset($prixOptions[$_POST['chambre']])) {
+    $chambre = $_POST['chambre'];
+    $total += $prixOptions[$chambre];
+    $optionsSelectionnees[] = [
+        'nom' => ucfirst(str_replace('_', ' ', $chambre)),
+        'prix' => $prixOptions[$chambre]
+    ];
+}
+
 ?>
 
 <!DOCTYPE html>

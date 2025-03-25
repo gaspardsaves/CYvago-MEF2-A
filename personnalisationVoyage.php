@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="0">0 jour</option>
                         <option value="1">1 jour - 100€</option>
                         <option value="2">2 jours - 200€</option>
+                        <option value="3">3 jours - 275€</option>
                     </select>
                 </label>
                 
