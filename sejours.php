@@ -123,7 +123,7 @@
                                     <input type="checkbox" name="Country" value="Antarctique">
                                     <span class="slider"></span>
                                 </label>
-                                <label>Antartique</label>
+                                <label>Antarctique</label>
                             </td>
                         </tr>
                     </table>  
