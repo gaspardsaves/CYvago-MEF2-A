@@ -22,7 +22,7 @@
     <!-- Contenu de la page -->
     <main>
         <div class="container-form">
-            <form action="newaccount.php" method="POST">
+            <form action="" method="POST">
                 <p style="font-size: 20px;"><b> S'inscrire:</b></p>
                 <p>
                     <input type="radio" name="pres" value="mademoiselle" /> Mademoiselle
@@ -32,7 +32,8 @@
                 <label for="prenom"> Prénom : </label> <input type="text" name="prenom" placeholder="Philippe" maxlength="50" required> <br />
                 <label for="nom"> Nom(s) : </label> <input type="text" name="nom" placeholder="DUPONT" maxlength="50" required> <br />
                 <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
-                <label for="mdp">Mot de passe : </label> <input type="password" name="mdp" required> <br/>
+                <label for="mdp">Mot de passe : </label> <input type="password" name="mdp" required> <br />
+                <label for="mdp">Confirmation du Mot de passe : </label> <input type="password" name="verifmdp" required> <br />
                 <label for="date"> Date de naissance : </label> <input type="date" name="date" required> <br />
                 <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
 
@@ -51,3 +52,60 @@
     <?php require('phpFrequent/footer.php'); ?>
 </body>
 </html>
+
+<?php
+    //Si vous n'êtes pas sur ma machine changer les coordonnées de connexion à phpmyadmin
+    $user = "root";
+    $server = "localhost";
+    $password = "";
+    $DB = "zanimotrip";
+    global $db;
+    $connexion = new mysqli($server, $user, $password, $DB);
+    if ($connexion->connect_error) {
+        die("Erreur de connexion: " . $connexion->connect_error);
+    }
+    if ($_SERVER["REQUEST_METHOD"]== "POST"){
+        $PRENOM = $_POST["prenom"];
+        $EMAIL = $_POST["mail"];
+        $NOM = $_POST["nom"];
+        $DATE = $_POST["date"];
+        $TEL = $_POST["tel"];
+        $MDP = $_POST["mdp"];
+        $VERIFMDP = $_POST["verifmdp"];
+        $role = 1;
+        if($MDP==$VERIFMDP){
+            if((!empty($PRENOM))&&(!empty($NOM))&&(!empty($EMAIL))&&(!empty($MDP))&&($MDP==$VERIFMDP)){ 
+                /*$sqlverif = "SELECT email FROM users WHERE email=:email";
+                $verifmail = $db->prepare("SELECT email FROM users WHERE email=:email");
+                $verifmail->execute(['email' => $EMAIL]);
+                $res = $verifmail->rowCount();
+                echo $res;
+                if($res==0){*/
+                    $options = [
+                        'cost' => 12,
+                    ];
+                    $hashpass = password_hash($MDP, PASSWORD_BCRYPT, $options);
+                    $sql = "INSERT INTO users (lastname, firstname, email, password, role) VALUES ('$NOM', '$PRENOM', '$EMAIL', '$hashpass', '$role')";
+                    if($connexion->query($sql) == TRUE){
+                        header("Location:inscription.php/messages=InscriptionOK");
+                            exit();
+                    /*}
+                    else{
+                        echo "echec";
+                    }*/
+                }
+                else {
+                    echo "Mail déjà utilisé";
+                }
+            }
+            //FAUT AJOUTER DU FRONT POUR CONNEXION REUSSI
+        }
+        else{
+            //FAUT AJOUTER DU FRONT LORSQUE LA CONFIRMATION DU MDP éCHOUE
+            echo "mauvaise confirmation du mdp";
+        }
+       
+    }
+  
+    $connexion->close()
+?>
