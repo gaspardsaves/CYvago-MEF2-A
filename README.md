@@ -8,12 +8,17 @@
 **- [Gaspard Savès](https://github.com/gaspardsaves)**  
 
 ## Description du projet :
-[:scroll: Lire le sujet et le cahier des charges du projet](Projet_Click_journeY_v1.1_PHASE1.pdf)  
+[:scroll: Lire le sujet et le cahier des charges du projet](Projet_Click_journeY_v1.2_PHASE2.pdf)  
+[:credit_card: Lire la documentation sur l'interface de paiement](Projet_Click_journeY_preing2_2024_2025_CYBANK_v1.1-1.pdf)  
 [:ledger: Lire le rapport de réalisation du projet](rapport-projet-click-journey-mef2-a.pdf)  
 [:pushpin: Lire la charte graphique du projet](charte-graphique-click-journey-mef2-a.pdf)  
 [:memo: Lire le carnet de bord des collaborateurs](carnet-de-bord.txt)   
 
 **ZanimoTrip** est le site web d'une agence de voyage spécialisée dans les voyages de découverte de la faune sauvage.
+
+## Utilisation du site web :
+Un fichier [database.sql](database.sql) est présent et vous permet de recréer la structure de la base de données afin d'utiliser le site web.  
+**Un fichier [exampleconfig.php](exampleconfig.php) est présent dans le dépot il est à personnaliser en fonction de la configuration de votre machine et il conviendra de le renommer [config.php](config.php) afin qu'il soit bien inclus dans [database.php](database.php).**   
 
 ## Structure du projet :
 ### Important pour les tests :

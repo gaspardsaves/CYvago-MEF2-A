@@ -47,4 +47,10 @@ Interface :
 25/03/25 :
 - Création de la base de données
 - Recherche de séjours fonctionnelle
-- Début de rédaction des 
+- Début de rédaction des séjours
+- Début de la personnalisation des séjours
+- Codage du panier pour le client
+
+29/09/25 :
+- Pages inscription / connexion fonctionnelles avec la Database
+- Début de codage du paiement et raccordement avec l'interface CY Bank
