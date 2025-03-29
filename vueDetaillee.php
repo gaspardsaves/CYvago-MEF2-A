@@ -2,7 +2,6 @@
 
 $destination = isset($_GET['destination']) ? $_GET['destination'] : '';
 
-
 $sejours = [
     "Desert" => [
         "image" => "img/Desert.webp",
@@ -11,7 +10,12 @@ $sejours = [
         "details" => "Explorez les vastes étendues du désert et admirez les magnifiques dunes. C'est une expérience unique de randonnée à dos de chameau, avec des nuits passées sous un ciel étoilé.",
         "price" => "1200€",
         "dates" => "Juin - Août",
-        "activities" => "Randonnée à dos de chameau, nuit sous tente, photographie du désert, exploration des oasis.",
+        "activities" => [
+            ["name" => "Randonnée à dos de chameau", "image" => "img/activities/camel-trek.jpg"],
+            ["name" => "Nuit sous tente", "image" => "img/activities/desert-camp.jpg"],
+            ["name" => "Photographie du désert", "image" => "img/activities/desert-photo.jpg"],
+            ["name" => "Exploration des oasis", "image" => "img/activities/oasis.jpg"]
+        ],
         "imageDetail" => "img/desert-detail.jpg",
         "hotel" => "Hôtel Sahara Lux", 
         "hotelImage" => "img/hotel-desert.jpg",
@@ -24,7 +28,11 @@ $sejours = [
         "details" => "L'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.",
         "price" => "2500€",
         "dates" => "Décembre - Mars",
-        "activities" => "Observation des pingouins, excursions en bateau, visites de stations scientifiques.",
+        "activities" => [
+            ["name" => "Observation des pingouins", "image" => "img/activities/penguin-watching.jpg"],
+            ["name" => "Excursions en bateau", "image" => "img/activities/antarctica-boat.jpg"],
+            ["name" => "Visites de stations scientifiques", "image" => "img/activities/scientific-station.jpg"]
+        ],
         "imageDetail" => "img/antarctica-detail.jpg",
         "hotel" => "Polar Lodge", 
         "hotelImage" => "img/hotel-antarctique.jpg",
@@ -37,7 +45,11 @@ $sejours = [
         "details" => "Venez découvrir les majestueux animaux de la savane, des lions aux éléphants. C'est un voyage au plus près de la nature dans un environnement spectaculaire.",
         "price" => "1800€",
         "dates" => "Juillet - Septembre",
-        "activities" => "Safari en jeep, visites de réserves naturelles, nuit sous les étoiles.",
+        "activities" => [
+            ["name" => "Safari en jeep", "image" => "img/activities/safari-jeep.jpg"],
+            ["name" => "Visites de réserves naturelles", "image" => "img/activities/nature-reserve.jpg"],
+            ["name" => "Nuit sous les étoiles", "image" => "img/activities/starry-night.jpg"]
+        ],
         "imageDetail" => "img/africa-detail.jpg",
         "hotel" => "Safari Lodge", 
         "hotelImage" => "img/hotel-africa.jpg",
@@ -159,7 +171,7 @@ if (array_key_exists($destination, $sejours)) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -174,7 +186,7 @@ if (array_key_exists($destination, $sejours)) {
         <div class="contenu">
             <h1>Vue détaillée du voyage: <?= htmlspecialchars($sejour['alt']) ?></h1>
             <div class="detail-voyage">
-                <?php if ($sejour['imageDetail']): ?>
+                <?php if (!empty($sejour['imageDetail'])): ?>
                     <img src="<?= $sejour['imageDetail'] ?>" alt="<?= $sejour['alt'] ?>" class="image-detail" />
                 <?php endif; ?>
                 <div class="info-voyage">
@@ -186,27 +198,33 @@ if (array_key_exists($destination, $sejours)) {
                     
                     <h4>Activités proposées:</h4>
                     <ul>
-                        <?php
-                        $activities = explode(", ", $sejour['activities']);
-                        foreach ($activities as $activity) {
-                            echo "<li>$activity</li>";
-                        }
-                        ?>
+                        <?php if (!empty($sejour['activities']) && is_array($sejour['activities'])): ?>
+                            <?php foreach ($sejour['activities'] as $activity): ?>
+                                <li>
+                                    <img src="<?= $activity['image'] ?>" alt="<?= $activity['name'] ?>" class="activity-image"/>
+                                    <?= htmlspecialchars($activity['name']) ?>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php elseif (!empty($sejour['activities'])): ?>
+                            <?php foreach (explode(", ", $sejour['activities']) as $activity): ?>
+                                <li><?= htmlspecialchars($activity) ?></li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
 
             <div class="hotel-section">
                 <h2>Hébergement</h2>
-                <?php if ($sejour['hotelImage']): ?>
+                <?php if (!empty($sejour['hotelImage'])): ?>
                     <img src="<?= $sejour['hotelImage'] ?>" alt="Hôtel" class="hotel-image" />
                 <?php endif; ?>
-                <p><strong>Hôtel:</strong> <?= $sejour['hotel'] ?></p>
+                <p><strong>Hôtel:</strong> <?= htmlspecialchars($sejour['hotel']) ?></p>
             </div>
 
             <div class="meals-section">
                 <h2>Restauration</h2>
-                <p><?= $sejour['meals'] ?></p>
+                <p><?= htmlspecialchars($sejour['meals']) ?></p>
             </div>
 
             <br>
