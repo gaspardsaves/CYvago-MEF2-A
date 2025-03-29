@@ -70,7 +70,7 @@ if (isset($_POST['chambre']) && isset($prixOptions[$_POST['chambre']])) {
 
     <main>
         <div class="container-form">
-            <h1>Votre panier pour : <?php echo htmlspecialchars($destination); ?></h1>
+        <h1>Votre panier pour : <?php echo htmlspecialchars(str_replace('+', ' ', $destination)); ?></h1>
 
             <div class="options-container">
                 <p>Options sélectionnées :</p>

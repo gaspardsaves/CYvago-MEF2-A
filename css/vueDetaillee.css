@@ -1,0 +1,8 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+body {
+    color: white;
+}
