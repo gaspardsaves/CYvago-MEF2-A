@@ -1,9 +1,5 @@
+<?php session_start() ?>
 <!DOCTYPE html>
-<?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +23,7 @@
     <!-- Contenu de la page -->
     <main>
         <div class="container-form">
-            <form action="verifconnexion.php" method="post">
+            <form action="" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
                 <label for="AdresseMail">Adresse Mail :</label>
                 <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
@@ -47,3 +43,48 @@
 
 </body>
 </html>
+
+<?php
+     /*
+     <?php
+     ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    ?>
+    */
+    include 'database.php';
+    $EMAIL = $_POST['Mail'];
+    $MDP = $_POST['MotDePasse'];
+    echo $EMAIL;
+    echo $MDP;
+
+    if((!empty($EMAIL))&&(!empty($MDP))){
+        $verification = $database->prepare("SELECT email FROM users WHERE email=?");
+        $verification->bind_param("s", $EMAIL);
+        $verification->execute();
+        $verification->bind_result($result);
+        $verification->fetch();
+        $verification->close();
+        var_dump($result);
+        if($result==true){
+            $verification = $database->prepare("SELECT password FROM users WHERE email=?");
+            $verification->bind_param("s", $EMAIL);
+            $verification->execute();
+            $verification->bind_result($result);
+            $verification->fetch();
+            $verification->close();
+            var_dump($result);
+            if(password_verify($MDP, $result)){
+                echo "Connexion OK";
+            }
+            else{
+                //FRONT POUR MDP PAS CORECTE
+                echo "Connexion pas OK";
+            }
+        }
+        else{
+            echo $EMAIL . "n'existe pas";
+            //FRONT POUR ADRESSE MAIL INEXISTANTE
+        }
+    }
+?>

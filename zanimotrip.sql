@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 28 mars 2025 à 22:45
+-- Généré le : sam. 29 mars 2025 à 12:47
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -124,18 +124,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastname` varchar(250) NOT NULL,
   `firstname` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
-  `password` varchar(250) NOT NULL,
+  `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `role` tinyint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`) VALUES
-(1, 'Trump', 'Donald', 'DonaldTrump@gmail.com', '$2y$12$3lBR/EgXXBdbDVU/g01Z3OhPfBx9C8rnhSA7cZDJMpWstWGZnPm1u', 1),
-(2, 'Maslanka', 'Anastazja', 'am@gmail.com', '$2y$12$GnBCLD8pLPueoFYRtdW.xeH5xdkIU1dV2R2ddogDmGEx5ThRaNZoq', 1);
+(1, 'Trump', 'Donald', 'DonaldTrump@gmail.com', '$2y$12$9ZmpopfhImBmFdLuOw4.QuBaYTcD5.FQbgk9p69FdHczXoCMuF1Da', 1),
+(2, 'Reynolds', 'Ryan', 'Deadpool@gmail.com', '$2y$12$E3aFxSCjwzNQz4zQW3KZm.Q2Z4lfhax2JzwLvrZlildPZ3HUKEvGK', 1),
+(3, 'Stashenko', 'Albina', 'AS@gmai.com', '$2y$12$DfLxZExLFUaVKFWpzQTHWONVY6wABl72oPVD4o/xS8oF6hCaDR4oK', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

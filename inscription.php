@@ -55,15 +55,13 @@
 
 <?php
     //Si vous n'êtes pas sur ma machine changer les coordonnées de connexion à phpmyadmin
-    $user = "root";
+    /*$user = "root";
     $server = "localhost";
     $password = "";
     $DB = "zanimotrip";
-    global $db;
-    $connexion = new mysqli($server, $user, $password, $DB);
-    if ($connexion->connect_error) {
-        die("Erreur de connexion: " . $connexion->connect_error);
-    }
+    $database = new mysqli($server, $user, $password, $DB);
+    */
+    include 'database.php';
     if ($_SERVER["REQUEST_METHOD"]== "POST"){
         $PRENOM = $_POST["prenom"];
         $EMAIL = $_POST["mail"];
@@ -75,24 +73,26 @@
         $role = 1;
         if($MDP==$VERIFMDP){
             if((!empty($PRENOM))&&(!empty($NOM))&&(!empty($EMAIL))&&(!empty($MDP))&&($MDP==$VERIFMDP)){ 
-                /*$sqlverif = "SELECT email FROM users WHERE email=:email";
-                $verifmail = $db->prepare("SELECT email FROM users WHERE email=:email");
-                $verifmail->execute(['email' => $EMAIL]);
-                $res = $verifmail->rowCount();
-                echo $res;
-                if($res==0){*/
+                $sqlverif = "SELECT email FROM users WHERE email=:email";
+                $verifmail = $database->prepare("SELECT email FROM users WHERE email=?");
+                $verifmail->bind_param("s", $EMAIL);
+                $verifmail->execute();
+                $verifmail->store_result();
+                $res = $verifmail->num_rows;
+                $verifmail->close();
+                if($res==0){
                     $options = [
                         'cost' => 12,
                     ];
                     $hashpass = password_hash($MDP, PASSWORD_BCRYPT, $options);
                     $sql = "INSERT INTO users (lastname, firstname, email, password, role) VALUES ('$NOM', '$PRENOM', '$EMAIL', '$hashpass', '$role')";
-                    if($connexion->query($sql) == TRUE){
-                        header("Location:inscription.php/messages=InscriptionOK");
+                    if($database->query($sql) == TRUE){
+                        //header("Location:inscription.php/messages=InscriptionOK");
                             exit();
-                    /*}
+                    }
                     else{
                         echo "echec";
-                    }*/
+                    }
                 }
                 else {
                     echo "Mail déjà utilisé";
@@ -107,5 +107,5 @@
        
     }
   
-    $connexion->close()
+    $database->close()
 ?>
