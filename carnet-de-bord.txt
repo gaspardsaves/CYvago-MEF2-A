@@ -39,3 +39,12 @@ Interface :
 - Implémentation des styles définitifs raccords entre les page, choix des couleurs
 - Rédaction du rapport et de la charte graphique
 - Rendu Phase 1
+
+11/03/25 :
+- Transformation des fichiers HTML en fichiers PHP
+- Début de la rédaction du code en JSON
+
+25/03/25 :
+- Création de la base de données
+- Recherche de séjours fonctionnelle
+- Début de rédaction des 
