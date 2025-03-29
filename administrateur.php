@@ -29,6 +29,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nom</th>
+                    <th>Prénom</th>
                     <th>Email</th>
                     <th>Statut</th>
                     <th>VIP</th>
@@ -36,7 +37,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
+                <?php 
+                /*<?php
                 $json = file_get_contents('json/comptes.json');
                 $utilisateurs = json_decode($json, true);
 
@@ -67,13 +69,35 @@
                     }
                 }
                 ?>
+                */
+                include 'database.php';
+                $NB_lignes = 20;
+                $requete = "SELECT * FROM users";
+                $res = $database->query($requete);
+                while($ligne=$res->fetch_assoc()){
+                    echo "<tr>";
+                    echo "<td>".$ligne["id"]."</td>";
+                    echo "<td>".$ligne["lastname"]."</td>";
+                    echo "<td>".$ligne["firstname"]."</td>";
+                    echo "<td>".$ligne["email"]."</td>";
+                    if($ligne["role"]==1){
+                        echo "<td>Normal</td>";
+                    }
+                    elseif($ligne["role"]==0){
+                        echo "<td>Admin</td><label class='switch'>";
+                    }
+                    echo "<td>pas encore disponible</td><td>pas encore disponible</td></tr>";
+                }
+                if(isset($_REQUEST['requete']))
+                ?>
+                
             </tbody>
         </table>
     </main>
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php');
-    header('Content-Type: text/html; charset=UTF-8');?>
+    //header('Content-Type: text/html; charset=UTF-8');?>
 
     
     

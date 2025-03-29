@@ -1,4 +1,53 @@
-<?php session_start() ?>
+<?php
+     /*
+     <?php
+     ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    ?>
+    */
+    if(isset($_POST['Mail'])&&isset($_POST['MotDePasse'])){
+        include 'database.php';
+        $EMAIL = $_POST['Mail'];
+        $MDP = $_POST['MotDePasse'];
+        
+
+        if((!empty($EMAIL))&&(!empty($MDP))){
+            $verification = $database->prepare("SELECT email FROM users WHERE email=?");
+            $verification->bind_param("s", $EMAIL);
+            $verification->execute();
+            $verification->bind_result($result);
+            $verification->fetch();
+            $verification->close();
+            var_dump($result);
+            if($result==true){
+                $verification = $database->prepare("SELECT firstname, password FROM users WHERE email=?");
+                $verification->bind_param("s", $EMAIL);
+                $verification->execute();
+                $verification->bind_result($prenom, $result);
+                $verification->fetch();
+                $verification->close();
+                var_dump($result);
+                if(password_verify($MDP, $result)){
+                    echo "Connexion OK";
+                    session_start();
+                    $_SESSION['email'] = $EMAIL;
+                    $_SESSION['prenom'] = $prenom;
+                    header('Location: monCompte.php');
+                }
+                else{
+                    //FRONT POUR MDP PAS CORECTE
+                    echo "Connexion pas OK";
+                }
+            }
+            else{
+                echo $EMAIL . "n'existe pas";
+                //FRONT POUR ADRESSE MAIL INEXISTANTE
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -44,47 +93,3 @@
 </body>
 </html>
 
-<?php
-     /*
-     <?php
-     ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    ?>
-    */
-    include 'database.php';
-    $EMAIL = $_POST['Mail'];
-    $MDP = $_POST['MotDePasse'];
-    echo $EMAIL;
-    echo $MDP;
-
-    if((!empty($EMAIL))&&(!empty($MDP))){
-        $verification = $database->prepare("SELECT email FROM users WHERE email=?");
-        $verification->bind_param("s", $EMAIL);
-        $verification->execute();
-        $verification->bind_result($result);
-        $verification->fetch();
-        $verification->close();
-        var_dump($result);
-        if($result==true){
-            $verification = $database->prepare("SELECT password FROM users WHERE email=?");
-            $verification->bind_param("s", $EMAIL);
-            $verification->execute();
-            $verification->bind_result($result);
-            $verification->fetch();
-            $verification->close();
-            var_dump($result);
-            if(password_verify($MDP, $result)){
-                echo "Connexion OK";
-            }
-            else{
-                //FRONT POUR MDP PAS CORECTE
-                echo "Connexion pas OK";
-            }
-        }
-        else{
-            echo $EMAIL . "n'existe pas";
-            //FRONT POUR ADRESSE MAIL INEXISTANTE
-        }
-    }
-?>
