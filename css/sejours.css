@@ -28,7 +28,7 @@
 .image-interactive:hover .description {
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 40%;
     transform: translate(-50%, -50%);
     width: 50%;
     background-color: var(--shadow-06);
