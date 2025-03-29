@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['email'])){
+        header ("location : connexion.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,7 +39,8 @@
 
             <div class="profile-info">
                 <h2>Vos informations</h2>
-                <p><strong>👤 Nom d'utilisateur :</strong> <span id="nomUtilisateur">Non renseigné</span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
+                <p><strong>👤 Nom d'utilisateur :</strong> <span id="nomUtilisateur">
+                    <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
                 <p><strong>🔑 Mot de passe :</strong> <span id="motDePasse">Non renseigné</span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
             </div></br>
             <form action="connexion.php">
