@@ -52,7 +52,7 @@
                                 <img class="sejour" src="' . $sejour["image"] . '" alt="' . $sejour["alt"] . '" height="200" width="200">
                                 <div class="description">' . $sejour["description"] . '</div>
                             </a>
-                            <a href="vueDetaillee.php?destination=' . urlencode($sejour["alt"]) . '" class="lien-blanc">Voir la vue détaillée de ce voyage</a>
+                            <a href="vueDetaillee.php?destination=' . urlencode($sejour["alt"]) . '" class="lien-blanc">Détails du voyage</a>
                         </div>';
                     }
                 }

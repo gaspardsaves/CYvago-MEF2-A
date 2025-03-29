@@ -1,8 +1,8 @@
 <?php 
-// Récupérer le paramètre 'destination' depuis l'URL
+
 $destination = isset($_GET['destination']) ? $_GET['destination'] : '';
 
-// Définir les informations des voyages
+
 $sejours = [
     "Desert" => [
         "image" => "img/Desert.webp",
@@ -51,9 +51,9 @@ $sejours = [
         "price" => "2200€",
         "dates" => "Mai - Août",
         "activities" => "Nage avec les dauphins, exploration sous-marine, visites de plages exotiques.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "Costa Rica Resort", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner inclus"
     ],
     "Chine" => [
@@ -64,9 +64,9 @@ $sejours = [
         "price" => "2100€",
         "dates" => "Septembre - Novembre",
         "activities" => "Visite de réserves de pandas, exploration de la Grande Muraille.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "China Grand Hotel", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "",
         "meals" => "Tous les repas inclus"
     ],
     "Licorne" => [
@@ -77,9 +77,9 @@ $sejours = [
         "price" => "3500€",
         "dates" => "Mars - Mai",
         "activities" => "Promenades dans les prairies, rencontres avec les licornes.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "",
         "hotel" => "Enchanted Resort", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner et dîner inclus"
     ],
     "Everest" => [
@@ -90,9 +90,9 @@ $sejours = [
         "price" => "3000€",
         "dates" => "Septembre - Novembre",
         "activities" => "Expéditions, exploration du sommet, recherche du Yéti.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "Everest Base Camp Hotel", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner et dîner inclus"
     ],
     "Dragon" => [
@@ -103,9 +103,9 @@ $sejours = [
         "price" => "5000€",
         "dates" => "Janvier - Février",
         "activities" => "Vols à dos de dragon, explorations dans un monde magique.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "",
         "hotel" => "Dragon’s Nest Hotel", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Tous les repas inclus"
     ],
     "Capybara" => [
@@ -116,9 +116,9 @@ $sejours = [
         "price" => "1500€",
         "dates" => "Juin - Septembre",
         "activities" => "Observation des capybaras, exploration de la jungle.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "Jungle Resort", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner et dîner inclus"
     ],
     "Australie" => [
@@ -129,9 +129,9 @@ $sejours = [
         "price" => "1900€",
         "dates" => "Décembre - Février",
         "activities" => "Randonnée, rencontre avec la faune australienne.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "Outback Lodge", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner inclus"
     ],
     "Mongolie" => [
@@ -142,18 +142,17 @@ $sejours = [
         "price" => "2200€",
         "dates" => "Mai - Juillet",
         "activities" => "Randonnée à dos de yak, exploration des montagnes.",
-        "imageDetail" => "", // Supprimé l'image
+        "imageDetail" => "", 
         "hotel" => "Mongolian Lodge", 
-        "hotelImage" => "", // Supprimé l'image
+        "hotelImage" => "", 
         "meals" => "Petit déjeuner et dîner inclus"
     ],
 ];
 
-// Vérifier si la destination existe dans l'array
+
 if (array_key_exists($destination, $sejours)) {
     $sejour = $sejours[$destination];
 } else {
-    // Si la destination n'existe pas, afficher une erreur
     echo "<p>Voyage non trouvé.</p>";
     exit;
 }
