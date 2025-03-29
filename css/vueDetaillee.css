@@ -6,3 +6,15 @@
 body {
     color: white;
 }
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--blue-background);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+

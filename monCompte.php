@@ -46,7 +46,9 @@
             <form action="connexion.php">
                 <button class="button1" type="submit">⬅️ Retour à la page de connexion</button>
             </form>
+            <a href="logout.php">Se déconnecter</a>
         </div>
+
     </main>
 
     <!-- Barre de pied de page -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 29 mars 2025 à 12:47
+-- Généré le : sam. 29 mars 2025 à 21:30
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -110,7 +110,15 @@ CREATE TABLE IF NOT EXISTS `travel` (
   `price` float NOT NULL,
   `nbrdays` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `travel`
+--
+
+INSERT INTO `travel` (`id`, `title`, `text`, `price`, `nbrdays`) VALUES
+(1, 'Desert', 'Explorez les vastes étendues du désert et admirez les magnifiques dunes. C\'est une expérience unique de randonnée à dos de chameau, avec des nuits passées sous un ciel étoilé.', 1200, 62),
+(2, 'Antarctique', 'L\'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.', 2500, 90);
 
 -- --------------------------------------------------------
 
@@ -127,16 +135,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `role` tinyint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`) VALUES
-(1, 'Trump', 'Donald', 'DonaldTrump@gmail.com', '$2y$12$9ZmpopfhImBmFdLuOw4.QuBaYTcD5.FQbgk9p69FdHczXoCMuF1Da', 1),
-(2, 'Reynolds', 'Ryan', 'Deadpool@gmail.com', '$2y$12$E3aFxSCjwzNQz4zQW3KZm.Q2Z4lfhax2JzwLvrZlildPZ3HUKEvGK', 1),
-(3, 'Stashenko', 'Albina', 'AS@gmai.com', '$2y$12$DfLxZExLFUaVKFWpzQTHWONVY6wABl72oPVD4o/xS8oF6hCaDR4oK', 1);
+(1, 'Maslanka', 'Jean-Luc', 'maslankaje@cytech.fr', '$2y$12$xgNWFok2a8rNzr5VUVL.5eXNQqzphrcW/TcsWAxOvAZv9vl7uu9LS', 0),
+(2, 'Saves', 'Gaspard', 'gs@gmail.com', '$2y$12$f0.ITdKMgYLplWAQX98I6e1LYRpmr9TmYMHZqiFhjKEIodgupVxoa', 0),
+(3, 'Stashenko', 'Albina', 'AS@gmai.com', '$2y$12$HnniYl8JQgq05n8WuwFcreyK97YOh264tIL6Ilgaz5rN/vDQJrUrC', 1),
+(4, 'Trump', 'Donald', 'DonaldTrump@gmail.com', '$2y$12$9w9V5wG/pa6REDXXFzbCDO9p/GlxzU8Cm84TGxIUX6NA3LnIrkLwG', 1),
+(5, 'Banica', 'Teodor', 'TB@gmail.com', '$2y$12$3.NkSlqdQwgNM6NnJjxR3eW2d2IaGMuSfx4zAe1PjsbEa371kST/e', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
