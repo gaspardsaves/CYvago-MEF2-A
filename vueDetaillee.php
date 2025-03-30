@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+include 'session.php';
 
 $destination = isset($_GET['destination']) ? $_GET['destination'] : '';
 
