@@ -3,19 +3,19 @@
 @import url('designSite.css');
 
 body {
-    color: var(--white); /* Texte en blanc */
-    font-family: 'Inter Tight', sans-serif; /* Police moderne */
-    background-color: var(--blue-background); /* Fond général de la page */
+    color: var(--white); 
+    font-family: 'Inter Tight', sans-serif; 
+    background-color: var(--blue-background); 
     margin: 0;
     padding: 0;
 }
 
-/* Bouton de retour - plus de contraste avec des coins arrondis */
+/
 .btn-back {
     display: inline-block;
     padding: 12px 18px;
-    background-color: var(--blue-background); /* Fond bleu pour le bouton */
-    color: var(--white); /* Texte en blanc */
+    background-color: var(--blue-background); 
+    color: var(--white); 
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
@@ -26,42 +26,42 @@ body {
 }
 
 .btn-back:hover {
-    background-color: #1f5b8b; /* Changement de couleur au survol */
+    background-color: #1f5b8b; 
 }
 
-/* Liste des activités avec des images */
+
 ul {
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Créer une grille responsive */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
     gap: 20px;
     margin-top: 30px;
 }
 
-/* Image des activités avec un design plus moderne */
+
 .activity-image {
     width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre douce autour des images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /
 }
 
-/* Adapter l'image de détail du voyage */
+
 .image-detail {
     max-width: 100%;
     border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Ajouter une ombre autour de l'image de détail */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
 }
 
-/* Section d'hébergement - Créer une carte avec une bordure et un peu d'ombre */
+
 .hotel-section, .meals-section {
-    background-color: var(--blue-background); /* Fond bleu pour les cartes */
+    background-color: var(--blue-background); 
     padding: 20px;
     margin-top: 30px;
     border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'effet carte */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
     margin-bottom: 30px;
 }
 
@@ -69,31 +69,31 @@ ul {
     font-size: 1.8em;
     margin-bottom: 15px;
     font-weight: bold;
-    color: var(--white); /* Texte des titres en blanc */
+    color: var(--white);
 }
 
 .hotel-section p, .meals-section p {
     font-size: 1.1em;
     line-height: 1.5;
-    color: var(--white); /* Texte en blanc pour le contenu des cartes */
+    color: var(--white); 
 }
 
-/* Adapter l'image de l'hôtel */
+
 .hotel-image {
     max-width: 100%;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre autour de l'image de l'hôtel */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
 }
 
-/* Adaptation pour les écrans mobiles - Améliorer la grille */
+
 @media screen and (max-width: 768px) {
     .activity-image {
-        height: 120px; /* Ajuster la taille des images sur les petits écrans */
+        height: 120px; 
     }
 
     ul {
-        grid-template-columns: 1fr 1fr; /* Deux colonnes sur les écrans moyens */
+        grid-template-columns: 1fr 1fr; 
     }
 
     .hotel-section, .meals-section {
@@ -101,24 +101,24 @@ ul {
     }
 
     .btn-back {
-        padding: 10px 15px; /* Taille ajustée pour le mobile */
+        padding: 10px 15px; 
     }
 }
 
-/* Ajouter un espacement général pour les éléments */
+
 .contenu {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Animation pour le titre de la page */
+
 h1 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: var(--white); /* Titre en blanc */
-    animation: fadeIn 1s ease-out; /* Animation de fondu */
+    color: var(--white); 
+    animation: fadeIn 1s ease-out; 
 }
 
 @keyframes fadeIn {
