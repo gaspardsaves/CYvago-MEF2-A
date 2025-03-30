@@ -1,3 +1,6 @@
+<?php 
+    include 'session.php';
+?>
 <?php
 // Inclusion du fichier contenant la fonction getAPIKey
 require('getapikey.php');

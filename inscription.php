@@ -126,7 +126,6 @@
                     <button class="button1" type="submit">Valider</button>
                 </div>
                 <p>Déjà un compte ? <a href="connexion.php" class="link">Se connecter</a></p>
-                <p>Accès à la page administrateur dans l'attente du backend  <a href="administrateur.php" class="link">Page Administrateur</a></p>
             </form>
         </div>
         
