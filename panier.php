@@ -6,7 +6,7 @@ require('getapikey.php');
 $database = require('database.php');
 
 $destination = isset($_POST['destination']) ? $_POST['destination'] : 'Voyage inconnu';
-
+$price = isset($_POST['price']) ? $_POST['price'] : '';
 
 $prixOptions = [
     'petit_dej' => 10,
@@ -59,6 +59,8 @@ if (isset($_POST['chambre']) && isset($prixOptions[$_POST['chambre']])) {
     ];
 }
 
+// Calcul du prix total
+$totalPrice = $price + $total;
 
 // Récupération de l'ID de réservation
 $booking_id = $_GET['booking_id'] ?? $_POST['booking_id'] ?? null;
@@ -87,7 +89,7 @@ if ($booking_id) {
         $transaction = substr($transaction, 0, 20); // Format alphanumérique
         
         // Formatage du montant au format attendu (point comme séparateur)
-        $montant = number_format($reservation['montant_total'], 2, '.', '');
+        $montant = number_format($totalPrice, 2, '.', '');
         $vendeur = "MEF-2_A";
         $retour = "retourPaiement.php?booking_id=" . $booking_id;
         
@@ -142,17 +144,25 @@ if ($booking_id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier - ZanimoTrip</title>
+    <!-- Titre, favicon et feuilles de style -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <title>ZanimoTrip Panier</title>
     <link rel="stylesheet" href="css/panier.css?v=<?php echo time(); ?>">
 </head>
 <body>
-
     <?php require('phpFrequent/navbar.php'); ?>
-
+    <!-- Barre de recherche -->
+    <?php require('phpFrequent/searchbar.php'); ?>
     <main>
         <div class="container-form">
-        <h1>Votre panier pour : <?php echo htmlspecialchars(str_replace('+', ' ', $destination)); ?></h1>
-
+            <h1>Votre panier pour : <?php echo htmlspecialchars(str_replace('+', ' ', $destination)); ?></h1>
+            <div class="price">
+                <h2>Prix hors option : <?php echo htmlspecialchars($price. "€"); ?></h2>
+            </div>
             <div class="options-container">
                 <p>Options sélectionnées :</p>
                 <?php if (!empty($optionsSelectionnees)): ?>
@@ -166,7 +176,7 @@ if ($booking_id) {
                 <?php endif; ?>
             </div>
 
-            <p class="total">Total : <?php echo $total; ?>€</p>
+            <p class="total">Total : <?php echo $totalPrice; ?>€</p>
 
             <div class="button-form">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

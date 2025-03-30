@@ -10,38 +10,64 @@
 .image-interactive {
     position: relative;
     display: inline-block;
-    
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.image-interactive .description {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    right: 4%;
-    display: none;
-    color: var(--white);
-    font-family: "Inter Tight", serif;
-    font-size: 24px;
-    text-align: auto;
-}
-
-.image-interactive:hover .description {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    background-color: var(--shadow-06);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 1.4;
-    display: block;
+.image-interactive img.sejour {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    border-radius: 60px;
+    width: 500px;
+    height: 500px;
+    padding: 25px;
 }
 
 .image-interactive:hover img.sejour {
     opacity: 0.5;
+}
+
+.image-interactive .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    color: var(--white);
+    font-family: "Inter Tight", serif;
+    font-size: 24px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.image-interactive:hover .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Texte au dessus de l'image */
+}
+
+.image-interactive:hover .description span {
+    background-color: var(--shadow-06);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.lien-blanc {
+    display: block;
+    color: white;
+    text-align: center;
+    margin-top: -15px;
 }
 
 img.sejour {
@@ -152,8 +178,4 @@ input:checked + .slider {
 
 input:checked + .slider::before {
     transform: translateX(20px);
-}
-
-.lien-blanc {
-    color: white;
 }

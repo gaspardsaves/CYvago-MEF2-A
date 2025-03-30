@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Séjours</title>
-    <link rel="stylesheet" href="css/sejours.css">
+    <link rel="stylesheet" href="css/sejours.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -51,11 +51,11 @@
                         $found = true;
                         echo '
                         <div class="image-interactive">
-                            <a href="personnalisationVoyage.php?destination=' . urlencode($sejour["alt"]) . '&description=' . urlencode($sejour["description"]) . '">
+                            <a href="vueDetaillee.php?destination=' . urlencode($sejour["alt"]) .'">;
                                 <img class="sejour" src="' . $sejour["image"] . '" alt="' . $sejour["alt"] . '" height="200" width="200">
-                                <div class="description">' . $sejour["description"] . '</div>
                             </a>
-                            <a href="vueDetaillee.php?destination=' . urlencode($sejour["alt"]) . '" class="lien-blanc">Détails du voyage</a>
+                            <div class="description"><span>' . $sejour["description"] . '</span></div>
+                            <a href="personnalisationVoyage.php?destination=' . urlencode($sejour["alt"]) . '&description=' . urlencode($sejour["description"]) .'" class="lien-blanc">Personnalisation</a>
                         </div>';
                     }
                 }

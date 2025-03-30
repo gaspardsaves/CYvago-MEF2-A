@@ -54,3 +54,4 @@ Interface :
 29/09/25 :
 - Pages inscription / connexion fonctionnelles avec la Database
 - Début de codage du paiement et raccordement avec l'interface CY Bank
+- Création de la page vue détaillée avec sa page CSS
