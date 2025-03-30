@@ -1,5 +1,5 @@
 <?php
-     /*
+    /*
      <?php
      ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -35,16 +35,16 @@
                     $_SESSION['nomdefamille'] = $nomdefamille;
                     $_SESSION['MDP'] = $result;
                     $_SESSION['role'] = $role;
-                    header('Location: monCompte.php');
+                    header("Location: monCompte.php?success=true");
                 }
                 else{
-                    //FRONT POUR MDP PAS CORECTE
-                    echo "Connexion pas OK";
+                    header("Location: connexion.php?error=password");
+                    exit();
                 }
             }
             else{
-                echo $EMAIL . "n'existe pas";
-                //FRONT POUR ADRESSE MAIL INEXISTANTE
+                header("Location: inscription.php?error=user");
+                exit();
             }
         }
     }
@@ -62,7 +62,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Connexion</title>
-    <link rel="stylesheet" href="css/formulaire.css">
+    <!-- <link rel="stylesheet" href="css/formulaire.css"> -->
+    <link rel="stylesheet" href="css/formulaire.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -73,6 +74,24 @@
 
     <!-- Contenu de la page -->
     <main>
+        <!-- Cas de la déconnexion -->
+        <?php if(isset($_GET['logout']) && $_GET['logout'] == 'success'): ?>
+            <div class="message-decon-ok show">
+                Vous avez été déconnecté avec succès.
+            </div>
+        <?php endif; ?>
+        <!-- Cas du mauvais mot de passe -->
+        <?php if(isset($_GET['error']) && $_GET['error'] == 'password'): ?>
+            <div class="message-error show">
+                Le mot de passe ne correspond pas.
+            </div>
+        <?php endif; ?>
+        <!-- Cas de l'utilisateur déjà inscrit -->
+        <?php if(isset($_GET['error']) && $_GET['error'] == 'alreadyUser'): ?>
+        <div class="message-decon-ok show">
+            Vous êtes déjà inscrit, connectez-vous ici.
+        </div>
+        <?php endif; ?>
         <div class="container-form">
             <form action="" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
@@ -84,7 +103,6 @@
                     <button class="button1" type="submit">Se connecter</button>
                 </div>
                 <p>Pas encore de compte ? <a href="inscription.php" class="link">S'inscrire</a></p>
-                <p>Accès à la page Mon Compte dans l'attente du backend <a href="monCompte.php" class="link">Mon Compte</a></p>
             </form>
         </div>
     </main>

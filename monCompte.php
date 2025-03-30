@@ -2,9 +2,10 @@
     session_start();
     if(!isset($_SESSION['email'])){
         header ("location: connexion.php");
+        exit();
     }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Mon Compte</title>
-    <link rel="stylesheet" href="css/monCompte.css">
+    <link rel="stylesheet" href="css/monCompte.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Barre de menu -->
@@ -28,6 +29,19 @@
     
     <!-- Contenu de la page -->
     <main>
+        <!-- Cas de la connexion classique -->
+        <?php if(isset($_GET['success']) && $_GET['success'] == 'true'): ?>
+            <div class="message-con-ok show">
+                Bonjour <span id="nomUtilisateur"> <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span> !
+            </div>
+        <?php endif; ?>
+        <!-- Cas du nouvel utilisateur -->
+        <?php if(isset($_GET['success']) && $_GET['success'] == 'newok'): ?>
+            <div class="message-con-ok show">
+                Bienvenue <span id="nomUtilisateur"> <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span> !
+            </div>
+        <?php endif; ?>
+
         <div class="profile-container">
             <h1>Bienvenue sur votre profil !</h1>
 
@@ -41,12 +55,11 @@
                 <h2>Vos informations</h2>
                 <p><strong>👤 Nom d'utilisateur :</strong> <span id="nomUtilisateur">
                     <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
-                <p><strong>🔑 Mot de passe :</strong> <span id="motDePasse">Non renseigné</span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
+                <p><strong>🔑 Mot de passe :</strong> <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
             </div></br>
-            <form action="connexion.php">
-                <button class="button1" type="submit">⬅️ Retour à la page de connexion</button>
+            <form action="logout.php">
+                <button class="button1" type="submit">⬅️ Déconnexion</button>
             </form>
-            <a href="logout.php">Se déconnecter</a>
         </div>
 
     </main>

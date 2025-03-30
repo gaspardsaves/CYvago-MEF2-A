@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="description" value="<?php echo urlencode($description); ?>">
                 
                 <div class="button-form">
-                    <button type="submit">Valider les options</button>
+                    <button type="submit" class="button1">Valider les options</button>
                 </div>
             </form>
         </div>
