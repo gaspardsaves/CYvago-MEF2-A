@@ -23,10 +23,10 @@ main {
 
 /* Couleur des liens */
 .link {
-    color: var(--link);
+    color: var(--border-form);
 }
 .link:hover {
-    color: var(--link-hover);
+    color: var(--button3);
 }
 .link:visited {
     color: var(--link-visited);
