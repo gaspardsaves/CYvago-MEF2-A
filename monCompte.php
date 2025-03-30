@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(!isset($_SESSION['email'])){
-        header ("location : connexion.php");
+        header ("location: connexion.php");
     }
 
 ?>
