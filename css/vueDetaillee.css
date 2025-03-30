@@ -10,7 +10,7 @@ body {
     padding: 0;
 }
 
-/
+
 .btn-back {
     display: inline-block;
     padding: 12px 18px;
@@ -49,8 +49,12 @@ ul {
 }
 
 
+
+
 .image-detail {
-    max-width: 100%;
+    max-width: 100%;   
+    width: 100%;       
+    height: auto;      
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
 }
@@ -80,12 +84,13 @@ ul {
 
 
 .hotel-image {
-    max-width: 100%;
+    width: 100%;            
+    max-width: 900px; 
+    height: auto;
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
 }
-
 
 @media screen and (max-width: 768px) {
     .activity-image {
