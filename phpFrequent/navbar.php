@@ -6,11 +6,7 @@
             <a href="accueil.php"> <img src="img/ZanimoTripDef.png"> </a>
         </div>
         <div class="buttons-nav">
-        <?php
-            if(isset($_SESSION['email'])&&(isset($_SESSION['prenom']))&&(isset($_SESSION['nomdefamille']))&&(isset($_SESSION['role']))&&(isset($_SESSION['MDP']))&&($_SESSION['role'])==0){
-            echo '<form action="administrateur.php"><button class="button1" type="submit">Admin</button>';
-            }
-        ?>
+        
             <form action="presentation.php">
                 <button class="button1" type="submit">L'expérience ZanimoTrip</button>
             </form>
@@ -25,5 +21,10 @@
                 echo '<form action="connexion.php"><button class="button1" type="submit">🔐 Connexion</button></form>';
             }
             ?>
+            <?php
+            if(isset($_SESSION['email'])&&(isset($_SESSION['prenom']))&&(isset($_SESSION['nomdefamille']))&&(isset($_SESSION['role']))&&(isset($_SESSION['MDP']))&&($_SESSION['role'])==0){
+            echo '<form action="administrateur.php"><button class="button1" type="submit">Admin</button>';
+            }
+        ?>
         </div>
     </nav>
