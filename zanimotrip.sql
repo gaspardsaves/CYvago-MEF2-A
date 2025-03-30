@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 29 mars 2025 à 21:30
+-- Généré le : dim. 30 mars 2025 à 21:06
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `travel` (
   `price` float NOT NULL,
   `nbrdays` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `travel`
@@ -118,7 +118,16 @@ CREATE TABLE IF NOT EXISTS `travel` (
 
 INSERT INTO `travel` (`id`, `title`, `text`, `price`, `nbrdays`) VALUES
 (1, 'Desert', 'Explorez les vastes étendues du désert et admirez les magnifiques dunes. C\'est une expérience unique de randonnée à dos de chameau, avec des nuits passées sous un ciel étoilé.', 1200, 62),
-(2, 'Antarctique', 'L\'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.', 2500, 90);
+(2, 'Antarctique', 'L\'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.', 2500, 90),
+(3, 'Costa Rica', 'Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.', 2200, 122),
+(4, 'Chine', 'Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.', 2100, 91),
+(5, 'Licorne', 'Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.', 3500, 92),
+(6, 'Everest', 'Escaladez les pentes de l\"Everest et explorez la légende du Yéti à travers des paysages majestueux.', 3000, 91),
+(7, 'Dragon', 'Un voyage fantastique où vous partirez à la recherche de dragons et vivrez des aventures magiques.', 5000, 31),
+(8, 'Capybara', 'Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.', 1500, 122),
+(9, 'Australie', 'Aventurez-vous dans l\"outback australien et observez les kangourous en liberté.', 1900, 89),
+(10, 'Mongolie', 'Explorez les montagnes de Mongolie, une expérience unique à dos de yak.', 0, 92),
+(11, 'Chewbaca', 'Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire', 1000, 200);
 
 -- --------------------------------------------------------
 

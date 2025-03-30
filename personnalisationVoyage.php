@@ -1,3 +1,6 @@
+<?php 
+    include 'session.php';
+?>
 <?php
 
 $destination = isset($_GET['destination']) ? $_GET['destination'] : 'Aucune destination';

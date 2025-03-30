@@ -1,5 +1,5 @@
 <?php
-
+include 'session.php';
 // Inclusion du fichier contenant la fonction getAPIKey
 require('getapikey.php');
 // Connexion à la base de données
