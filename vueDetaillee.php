@@ -8,7 +8,7 @@ $sejours = [
         "alt" => "Desert",
         "description" => "Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques.",
         "details" => "Explorez les vastes étendues du désert et admirez les magnifiques dunes. C'est une expérience unique de randonnée à dos de chameau, avec des nuits passées sous un ciel étoilé.",
-        "price" => "1200€",
+        "price" => "1200",
         "dates" => "Juin - Août",
         "activities" => [
             ["name" => "Randonnée à dos de chameau", "image" => "img/trav/randoChameau.jpg"],
@@ -26,7 +26,7 @@ $sejours = [
         "alt" => "Antarctique",
         "description" => "Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !",
         "details" => "L'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.",
-        "price" => "2500€",
+        "price" => "2500",
         "dates" => "Décembre - Mars",
         "activities" => [
             ["name" => "Observation des pingouins", "image" => "img/trav/observationPingouin.jpg"],
@@ -43,7 +43,7 @@ $sejours = [
         "alt" => "Africa",
         "description" => "Plongez au cœur de la savane africaine pour un safari inoubliable !",
         "details" => "Venez découvrir les majestueux animaux de la savane, des lions aux éléphants. C'est un voyage au plus près de la nature dans un environnement spectaculaire.",
-        "price" => "1800€",
+        "price" => "1800",
         "dates" => "Juillet - Septembre",
         "activities" => [
             ["name" => "Safari en jeep", "image" => "img/trav/safariJeep.jpeg"],
@@ -60,7 +60,7 @@ $sejours = [
         "alt" => "Costa Rica",
         "description" => "Partez pour une aventure magique au cœur des océans et nagez aux côtés de dauphins joueurs.",
         "details" => "Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.",
-        "price" => "2200€",
+        "price" => "2200",
         "dates" => "Mai - Août",
         "activities" => "Nage avec les dauphins, exploration sous-marine, visites de plages exotiques.",
         "imageDetail" => "", 
@@ -73,7 +73,7 @@ $sejours = [
         "alt" => "Chine",
         "description" => "Partez à la découverte des paysages enchanteurs de la Chine et observez de près les adorables pandas.",
         "details" => "Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.",
-        "price" => "2100€",
+        "price" => "2100",
         "dates" => "Septembre - Novembre",
         "activities" => "Visite de réserves de pandas, exploration de la Grande Muraille.",
         "imageDetail" => "", 
@@ -86,7 +86,7 @@ $sejours = [
         "alt" => "Licorne",
         "description" => "Plongez dans un monde féerique où des licornes majestueuses errent à travers des prairies enchantées.",
         "details" => "Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.",
-        "price" => "3500€",
+        "price" => "3500",
         "dates" => "Mars - Mai",
         "activities" => "Promenades dans les prairies, rencontres avec les licornes.",
         "imageDetail" => "",
@@ -99,7 +99,7 @@ $sejours = [
         "alt" => "Everest",
         "description" => "Embarquez pour une aventure palpitante à la recherche du légendaire Yéti dans l'Himalaya.",
         "details" => "Escaladez les pentes de l'Everest et explorez la légende du Yéti à travers des paysages majestueux.",
-        "price" => "3000€",
+        "price" => "3000",
         "dates" => "Septembre - Novembre",
         "activities" => "Expéditions, exploration du sommet, recherche du Yéti.",
         "imageDetail" => "", 
@@ -125,7 +125,7 @@ $sejours = [
         "alt" => "Capybara",
         "description" => "Partez à la rencontre des capybaras en Amérique du Sud.",
         "details" => "Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.",
-        "price" => "1500€",
+        "price" => "1500",
         "dates" => "Juin - Septembre",
         "activities" => "Observation des capybaras, exploration de la jungle.",
         "imageDetail" => "", 
@@ -138,7 +138,7 @@ $sejours = [
         "alt" => "Australie",
         "description" => "Explorez l’outback australien et rencontrez des kangourous dans leur habitat naturel !",
         "details" => "Aventurez-vous dans l'outback australien et observez les kangourous en liberté.",
-        "price" => "1900€",
+        "price" => "1900",
         "dates" => "Décembre - Février",
         "activities" => "Randonnée, rencontre avec la faune australienne.",
         "imageDetail" => "", 
@@ -151,7 +151,7 @@ $sejours = [
         "alt" => "Mongolie",
         "description" => "Partez à l'aventure dans les majestueuses montagnes chinoises à dos de yak !",
         "details" => "Explorez les montagnes de Mongolie, une expérience unique à dos de yak.",
-        "price" => "2200€",
+        "price" => "2200",
         "dates" => "Mai - Juillet",
         "activities" => "Randonnée à dos de yak, exploration des montagnes.",
         "imageDetail" => "", 
@@ -176,15 +176,23 @@ if (array_key_exists($destination, $sejours)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/sejours.css">
+    <!-- Titre, favicon et feuilles de style -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Détails du Voyage</title>
-    <link rel="stylesheet" href="css/vueDetaillee.css">
+    <link rel="stylesheet" href="css/vueDetaillee.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>
+    <!-- Barre de recherche -->
+    <?php require('phpFrequent/searchbar.php'); ?>
     
     <main>
+        <h1 class="title-travel">Le voyage <?= htmlspecialchars($sejour['alt']) ?></h1>
         <div class="contenu">
-            <h1>Le voyage <?= htmlspecialchars($sejour['alt']) ?></h1>
             <div class="detail-voyage">
                 <?php if (!empty($sejour['imageDetail'])): ?>
                     <img src="<?= $sejour['imageDetail'] ?>" alt="<?= $sejour['alt'] ?>" class="image-detail" />
@@ -193,7 +201,7 @@ if (array_key_exists($destination, $sejours)) {
                     <h2> Description</h2>
                     <p><?= $sejour['details'] ?></p>
                     
-                    <h3>Prix: <?= $sejour['price'] ?></h3>
+                    <h3>Prix (en €): <?= $sejour['price'] ?></h3>
                     <h4>Dates Disponibles: <?= $sejour['dates'] ?></h4>
                     
                     <h4>Activités proposées:</h4>
@@ -226,9 +234,14 @@ if (array_key_exists($destination, $sejours)) {
                 <h2>Restauration</h2>
                 <p><?= htmlspecialchars($sejour['meals']) ?></p>
             </div>
-
-            <br>
-            <a href="sejours.php" class="btn-back">Retour aux séjours</a>
+        </div>
+        <div class="button-cont">
+            <form action="personnalisationVoyage.php" method="GET">
+                <input type="hidden" name="destination" value="<?= htmlspecialchars($sejour['alt']) ?>">
+                <input type="hidden" name="description" value="<?= htmlspecialchars($sejour['description']) ?>">
+                <input type="hidden" name="price" value="<?= htmlspecialchars($sejour['price']) ?>">
+                <button class="button1" type="submit">Personnaliser et réserver ce séjour</button>
+            </form>
         </div>
     </main>
 

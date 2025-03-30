@@ -3,15 +3,6 @@
 /* Importation du style général du site */
 @import url('designSite.css');
 
-/*body {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  height: 100vh; 
-  margin: 0;
-  background-color: var(--background-body-form);
-} */
-
 .container-form {
   display: flex;
   justify-content: center;

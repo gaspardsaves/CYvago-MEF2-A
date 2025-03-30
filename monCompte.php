@@ -57,9 +57,14 @@
                     <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
                 <p><strong>🔑 Mot de passe :</strong> <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
             </div></br>
-            <form action="logout.php">
-                <button class="button1" type="submit">⬅️ Déconnexion</button>
-            </form>
+            <div class="buttons-nav">
+                <form action="panier.php">
+                    <button class="button1" type="submit">🛍️ Panier</button>
+                </form>
+                <form action="logout.php">
+                    <button class="button1" type="submit">⬅️ Déconnexion</button>
+                </form>
+            </div>
         </div>
 
     </main>

@@ -2,7 +2,13 @@
 
 $destination = isset($_GET['destination']) ? $_GET['destination'] : 'Aucune destination';
 $description = isset($_GET['description']) ? $_GET['description'] : 'Aucune description';
+$price = isset($_GET['price']) ? $_GET['price'] : '';
 
+$sejour = [
+    'alt' => $destination,
+    'description' => $description,
+    'price' => $price,
+];
 
 $prixOptions = [
     'petit_dej' => 10,
@@ -35,24 +41,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personnalisation du Voyage</title>
-    <link rel="stylesheet" href="css/personnalisation.css">
+    <!-- Titre, favicon et feuilles de style -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <title>ZanimoTrip Personnalisation</title>
+    <link rel="stylesheet" href="css/formulaire.css">
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>
+    <!-- Barre de recherche -->
+    <?php require('phpFrequent/searchbar.php'); ?>
     
     <main>
-        <div class="container-form">
-            <h1>Personnalisez votre voyage : <?php echo htmlspecialchars($destination); ?></h1>
-            <p><?php echo htmlspecialchars($description); ?></p>
-            
-            
+        <div class="container-form">        
             <form method="POST" action="panier.php">
+                <h1>Personnalisez votre voyage <?php echo htmlspecialchars($destination); ?></h1>
+                <p><?php echo htmlspecialchars($description); ?></p>
                 
-                <label><input type="checkbox" name="petit_dej"> Petit Déjeuner - 10€</label>
-                <label><input type="checkbox" name="assurance"> Assurance voyage - 25€</label>
-                <label><input type="checkbox" name="guide"> Guide touristique - 50€</label>
-                <label><input type="checkbox" name="menage"> Service de ménage - 30€</label>
+                <label><input type="checkbox" name="petit_dej"> Petit Déjeuner - 10€</label> <br />
+                <label><input type="checkbox" name="assurance"> Assurance voyage - 25€</label> <br />
+                <label><input type="checkbox" name="guide"> Guide touristique - 50€</label> <br />
+                <label><input type="checkbox" name="menage"> Service de ménage - 30€</label> <br />
                 
                 <label>Nombre de jours supplémentaires :
                     <select name="duree">
@@ -61,14 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="2">2 jours - 200€</option>
                         <option value="3">3 jours - 275€</option>
                     </select>
-                </label>
+                </label> <br />
                 
                 <label>Transport :
                     <select name="transport">
                         <option value="transport_avion">Avion - 200€</option>
                         <option value="transport_train">Train - 80€</option>
                     </select>
-                </label>
+                </label> <br />
                 
                 <label>Type de chambre :
                     <select name="chambre">
@@ -76,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="chambre_double">Chambre double - 120€</option>
                         <option value="chambre_suite">Suite - 200€</option>
                     </select>
-                </label>
+                </label> <br />
                 
-                <label><input type="checkbox" name="excursion"> Excursion - 40€</label>
-                <label><input type="checkbox" name="serviceVIP"> Service VIP - 150€</label>
-                <label><input type="checkbox" name="activites"> Activités supplémentaires - 50€</label>
+                <label><input type="checkbox" name="excursion"> Excursion - 40€</label> <br />
+                <label><input type="checkbox" name="serviceVIP"> Service VIP - 150€</label> <br />
+                <label><input type="checkbox" name="activites"> Activités supplémentaires - 50€</label> <br />
                 
                 
                 <input type="hidden" name="total" value="<?php echo $total; ?>">
@@ -88,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <input type="hidden" name="destination" value="<?php echo urlencode($destination); ?>">
                 <input type="hidden" name="description" value="<?php echo urlencode($description); ?>">
-                
+                <input type="hidden" name="price" value="<?php echo urlencode($price); ?>">
                 <div class="button-form">
                     <button type="submit" class="button1">Valider les options</button>
                 </div>
