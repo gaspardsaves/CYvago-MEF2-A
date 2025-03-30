@@ -4,55 +4,55 @@ $destination = isset($_GET['destination']) ? $_GET['destination'] : '';
 
 $sejours = [
     "Desert" => [
-        "image" => "img/Desert.webp",
+        "image" => "img/trav/desert2.jpg",
         "alt" => "Desert",
         "description" => "Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques.",
         "details" => "Explorez les vastes étendues du désert et admirez les magnifiques dunes. C'est une expérience unique de randonnée à dos de chameau, avec des nuits passées sous un ciel étoilé.",
         "price" => "1200€",
         "dates" => "Juin - Août",
         "activities" => [
-            ["name" => "Randonnée à dos de chameau", "image" => "img/activities/camel-trek.jpg"],
-            ["name" => "Nuit sous tente", "image" => "img/activities/desert-camp.jpg"],
-            ["name" => "Photographie du désert", "image" => "img/activities/desert-photo.jpg"],
-            ["name" => "Exploration des oasis", "image" => "img/activities/oasis.jpg"]
+            ["name" => "Randonnée à dos de chameau", "image" => "img/trav/randoChameau.jpg"],
+            ["name" => "Nuit sous tente", "image" => "img/trav/nuitTenteDesert.jpg"],
+            ["name" => "Photographie du désert", "image" => "img/trav/photographieDesert.png"],
+            ["name" => "Exploration des oasis", "image" => "img/trav/exploOasis.jpg"]
         ],
-        "imageDetail" => "img/desert-detail.jpg",
+        "imageDetail" => "img/trav/desert2.jpg",
         "hotel" => "Hôtel Sahara Lux", 
-        "hotelImage" => "img/hotel-desert.jpg",
+        "hotelImage" => "img/trav/HotelDesert.jpg",
         "meals" => "Petit déjeuner et dîner inclus"
     ],
     "Antarctique" => [
-        "image" => "img/Pingouin.webp",
+        "image" => "img/trav/Antarctique.jpg",
         "alt" => "Antarctique",
         "description" => "Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !",
         "details" => "L'Antarctique est un lieu magique où la faune est incroyable. Vous verrez des colonies de pingouins, des paysages glacés, et vivrez des aventures exceptionnelles.",
         "price" => "2500€",
         "dates" => "Décembre - Mars",
         "activities" => [
-            ["name" => "Observation des pingouins", "image" => "img/activities/penguin-watching.jpg"],
-            ["name" => "Excursions en bateau", "image" => "img/activities/antarctica-boat.jpg"],
-            ["name" => "Visites de stations scientifiques", "image" => "img/activities/scientific-station.jpg"]
+            ["name" => "Observation des pingouins", "image" => "img/trav/observationPingouin.jpg"],
+            ["name" => "Excursions en bateau", "image" => "img/trav/excursionBateau.jpg"],
+            ["name" => "Visites de stations scientifiques", "image" => "img/trav/stationScientifiques.jpeg"]
         ],
-        "imageDetail" => "img/antarctica-detail.jpg",
+        "imageDetail" => "img/trav/Antarctique.jpg",
         "hotel" => "Polar Lodge", 
-        "hotelImage" => "img/hotel-antarctique.jpg",
+        "hotelImage" => "img/trav/HotelAntarctique.jpg",
         "meals" => "Tous les repas inclus"
     ],
     "Africa" => [
-        "image" => "img/Africa.jpg",
+        "image" => "img/trav/afrique.jpg",
         "alt" => "Africa",
         "description" => "Plongez au cœur de la savane africaine pour un safari inoubliable !",
         "details" => "Venez découvrir les majestueux animaux de la savane, des lions aux éléphants. C'est un voyage au plus près de la nature dans un environnement spectaculaire.",
         "price" => "1800€",
         "dates" => "Juillet - Septembre",
         "activities" => [
-            ["name" => "Safari en jeep", "image" => "img/activities/safari-jeep.jpg"],
-            ["name" => "Visites de réserves naturelles", "image" => "img/activities/nature-reserve.jpg"],
-            ["name" => "Nuit sous les étoiles", "image" => "img/activities/starry-night.jpg"]
+            ["name" => "Safari en jeep", "image" => "img/trav/safariJeep.jpeg"],
+            ["name" => "Visites de réserves naturelles", "image" => "img/trav/visiteReserve.jpeg"],
+            ["name" => "Nuit sous les étoiles", "image" => "img/trav/NuitEtoile.jpeg"]
         ],
-        "imageDetail" => "img/africa-detail.jpg",
+        "imageDetail" => "img/trav/afrique.jpg",
         "hotel" => "Safari Lodge", 
-        "hotelImage" => "img/hotel-africa.jpg",
+        "hotelImage" => "img/trav/HotelAfrique.jpg",
         "meals" => "Petit déjeuner et dîner inclus"
     ],
     "Costa Rica" => [
@@ -184,13 +184,13 @@ if (array_key_exists($destination, $sejours)) {
     
     <main>
         <div class="contenu">
-            <h1>Vue détaillée du voyage: <?= htmlspecialchars($sejour['alt']) ?></h1>
+            <h1>Le voyage <?= htmlspecialchars($sejour['alt']) ?></h1>
             <div class="detail-voyage">
                 <?php if (!empty($sejour['imageDetail'])): ?>
                     <img src="<?= $sejour['imageDetail'] ?>" alt="<?= $sejour['alt'] ?>" class="image-detail" />
                 <?php endif; ?>
                 <div class="info-voyage">
-                    <h2>Description</h2>
+                    <h2> Description</h2>
                     <p><?= $sejour['details'] ?></p>
                     
                     <h3>Prix: <?= $sejour['price'] ?></h3>
