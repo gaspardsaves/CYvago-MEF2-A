@@ -161,6 +161,19 @@ $sejours = [
         "hotelImage" => "", 
         "meals" => "Petit déjeuner et dîner inclus"
     ],
+    "Chewbacca" => [
+        "image" => "img/chewbacca.jpeg",
+        "alt" => "Chewbacca",
+        "description" => "Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire.",
+        "details" => "Explorez le monde de Chewbacca",
+        "price" => "2250",
+        "dates" => "Janvier - Décembre",
+        "activities" => "Visite du logis de Chewbacca",
+        "imageDetail" => "", 
+        "hotel" => "Chewbacca Central", 
+        "hotelImage" => "", 
+        "meals" => "Petit déjeuner et dîner inclus"
+    ],
 ];
 
 
