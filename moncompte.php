@@ -1,9 +1,20 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['email'])){
-        header ("location: connexion.php");
+<?php
+    // Inclure le fichier de session
+    include 'session.php';
+    //session_start();
+    // Déboguer les variables de session
+    //echo "<pre>"; print_r($_SESSION); echo "</pre>"; // Décommentez pour déboguer
+    
+    // Redirection si non connecté
+    if(!isset($_SESSION['email']) && !isset($_SESSION['mail'])){
+        header("Location: connexion.php");
         exit();
     }
+    
+    // Vérifier que les variables de session nécessaires existent
+    $prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : "Utilisateur";
+    $nom = isset($_SESSION['nom']) ? $_SESSION['nom'] : "";
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : "non renseigné";
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +43,13 @@
         <!-- Cas de la connexion classique -->
         <?php if(isset($_GET['success']) && $_GET['success'] == 'true'): ?>
             <div class="message-con-ok show">
-                Bonjour <span id="nomUtilisateur"> <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span> !
+                Bonjour <span id="nomUtilisateur"><?php echo htmlspecialchars($prenom); ?></span> !
             </div>
         <?php endif; ?>
         <!-- Cas du nouvel utilisateur -->
         <?php if(isset($_GET['success']) && $_GET['success'] == 'newok'): ?>
             <div class="message-con-ok show">
-                Bienvenue <span id="nomUtilisateur"> <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span> !
+                Bienvenue <span id="nomUtilisateur"><?php echo htmlspecialchars($prenom); ?></span> !
             </div>
         <?php endif; ?>
 
@@ -53,20 +64,25 @@
 
             <div class="profile-info">
                 <h2>Vos informations</h2>
-                <p><strong>👤 Nom d'utilisateur :</strong> <span id="nomUtilisateur">
-                    <?php if(isset($_SESSION['prenom'])){echo $_SESSION['prenom'];}else{echo "non renseigné";}?></span>    <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
-                <p><strong>🔑 Mot de passe :</strong> <a href="monCompte.html" class="modify">🖋 Modifier</a></p>
+                <p><strong>👤 Nom :</strong> <span id="nomUtilisateur">
+                    <?php echo htmlspecialchars($prenom . " " . $nom); ?></span>
+                    <a href="monCompte.php" class="modify">🖋 Modifier</a>
+                </p>
+                <p><strong>📧 Email :</strong> <span>
+                    <?php echo htmlspecialchars($email); ?></span>
+                    <a href="monCompte.php" class="modify">🖋 Modifier</a>
+                </p>
+                <p><strong>🔑 Mot de passe :</strong> <a href="monCompte.php" class="modify">🖋 Modifier</a></p>
             </div></br>
             <div class="buttons-nav">
-                <form action="panier.php">
+                <form action="panier.php" method="GET">
                     <button class="button1" type="submit">🛍️ Panier</button>
                 </form>
-                <form action="logout.php">
+                <form action="logout.php" method="GET">
                     <button class="button1" type="submit">⬅️ Déconnexion</button>
                 </form>
             </div>
         </div>
-
     </main>
 
     <!-- Barre de pied de page -->

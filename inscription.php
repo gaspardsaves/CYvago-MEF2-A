@@ -1,12 +1,5 @@
 <?php
-    //Si vous n'êtes pas sur ma machine changer les coordonnées de connexion à phpmyadmin
-    /*$user = "root";
-    $server = "localhost";
-    $password = "";
-    $DB = "zanimotrip";
-    $database = new mysqli($server, $user, $password, $DB);
-    */
-    session_start();
+    include 'session.php';
     include 'database.php';
     if ($_SERVER["REQUEST_METHOD"]== "POST"){
         $PRENOM = $_POST["prenom"];
