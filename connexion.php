@@ -36,7 +36,7 @@
                     $_SESSION['nomdefamille'] = $nomdefamille;
                     $_SESSION['MDP'] = $result;
                     $_SESSION['role'] = $role;
-                    header("Location: monCompte.php?success=true");
+                    header("Location: moncompte.php?success=true");
                 }
                 else{
                     header("Location: connexion.php?error=password");

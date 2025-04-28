@@ -251,7 +251,7 @@ if (array_key_exists($destination, $sejours)) {
             </div>
         </div>
         <div class="button-cont">
-            <form action="personnalisationVoyage.php" method="GET">
+            <form action="personnalisationvoyage.php" method="GET">
                 <input type="hidden" name="destination" value="<?= htmlspecialchars($sejour['alt']) ?>">
                 <input type="hidden" name="description" value="<?= htmlspecialchars($sejour['description']) ?>">
                 <input type="hidden" name="price" value="<?= htmlspecialchars($sejour['price']) ?>">

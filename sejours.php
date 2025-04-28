@@ -51,7 +51,7 @@
                         $found = true;
                         echo '
                         <div class="image-interactive">
-                            <a href="vueDetaillee.php?destination=' . urlencode($sejour["alt"]) .'">;
+                            <a href="vuedetaillee.php?destination=' . urlencode($sejour["alt"]) .'">;
                                 <img class="sejour" src="' . $sejour["image"] . '" alt="' . $sejour["alt"] . '" height="200" width="200">
                             </a>
                             <div class="description"><span>' . $sejour["description"] . '</span></div>

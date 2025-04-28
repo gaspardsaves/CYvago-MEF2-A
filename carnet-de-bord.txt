@@ -51,7 +51,10 @@ Interface :
 - Début de la personnalisation des séjours
 - Codage du panier pour le client
 
-29/09/25 :
+29/03/25 :
 - Pages inscription / connexion fonctionnelles avec la Database
 - Début de codage du paiement et raccordement avec l'interface CY Bank
 - Création de la page vue détaillée avec sa page CSS
+
+28/04/25 :
+- Debug URL majuscules

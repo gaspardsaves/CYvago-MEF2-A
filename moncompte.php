@@ -59,20 +59,20 @@
             <div class="profile-card">
                 <img src="img/blank-picture-profile.png" 
                     alt="photo de profil" class="profile-pic">
-                <a href="monCompte.php" class="modify">📸 Changer de photo</a>
+                <a href="moncompte.php" class="modify">📸 Changer de photo</a>
             </div>
 
             <div class="profile-info">
                 <h2>Vos informations</h2>
                 <p><strong>👤 Nom :</strong> <span id="nomUtilisateur">
                     <?php echo htmlspecialchars($prenom . " " . $nom); ?></span>
-                    <a href="monCompte.php" class="modify">🖋 Modifier</a>
+                    <a href="moncompte.php" class="modify">🖋 Modifier</a>
                 </p>
                 <p><strong>📧 Email :</strong> <span>
                     <?php echo htmlspecialchars($email); ?></span>
-                    <a href="monCompte.php" class="modify">🖋 Modifier</a>
+                    <a href="moncompte.php" class="modify">🖋 Modifier</a>
                 </p>
-                <p><strong>🔑 Mot de passe :</strong> <a href="monCompte.php" class="modify">🖋 Modifier</a></p>
+                <p><strong>🔑 Mot de passe :</strong> <a href="moncompte.php" class="modify">🖋 Modifier</a></p>
             </div></br>
             <div class="buttons-nav">
                 <form action="panier.php" method="GET">
