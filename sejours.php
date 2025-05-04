@@ -68,20 +68,25 @@
             <div class="filtrage">
                 <div class="zonedefiltrage">
                     <h2 class="titre">Filtrer en fonction de vos préférences</h2>
-                    <div class="titre">
-                        Date : <input type="date" name="date" min="2025-02-13">
+                    <div class="titre">Saison du voyage :
+                        <select name="Saison">
+                            <option value="printemps">Printemps</option>
+                            <option value="ete">Été</option>
+                            <option value="automne">Automne</option>
+                            <option value="hiver">Hiver</option>
+                        </select>
                     </div>
                     <br>
-                    <div class="titre">Choisissez une fourchette de prix</div>
-                    <select name="Prix">
-                        <option value="100euro-1000euro">100&euro;-1000&euro;</option>
-                        <option value="1000euro-1500euro">1000&euro;-1500&euro;</option>
-                        <option value="1500euro-2000euro">1500&euro;-2000&euro;</option>
-                        <option value="200euro-2500euro">2000&euro;-2500&euro;</option>
-                    </select>
+                    <div class="titre">Choisissez une fourchette de prix :
+                        <select name="Prix">
+                            <option value="1000euro-2000euro">1000 &euro; - 2000 &euro;</option>
+                            <option value="2001euro-3000euro">2001 &euro; - 3000 &euro;</option>
+                            <option value="plus3000euros">> 3000 &euro;</option>
+                        </select>
+                    </div>
                     <br>
                     <div class="filtre">
-                        <div class="titre">Filtrer par pays</div>
+                        <div class="titre">Filtrer par pays :</div>
                         <div class="check">
                             <table>
                                 <tr>

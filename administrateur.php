@@ -14,7 +14,7 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Admin</title>
     <link rel="stylesheet" href="css/administrateur.css">
-    <script src="javascript/admin.js"></script>
+    <script src="js/admin.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->
