@@ -1,11 +1,9 @@
 <?php
-    // Inclure le fichier de session
-    include 'session.php';
-    //session_start();
-    // Déboguer les variables de session
-    //echo "<pre>"; print_r($_SESSION); echo "</pre>"; // Décommentez pour déboguer
     
-    // Redirection si non connecté
+    include 'session.php';
+   
+    
+    
     if(!isset($_SESSION['email']) && !isset($_SESSION['mail'])){
         header("Location: connexion.php");
         exit();
@@ -62,18 +60,38 @@
                 <a href="moncompte.php" class="modify">📸 Changer de photo</a>
             </div>
 
-            <div class="profile-info">
-                <h2>Vos informations</h2>
-                <p><strong>👤 Nom :</strong> <span id="nomUtilisateur">
-                    <?php echo htmlspecialchars($prenom . " " . $nom); ?></span>
-                    <a href="moncompte.php" class="modify">🖋 Modifier</a>
-                </p>
-                <p><strong>📧 Email :</strong> <span>
-                    <?php echo htmlspecialchars($email); ?></span>
-                    <a href="moncompte.php" class="modify">🖋 Modifier</a>
-                </p>
-                <p><strong>🔑 Mot de passe :</strong> <a href="moncompte.php" class="modify">🖋 Modifier</a></p>
-            </div></br>
+            <form id="profile-form" action="update_profile.php" method="POST">
+                <div class="profile-info">
+                    <h2>Vos informations</h2>
+                    
+                    <p>
+                        <label for="nom"><strong>👤 Nom :</strong></label>
+                        <input type="text" id="nom" value="<?php echo htmlspecialchars($prenom . ' ' . $nom); ?>" disabled>
+                        <button type="button" class="edit-btn" data-target="nom">✏️</button>
+                        <button type="button" class="save-btn" data-target="nom" style="display:none;">✅</button>
+                        <button type="button" class="cancel-btn" data-target="nom" style="display:none;">❌</button>
+                        <input type="hidden" name="nom" id="hidden-nom" value="<?php echo htmlspecialchars($prenom . ' ' . $nom); ?>">
+                    </p>
+                    <p>
+                        <label for="email"><strong>📧 Email :</strong></label>
+                        <input type="email" id="email" value="<?php echo htmlspecialchars($email); ?>" disabled>
+                        <button type="button" class="edit-btn" data-target="email">✏️</button>
+                        <button type="button" class="save-btn" data-target="email" style="display:none;">✅</button>
+                        <button type="button" class="cancel-btn" data-target="email" style="display:none;">❌</button>
+                        <input type="hidden" name="email" id="hidden-email" value="<?php echo htmlspecialchars($email); ?>">
+                    </p>
+                    <p>
+                        <label for="password"><strong>🔑 Mot de passe :</strong></label>
+                        <input type="password" id="password" value="••••••••" disabled>
+                        <button type="button" class="edit-btn" data-target="password">✏️</button>
+                        <button type="button" class="save-btn" data-target="password" style="display:none;">✅</button>
+                        <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
+                        <input type="hidden" name="password" id="hidden-password" value="">
+                    </p>
+                    <button type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
+                </div>
+            </form>
+            <br/>
             <div class="buttons-nav">
                 <form action="panier.php" method="GET">
                     <button class="button1" type="submit">🛍️ Panier</button>
@@ -87,5 +105,8 @@
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
+    
+    <!-- Script JavaScript à charger après le DOM -->
+    <script src="javascript/moncompte.js"></script>
 </body>
 </html>
