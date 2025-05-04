@@ -98,19 +98,25 @@
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
                 <label for="AdresseMail">Adresse Mail :</label>
                 <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
+                <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
                 <label for="MotDePasse">Mot de passe :</label>
                 <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/><br>
+                <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
+                <div class="password-visibility"> <img id="togglePassword" src="images/eye-closed.svg" alt="Voir le mot de passe" onclick="togglePasswordVisibility()"></div>
+                <div id="passwordCount" class="password-count"></div> <!-- Compteur de caractères pour le mot de passe -->
                 <div class="button-form">
                     <button class="button1" type="submit">Se connecter</button>
                 </div>
                 <p>Pas encore de compte ? <a href="inscription.php" class="link">S'inscrire</a></p>
             </form>
+            <div id="loginErrorMessage" class="error-message"></div> <!-- Message d'erreur si utilisateur non trouvé ou mauvais mot de passe -->
         </div>
     </main>
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
 
+    <script src="js/formValidation.js"></script>
 </body>
 </html>
 
