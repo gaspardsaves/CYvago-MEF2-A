@@ -14,6 +14,7 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Admin</title>
     <link rel="stylesheet" href="css/administrateur.css">
+    <script src="javascript/admin.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->
@@ -83,13 +84,32 @@
                     echo "<td>".$ligne["lastname"]."</td>";
                     echo "<td>".$ligne["firstname"]."</td>";
                     echo "<td>".$ligne["email"]."</td>";
-                    if($ligne["role"]==1){
-                        echo "<td>Normal</td>";
+                    if($ligne["role"]!=0){
+                        echo'<td>Normal</td>';
+                        echo '
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" 
+                                    class="vip-toggle" 
+                                    data-user-id="'. $ligne['id'] . '" ' . ($ligne["role"] == 2 ? 'checked' : '') . '>'.'
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" 
+                                    class="ban-toggle" 
+                                    data-user-id= ' . $ligne['id'] . '" ' . ($ligne["role"] == -1 ? 'checked' : '') . '>
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                        ';
                     }
                     elseif($ligne["role"]==0){
-                        echo "<td>Admin</td><label class='switch'>";
+                        echo '<td>Admin</td>';
+                        echo'<td></td><td></td>';
                     }
-                    echo "<td>pas encore disponible</td><td>pas encore disponible</td></tr>";
+                    
                 }
                 if(isset($_REQUEST['requete']))
                 ?>
