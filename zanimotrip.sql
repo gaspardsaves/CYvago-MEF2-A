@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 04 mai 2025 à 03:17
+-- Généré le : dim. 04 mai 2025 à 12:47
 -- Version du serveur : 8.0.41-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -129,6 +129,7 @@ CREATE TABLE `travel` (
   `text` varchar(300) NOT NULL,
   `image` varchar(250) NOT NULL,
   `price` float NOT NULL,
+  `nbrdays` int NOT NULL,
   `season` varchar(100) NOT NULL,
   `hotel` varchar(150) NOT NULL,
   `imghotel` varchar(150) NOT NULL,
@@ -139,19 +140,19 @@ CREATE TABLE `travel` (
 -- Déchargement des données de la table `travel`
 --
 
-INSERT INTO `travel` (`id`, `title`, `text`, `image`, `price`, `season`, `hotel`, `imghotel`, `meal`) VALUES
-(1, 'Desert', 'Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques.', 'img/Desert.webp', 1200, 'Printemps, Automne', 'Hôtel Sahara Lux', 'img/trav/HotelDesert.jpg', 'Demi-pension.'),
-(2, 'Antarctique', 'Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !', 'img/Pingouin.webp', 2500, 'Été', 'Polar Lodge', 'img/trav/HotelAntarctique.jpg', 'Pension complète.'),
-(3, 'Africa', 'Plongez au cœur de la savane africaine pour un safari inoubliable !', 'img/trav/afrique.jpg', 1800, 'Printemps, Été, Automne', 'Safari Lodge', 'img/trav/HotelAfrique.jpg', 'Demi-pension.'),
-(4, 'Costa Rica', 'Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.', 'img/Dauphin3.jpg', 2200, 'Hiver', '', '', ''),
-(5, 'Chine', 'Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.', 'img/Panda2.jpg', 2100, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(6, 'Licorne', 'Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.', 'img/Licorne.webp', 3500, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(7, 'Everest', 'Escaladez les pentes de l\"Everest et explorez la légende du Yéti à travers des paysages majestueux.', 'img/Yeti.jpg', 3000, 'Printemps, Été', '', '', ''),
-(8, 'Dragon', 'Un voyage fantastique où vous partirez à la recherche de dragons et vivrez des aventures magiques.', 'img/Dragon2.jpg', 5000, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(9, 'Capybara', 'Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.', 'img/Capybara.avif', 1500, 'Printemps, Automne', '', '', ''),
-(10, 'Australie', 'Aventurez-vous dans l\'outback australien et observez les kangourous en liberté.', 'img/Kangourou.jpg', 1900, 'Printemps, Automne', '', '', ''),
-(11, 'Mongolie', 'Explorez les montagnes de Mongolie, une expérience unique à dos de yak.', 'img/Yaks.jpeg', 2000, 'Printemps, Été, Automne,', '', '', ''),
-(12, 'Chewbaca', 'Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire', 'img/chewbacca.jpg', 1000, 'Printemps, Été, Automne, Hiver', '', '', '');
+INSERT INTO `travel` (`id`, `title`, `text`, `image`, `price`, `nbrdays`, `season`, `hotel`, `imghotel`, `meal`) VALUES
+(1, 'Desert', 'Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques.', 'img/Desert.webp', 1200, 7, 'Printemps, Automne', 'Hôtel Sahara Lux', 'img/trav/HotelDesert.jpg', 'Demi-pension.'),
+(2, 'Antarctique', 'Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !', 'img/Pingouin.webp', 2500, 14, 'Été', 'Polar Lodge', 'img/trav/HotelAntarctique.jpg', 'Pension complète.'),
+(3, 'Africa', 'Plongez au cœur de la savane africaine pour un safari inoubliable !', 'img/trav/afrique.jpg', 1800, 9, 'Printemps, Été, Automne', 'Safari Lodge', 'img/trav/HotelAfrique.jpg', 'Demi-pension.'),
+(4, 'Costa Rica', 'Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.', 'img/Dauphin3.jpg', 2200, 10, 'Hiver', '', '', ''),
+(5, 'Chine', 'Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.', 'img/Panda2.jpg', 2100, 8, 'Printemps, Été, Automne, Hiver', '', '', ''),
+(6, 'Licorne', 'Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.', 'img/Licorne.webp', 3500, 5, 'Printemps, Été, Automne, Hiver', '', '', ''),
+(7, 'Everest', 'Escaladez les pentes de l\"Everest et explorez la légende du Yéti à travers des paysages majestueux.', 'img/Yeti.jpg', 3000, 16, 'Printemps, Été', '', '', ''),
+(8, 'Dragon', 'Un voyage fantastique où vous partirez à la recherche de dragons et vivrez des aventures magiques.', 'img/Dragon2.jpg', 5000, 18, 'Printemps, Été, Automne, Hiver', '', '', ''),
+(9, 'Capybara', 'Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.', 'img/Capybara.avif', 1500, 7, 'Printemps, Automne', '', '', ''),
+(10, 'Australie', 'Aventurez-vous dans l\'outback australien et observez les kangourous en liberté.', 'img/Kangourou.jpg', 1900, 10, 'Printemps, Automne', '', '', ''),
+(11, 'Mongolie', 'Explorez les montagnes de Mongolie, une expérience unique à dos de yak.', 'img/Yaks.jpeg', 2000, 20, 'Printemps, Été, Automne,', '', '', ''),
+(12, 'Chewbaca', 'Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire', 'img/chewbacca.jpg', 1000, 3, 'Printemps, Été, Automne, Hiver', '', '', '');
 
 -- --------------------------------------------------------
 
