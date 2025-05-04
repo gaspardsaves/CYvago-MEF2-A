@@ -13,6 +13,9 @@
             <form action="sejours.php">
                 <button class="button1" type="submit">Séjours</button>
             </form>
+            <form action="parametre.php">
+                <button class="button1" type="submit">⚙️</button>
+            </form>
             <?php
             if(isset($_SESSION['email'])&&(isset($_SESSION['prenom']))&&(isset($_SESSION['nomdefamille']))&&(isset($_SESSION['role']))&&(isset($_SESSION['MDP']))){
                 echo '<form action="moncompte.php"><button class="button1" type="submit">'. htmlspecialchars($_SESSION['prenom']). '</button></form>';
