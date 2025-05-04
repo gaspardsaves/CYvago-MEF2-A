@@ -107,6 +107,6 @@
     <?php require('phpFrequent/footer.php'); ?>
     
     <!-- Script JavaScript à charger après le DOM -->
-    <script src="javascript/moncompte.js"></script>
+    <script src="js/moncompte.js"></script>
 </body>
 </html>
