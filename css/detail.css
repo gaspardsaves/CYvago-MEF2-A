@@ -1,0 +1,277 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+@import url('designSite.css');
+
+body {
+    color: var(--white); 
+    font-family: 'Inter Tight', sans-serif; 
+    background-color: var(--blue-background); 
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: var(--blue-background);
+    color: var(--white);
+    padding-bottom: 40px;
+}
+
+.title-travel {
+    color: var(--white);
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 30px 0 20px;
+    padding: 10px;
+}
+
+/* Double-column structure */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.left-column {
+    flex: 3; /* 3/4 */
+    min-width: 300px;
+}
+
+.right-column {
+    flex: 1; /* 1/4 */
+    min-width: 250px;
+}
+
+/* Travel info */
+.info-card {
+    background-color: var(--activity-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-card h2 {
+    color: var(--white);
+    margin-top: 0;
+    border-bottom: 1px solid var(--footer-end);
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Stages and options sections */
+.activities-section {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--shadow-02);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust picture */
+.image-detail {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+    display: block;
+    box-shadow: 0 4px 8px var(--shadow-03);
+}
+
+.hotel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+    max-height: 180px;
+    object-fit: cover;
+}
+
+/* Stages */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.activity-card {
+    background-color: var(--shadow-03);
+    border: 1px solid rgba(233, 181, 47, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-02);
+    position: relative;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.activity-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.activity-card .activity-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.activity-card .activity-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Sliders for options */
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    background-color: var(--shadow-02);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.switch-container span {
+    font-size: 0.8rem;
+    color: var(--link-profile);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-desactivated);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--white);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--button1);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--button1);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Style for price section */
+.price-summary {
+    background-color:  var(--shadow-03);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px var(--shadow-03);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(233, 181, 47, 0.3);
+}
+
+.price-summary.updated {
+    border-color: var(--button2);
+    animation: pulse 1s;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(233, 181, 47, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(233, 181, 47, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 181, 47, 0); }
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--footer-end);
+}
+
+.total-row:last-child {
+    border-bottom: none;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+.total-label {
+    font-size: 1.1rem;
+    color: var(--link-visited);
+}
+
+.total-price {
+    font-size: 1.1rem;
+    color: var(--link-profile);
+}
+
+.final-total {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+.option-list {
+    font-size: 0.9rem;
+    color: var(--switch-desactivated);
+    padding: 5px 0 10px 20px;
+    max-height: 100px;
+    overflow-y: auto;
+    margin: 5px 0;
+}
+
+/* Button for booking */
+.button-cont {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* RWD */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .left-column, .right-column {
+        width: 100%;
+    }
+}
