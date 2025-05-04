@@ -58,3 +58,9 @@ Interface :
 
 28/04/25 :
 - Debug URL majuscules
+
+04/05/25
+-Page Administrateur/ implémentation de l'attente de la modification
+-Création du code javascript pour les prix dynamiques
+-Modification du compte est fonctionnelle mais pas connecté à la base de données
+-Inplémentation du mode clair qui ne marche pas
