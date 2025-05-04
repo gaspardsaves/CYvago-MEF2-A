@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 04 mai 2025 à 12:47
+-- Généré le : dim. 04 mai 2025 à 19:55
 -- Version du serveur : 8.0.41-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -144,15 +144,18 @@ INSERT INTO `travel` (`id`, `title`, `text`, `image`, `price`, `nbrdays`, `seaso
 (1, 'Desert', 'Partez pour une aventure inoubliable à dos de chameau à travers des paysages désertiques.', 'img/Desert.webp', 1200, 7, 'Printemps, Automne', 'Hôtel Sahara Lux', 'img/trav/HotelDesert.jpg', 'Demi-pension.'),
 (2, 'Antarctique', 'Partez à la découverte en Antarctique, où les pingouins règnent en maîtres !', 'img/Pingouin.webp', 2500, 14, 'Été', 'Polar Lodge', 'img/trav/HotelAntarctique.jpg', 'Pension complète.'),
 (3, 'Africa', 'Plongez au cœur de la savane africaine pour un safari inoubliable !', 'img/trav/afrique.jpg', 1800, 9, 'Printemps, Été, Automne', 'Safari Lodge', 'img/trav/HotelAfrique.jpg', 'Demi-pension.'),
-(4, 'Costa Rica', 'Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.', 'img/Dauphin3.jpg', 2200, 10, 'Hiver', '', '', ''),
-(5, 'Chine', 'Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.', 'img/Panda2.jpg', 2100, 8, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(6, 'Licorne', 'Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.', 'img/Licorne.webp', 3500, 5, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(7, 'Everest', 'Escaladez les pentes de l\"Everest et explorez la légende du Yéti à travers des paysages majestueux.', 'img/Yeti.jpg', 3000, 16, 'Printemps, Été', '', '', ''),
-(8, 'Dragon', 'Un voyage fantastique où vous partirez à la recherche de dragons et vivrez des aventures magiques.', 'img/Dragon2.jpg', 5000, 18, 'Printemps, Été, Automne, Hiver', '', '', ''),
-(9, 'Capybara', 'Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.', 'img/Capybara.avif', 1500, 7, 'Printemps, Automne', '', '', ''),
-(10, 'Australie', 'Aventurez-vous dans l\'outback australien et observez les kangourous en liberté.', 'img/Kangourou.jpg', 1900, 10, 'Printemps, Automne', '', '', ''),
-(11, 'Mongolie', 'Explorez les montagnes de Mongolie, une expérience unique à dos de yak.', 'img/Yaks.jpeg', 2000, 20, 'Printemps, Été, Automne,', '', '', ''),
-(12, 'Chewbaca', 'Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire', 'img/chewbacca.jpg', 1000, 3, 'Printemps, Été, Automne, Hiver', '', '', '');
+(4, 'Costa Rica', 'Le Costa Rica vous offre une expérience unique en mer, avec des dauphins, des plages et des paysages à couper le souffle.', 'img/Dauphin3.jpg', 2200, 10, 'Hiver', 'EcoLodge Arenal Springs', 'img/trav/hotelCostaRica.jpeg', 'Demi-pension.'),
+(5, 'Chine', 'Rencontrez les pandas géants dans leur habitat naturel et explorez la culture chinoise.', 'img/Panda2.jpg', 2100, 8, 'Printemps, Été, Automne, Hiver', 'Jade Garden Retreat', 'img/trav/HotelChine.jpeg', 'Demi-pension.'),
+(6, 'Licorne', 'Un voyage féérique où vous vivrez une expérience magique au milieu de créatures mythiques.', 'img/Licorne.webp', 3500, 5, 'Printemps, Été, Automne, Hiver', 'Palais des Nuages', 'img/trav/HotelLicorne.jpeg', 'Pension complète'),
+(7, 'Everest', 'Escaladez les pentes de l\"Everest et explorez la légende du Yéti à travers des paysages majestueux.', 'img/Yeti.jpg', 3000, 16, 'Printemps, Été', 'The Yeti Peak Lodge', 'img/trav/HotelEverest.jpeg', 'Pension complète.'),
+(8, 'Dragon', 'Un voyage fantastique où vous partirez à la recherche de dragons et vivrez des aventures magiques.', 'img/Dragon2.jpg', 5000, 18, 'Printemps, Été, Automne, Hiver', 'Dragonfire Retreat', 'img/trav/HotelDragon.jpeg', 'Pension complète.'),
+(9, 'Capybara', 'Découvrez ces animaux fascinants dans leur habitat naturel en Amérique du Sud.', 'img/Capybara.avif', 1500, 7, 'Printemps, Automne', 'Capybara Springs Resort', 'img/trav/HotelAmeriqueSud.jpeg', 'Demi-pension.'),
+(10, 'Australie', 'Aventurez-vous dans l\'outback australien et observez les kangourous en liberté.', 'img/Kangourou.jpg', 1900, 10, 'Printemps, Automne', 'Outback Hop Inn', 'img/trav/HotelAustralie.jpeg', 'Demi-Pension.'),
+(11, 'Mongolie', 'Explorez les montagnes de Mongolie, une expérience unique à dos de yak.', 'img/Yaks.jpeg', 2000, 20, 'Printemps, Été, Automne,', 'Yak & Peace Lodge', 'img/trav/HotelMongolie.jpeg', 'Pension complète.'),
+(12, 'Chewbaca', 'Passez une journée inoubliable aux côtés de Chewbacca, le Wookiee légendaire', 'img/chewbacca.jpg', 1000, 3, 'Printemps, Été, Automne, Hiver', 'Wookiee Wilderness Retreat', 'img/trav/HotelChewbaca.jpeg', 'Demi-pension.'),
+(13, 'Thaïlande ', 'Partez au cœur de la jungle de Chiang Mai pour vivre une immersion inoubliable avec les majestueux éléphants d’Asie. Vous visiterez un sanctuaire éthique où le bien-être animal est prioritaire, tout en découvrant la culture thaïlandaise et ses temples secrets.', 'img/elephants.jpeg', 2400, 10, 'Printemps, Hiver', 'Elephant Grove Retreat', 'img/trav/HotelThailande.jpeg', 'Pension complète.'),
+(14, 'Finlande', 'Partez explorer la Laponie finlandaise sous les aurores boréales. Traque photographique des renards polaires, randonnée en raquettes et nuits dans des igloos de verre vous attendent. Un voyage magique pour les amoureux de nature arctique.', 'img/renards.jpeg', 3100, 6, 'Hiver', 'Aurora Fox Lodge', 'img/trav/HotelFinlande.jpeg', 'Demi-pension.'),
+(15, 'Madagascar', 'Explorez les forêts tropicales de l’île Rouge à la recherche de ses caméléons uniques au monde. Ce voyage allie biodiversité, paysages spectaculaires, et rencontres avec les communautés locales.', 'img/cameleons.jpeg', 3600, 11, 'Eté, Automne', 'Chameleon Canopy Ecolodge', 'img/trav/HotelMadagascar.jpeg', 'Pension-complète.');
 
 -- --------------------------------------------------------
 
@@ -259,7 +262,7 @@ ALTER TABLE `stage`
 -- AUTO_INCREMENT pour la table `travel`
 --
 ALTER TABLE `travel`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `users`
