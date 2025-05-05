@@ -59,8 +59,15 @@ Interface :
 28/04/25 :
 - Debug URL majuscules
 
+03/04/25 :
+- Création du code javascript pour les prix dynamiques
+- Enrichissement de la base de données pour les voyages
+- Travail sur la vue détaillée des voyages et le raccordement à la base de données
+- Modification du compte est fonctionnelle mais pas connecté à la base de données
+
 04/05/25
--Page Administrateur/ implémentation de l'attente de la modification
--Création du code javascript pour les prix dynamiques
--Modification du compte est fonctionnelle mais pas connecté à la base de données
--Inplémentation du mode clair qui ne marche pas
+- Page Administrateur/ implémentation de l'attente de la modification
+- Implémentation du mode clair / sombre
+- Possibilité de voir son mot de passe lors de la saisie
+- Récupération de l'adresse mail lorsqu'il y a une erreur de saisie sur le mot de passe
+- Tri dynamique des séjours
