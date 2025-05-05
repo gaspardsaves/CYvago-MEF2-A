@@ -1,0 +1,44 @@
+.container-form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Styles spécifiques pour le mode clair */
+.light-mode-theme {
+    background: var(--button1);
+}
+
+.light-mode-theme .button1 {
+    /* Inverser les dégradés pour le mode clair */
+    background: linear-gradient(135deg, var(--blue-nav), var(--search-bar));
+    color: var(--white);
+}
+
+.light-mode-theme .button1:hover {
+    background: linear-gradient(135deg, var(--search-bar), var(--blue-background));
+}
+
+.light-mode-theme .link {
+    color: var(--blue-nav);
+}
+
+.light-mode-theme .link:hover {
+    color: var(--button3);
+}
+
+.light-mode-theme .search-bar input {
+    border-color: var(--blue-nav);
+    background-color: var(--white);
+    color: var(--blue-nav);
+}
+
+.light-mode-theme .footer-end {
+    color: var(--blue-nav);
+    border-top: 1px solid var(--blue-background);
+}
+
+/* Amélioration des transitions pour un effet plus fluide */
+body, .nav-bar, .footer-bar, .search-bar, .button1, .link, input {
+    transition: all 0.4s ease-in-out;
+}

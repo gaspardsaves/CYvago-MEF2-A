@@ -109,8 +109,14 @@
                 <label for="prenom"> Prénom : </label> <input type="text" name="prenom" placeholder="Philippe" maxlength="50" required> <br />
                 <label for="nom"> Nom(s) : </label> <input type="text" name="nom" placeholder="DUPONT" maxlength="50" required> <br />
                 <label for="mail"> Adresse mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
+                <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
+
                 <label for="mdp">Mot de passe : </label> <input type="password" name="mdp" placeholder="Mot de passe" required> <br />
+                <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
+            
                 <label for="mdp">Confirmation du mot de passe : </label> <input type="password" name="verifmdp" placeholder="Mot de passe" required> <br />
+                <div id="confirmPasswordError" class="error-message"></div> <!-- Message d'erreur pour la confirmation du mot de passe -->
+                
                 <label for="date"> Date de naissance : </label> <input type="date" name="date" required> <br />
                 <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
 
@@ -126,5 +132,6 @@
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
+    <script src="js/formValidation.js"></script>
 </body>
 </html>
