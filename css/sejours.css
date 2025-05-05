@@ -173,7 +173,7 @@ img.sejour {
 
 /* Switch activé */
 input:checked + .slider {
-    background-color: var(--switch-activated);
+    background-color: var(--button1);
 }
 
 input:checked + .slider::before {

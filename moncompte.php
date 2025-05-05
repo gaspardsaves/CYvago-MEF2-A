@@ -88,7 +88,7 @@
                         <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
                         <input type="hidden" name="password" id="hidden-password" value="">
                     </p>
-                    <button type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
+                    <button class="button1" type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
                 </div>
             </form>
             <br/>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 04 mai 2025 à 19:55
+-- Généré le : lun. 05 mai 2025 à 00:36
 -- Version du serveur : 8.0.41-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -73,7 +73,43 @@ INSERT INTO `extra` (`id`, `stage`, `title`, `price`) VALUES
 (6, 6, 'Visites de stations scientifiques', 150),
 (7, 7, 'Safari en jeep', 650),
 (8, 8, 'Visites de réserves naturelles', 75),
-(9, 9, 'Nuit sous les étoiles', 150);
+(9, 9, 'Nuit sous les étoiles', 150),
+(10, 10, 'Excursion en bateau et snorkeling', 200),
+(11, 11, 'Kayak au coucher du soleil', 100),
+(12, 12, 'Randonnée et observation depuis la montagne ', 150),
+(13, 13, 'Visite du Centre de Recherche de Chengdu', 400),
+(14, 14, 'Randonnée dans la montagne de Qinling ', 200),
+(15, 15, 'Promenade en forêt de bambous ', 100),
+(16, 16, 'Safari magique en forêt enchantée', 450),
+(17, 17, 'Vol en montgolfière au-dessus des prairies arc-en-ciel', 270),
+(18, 18, 'Équitation avec les licornes', 200),
+(19, 19, 'Trekking au Mont Everest avec un guide Sherpa', 375),
+(20, 20, 'Veillée autour du feu avec les légendes de l’Himalaya', 50),
+(21, 21, 'Excursion en hélicoptère au-dessus de l\'Everest', 450),
+(22, 22, 'Exploration du Temple du Dragon', 150),
+(23, 23, 'Randonnée dans la Vallée des Dragons', 75),
+(24, 24, 'Croisière sur la rivière des Dragons', 250),
+(25, 25, 'Safari au cœur de la jungle amazonienne', 300),
+(26, 26, 'Randonnée à travers les marai', 75),
+(27, 27, 'Visite de réserves naturelles', 100),
+(28, 28, 'Safari dans le parc national de Grampians', 300),
+(29, 29, 'Promenade au lever du soleil dans la vallée de Flinders Ranges', 40),
+(30, 30, 'Nuit sous les étoiles en camping à Kangaroo Island', 250),
+(31, 31, 'Trek dans les montagnes de l Altaï', 175),
+(32, 32, 'Séjour nomade avec les éleveurs de yaks', 250),
+(33, 33, 'Voyage en chameau à travers le désert de Gobi ', 350),
+(34, 34, 'Aventure dans la forêt de Wookiee', 375),
+(35, 35, 'Voyage en vaisseau spatial à travers la galaxie', 550),
+(36, 36, 'Atelier de fabrication d’armes et de gadgets Wookiee  ', 150),
+(37, 37, 'Safari au parc national de Khao Yai', 175),
+(38, 38, 'Séjour dans un sanctuaire d’éléphants ', 350),
+(39, 39, 'Baignade avec les éléphants dans la rivière de Chiang Mai ', 150),
+(40, 40, 'Observation des renards à la caméra thermique', 200),
+(41, 41, 'Randonnée au crépuscule dans les forêts enneigées', 100),
+(42, 42, 'Visite d’un centre de réhabilitation de la faune nordique', 150),
+(43, 43, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 75),
+(44, 44, 'Croisière sur le fleuve Tsiribihina', 275),
+(45, 45, 'Visite des réserves naturelles de l\'île Sainte-Marie', 200);
 
 -- --------------------------------------------------------
 
@@ -115,7 +151,43 @@ INSERT INTO `stage` (`id`, `text`, `travel`, `chronology`, `image`) VALUES
 (6, 'Visites de stations scientifiques', 2, 3, 'img/trav/stationScientifiques.jpeg'),
 (7, 'Safari en jeep', 3, 1, 'img/trav/safariJeep.jpeg'),
 (8, 'Visites de réserves naturelles', 3, 2, 'img/trav/visiteReserve.jpeg'),
-(9, 'Nuit sous les étoiles', 3, 3, 'img/trav/NuitEtoile.jpeg');
+(9, 'Nuit sous les étoiles', 3, 3, 'img/trav/NuitEtoile.jpeg'),
+(10, 'Excursion en bateau et snorkeling', 4, 1, 'img/trav/excursionBateau.jpeg'),
+(11, 'Kayak au coucher du soleil', 4, 2, 'img/trav/Kayak.jpeg'),
+(12, 'Randonnée et observation depuis la montagne', 4, 3, 'img/trav/rando.jpeg'),
+(13, 'Visite du Centre de Recherche de Chengdu', 5, 1, 'img/trav/CentreChengdu.jpeg'),
+(14, 'Randonnée dans la montagne de Qinling', 5, 2, 'img/trav/randoChine.jpeg'),
+(15, 'Promenade en forêt de bambous ', 5, 3, 'img/trav/foretBambous.jpeg'),
+(16, 'Safari magique en forêt enchantée  ', 6, 1, 'img/trav/foretMagique.jpeg'),
+(17, 'Vol en montgolfière au-dessus des prairies arc-en-ciel ', 6, 2, 'img/trav/montgolfiere.jpeg'),
+(18, 'Équitation avec les licornes', 6, 3, 'img/trav/EquitationLicorne.jpeg'),
+(19, 'Trekking au Mont Everest avec un guide Sherpa', 7, 1, 'img/trav/trekkingEverest.jpeg'),
+(20, 'Veillée autour du feu avec les légendes de l’Himalaya', 7, 2, 'img/trav/veilleeFeu.jpeg'),
+(21, 'Excursion en hélicoptère', 7, 3, 'img/trav/helicoEverest.jpeg'),
+(22, 'Exploration du Temple du Dragon', 8, 1, 'img/trav/TempleDragon.jpeg'),
+(23, 'Randonnée dans la Vallée des Dragons', 8, 2, 'img/trav/ValleeDragon.jpeg'),
+(24, 'Croisière sur la rivière des Dragons', 8, 3, 'img/trav/riviereDragons.jpeg'),
+(25, 'Safari au cœur de la jungle amazonienne', 9, 1, 'img/trav/JungleAmazonienne.jpeg'),
+(26, 'Randonnée à travers les marais', 9, 2, 'img/trav/maraisAmazonie.jpeg'),
+(27, 'Visite de réserves naturelles ', 9, 3, 'img/trav/reserveAmazonie.jpeg'),
+(28, 'Safari dans le parc national de Grampians', 10, 1, 'img/trav/safariAustralie.jpeg'),
+(29, 'Promenade au lever du soleil', 10, 2, 'img/trav/promenadeleversoleil.jpeg'),
+(30, 'Nuit sous les étoiles en camping à Kangaroo Island ', 10, 3, 'img/trav/campingAustralie.jpeg'),
+(31, 'Trek dans les montagnes de l\'Altaï', 11, 1, 'img/trav/trekAltai.jpeg'),
+(32, 'Séjour nomade avec les éleveurs de yaks', 11, 2, 'img/trav/eleveursYaks.jpeg'),
+(33, 'Voyage en chameau à travers le désert de Gobi', 11, 3, 'img/trav/desertGobi.jpeg'),
+(35, 'Aventure dans la forêt de Wookiee', 12, 1, 'img/trav/foretWookie.jpeg'),
+(36, 'Voyage en vaisseau spatial à travers la galaxie', 12, 2, 'img/trav/VaisseauSpatial.jpeg'),
+(37, 'Atelier de fabrication d’armes et de gadgets Wookiee', 12, 3, 'img/trav/FabricationArmes.jpeg'),
+(38, 'Safari au parc national de Khao Yai', 13, 1, 'img/trav/SafariKhaiYai.jpeg'),
+(39, 'Séjour dans un sanctuaire d’éléphants', 13, 2, 'img/trav/SanctuaireElephants.jpeg'),
+(40, 'Baignade avec les éléphants dans la rivière de Chiang Mai', 13, 3, 'img/trav/BaignadeElephants.jpeg'),
+(41, 'Observation des renards à la caméra thermique', 14, 1, 'img/trav/observationRenards.jpeg'),
+(42, 'Randonnée au crépuscule dans les forêts enneigées', 14, 2, 'img/trav/randoFinlande.jpeg'),
+(43, 'Visite d’un centre de réhabilitation de la faune nordique', 14, 3, 'img/trav/centreFinlande.jpeg'),
+(44, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 15, 1, 'img/trav/randoMada.jpeg'),
+(45, 'Croisière sur le fleuve Tsiribihina', 15, 2, 'img/trav/croisiereMada.jpeg'),
+(46, 'Visite des réserves naturelles de l\'île Sainte-Marie', 15, 3, 'img/trav/reserveMada.jpeg');
 
 -- --------------------------------------------------------
 
@@ -244,7 +316,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT pour la table `extra`
 --
 ALTER TABLE `extra`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT pour la table `payment`
@@ -256,7 +328,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT pour la table `stage`
 --
 ALTER TABLE `stage`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `travel`
