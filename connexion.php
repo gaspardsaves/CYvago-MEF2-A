@@ -7,11 +7,21 @@
     error_reporting(E_ALL);
     ?>
     */
+
+    // Stockage de l'email pour le réafficher en cas de mauvaise saisie
+    $emailPrecedent = '';
+
+    // Récupéreration de l'email en cas de mauvais mot de passe
+    if(isset($_GET['error']) && $_GET['error'] == 'password' && isset($_GET['email'])) {
+        $emailPrecedent = htmlspecialchars($_GET['email']);
+    }
+
     if(isset($_POST['Mail'])&&isset($_POST['MotDePasse'])){
         include 'database.php';
         $EMAIL = $_POST['Mail'];
         $MDP = $_POST['MotDePasse'];
-        
+        // Conservation de l'email pour le réafficher en cas d'erreur
+        $emailPrecedent = htmlspecialchars($EMAIL);
 
         if((!empty($EMAIL))&&(!empty($MDP))){
             $verification = $database->prepare("SELECT email FROM users WHERE email=?");
@@ -39,7 +49,8 @@
                     header("Location: moncompte.php?success=true");
                 }
                 else{
-                    header("Location: connexion.php?error=password");
+                    // Passage du mail en paramètres pour récupération dans nouveau formulaire
+                    header("Location: connexion.php?error=password&email=" . urlencode($EMAIL));
                     exit();
                 }
             }
@@ -65,6 +76,8 @@
     <title>ZanimoTrip Connexion</title>
     <!-- <link rel="stylesheet" href="css/formulaire.css"> -->
     <link rel="stylesheet" href="css/formulaire.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->
@@ -97,13 +110,17 @@
             <form action="" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
                 <label for="AdresseMail">Adresse Mail :</label>
-                <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" required /><br>
+                <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" value="<?php echo $emailPrecedent; ?>" required /><br>
                 <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
                 <label for="MotDePasse">Mot de passe :</label>
-                <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/><br>
-                <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
-                <div class="password-visibility"> <img id="togglePassword" src="images/eye-closed.svg" alt="Voir le mot de passe" onclick="togglePasswordVisibility()"></div>
-                <div id="passwordCount" class="password-count"></div> <!-- Compteur de caractères pour le mot de passe -->
+                <div class="password-container">
+                    <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/>
+                    <div class="password-visibility">
+                        <img id="togglePassword" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility()">
+                    </div>
+                </div>
+                    <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
+                    <div id="passwordCount" class="password-count"></div> <!-- Compteur de caractères pour le mot de passe -->
                 <div class="button-form">
                     <button class="button1" type="submit">Se connecter</button>
                 </div>

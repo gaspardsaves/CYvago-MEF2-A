@@ -15,6 +15,8 @@
     <title>ZanimoTrip Admin</title>
     <link rel="stylesheet" href="css/administrateur.css">
     <script src="js/admin.js"></script>
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->

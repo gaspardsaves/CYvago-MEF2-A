@@ -14,6 +14,8 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Accueil</title>
     <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="css/mode-clair.css">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->

@@ -28,6 +28,8 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Mon Compte</title>
     <link rel="stylesheet" href="css/monCompte.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->

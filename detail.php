@@ -84,6 +84,8 @@ $sejour = [
     <title>Détails du Voyage</title>
     <link rel="stylesheet" href="css/detail.css?v=<?php echo time(); ?>">
     <script type='text/javascript' src='js/updateprice.js'></script>
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>

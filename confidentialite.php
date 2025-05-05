@@ -14,6 +14,8 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Confidentialité</title>
     <link rel="stylesheet" href="css/legal.css">
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js"></script>
 </head>
 <body>
     <!-- Barre de menu -->
