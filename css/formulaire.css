@@ -64,7 +64,6 @@
 
 .container-form input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="password"] {
   padding: 10px 13px;
-  margin-bottom: 15px;
   color: #2E3B4E;
   border: 2px solid var(--border-form);
   border-radius: 8px;
