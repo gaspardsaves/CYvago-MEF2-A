@@ -109,18 +109,20 @@
         <div class="container-form">
             <form action="" method="post">
                 <p style="font-size: 20px;"><b>Se connecter :</b></p><br>
-                <label for="AdresseMail">Adresse Mail :</label>
-                <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" value="<?php echo $emailPrecedent; ?>" required /><br>
-                <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
-                <label for="MotDePasse">Mot de passe :</label>
                 <div class="password-container">
+                    <label for="AdresseMail">Adresse Mail :</label>
+                    <input type="email" id="AdresseMail" name="Mail" placeholder="Champ obligatoire" maxlength="50" value="<?php echo $emailPrecedent; ?>" required /><br>
+                </div>
+                <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
+                <div class="password-container">
+                    <label for="MotDePasse">Mot de Passe :</label>
                     <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/>
                     <div class="password-visibility">
                         <img id="togglePassword" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility()">
                     </div>
                 </div>
-                    <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
-                    <div id="passwordCount" class="password-count"></div> <!-- Compteur de caractères pour le mot de passe -->
+                <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
+                <div id="passwordCount" class="password-count"></div> <!-- Compteur de caractères pour le mot de passe -->
                 <div class="button-form">
                     <button class="button1" type="submit">Se connecter</button>
                 </div>

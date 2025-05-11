@@ -58,8 +58,8 @@
 }
 
 /* Espace entre les boutons */
-.button-form input[type="reset"] {
-  margin-right: 30px;        
+.button1 {
+  margin-right: 10px;
 }
 
 .container-form input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="password"] {
@@ -133,13 +133,12 @@
 /* Adjust lenth password container */
 .password-container input[type="password"],
 .password-container input[type="text"] {
-  width: 100%;
   box-sizing: border-box;
 }
 
 .password-visibility {
   position: absolute;
-  right: 10px;
+  right: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -168,9 +167,4 @@
   text-align: right;
   margin-top: 5px;
   margin-bottom: 15px;
-}
-
-input[type="password"], 
-input[type="text"] {
-  padding-right: 35px;
 }
