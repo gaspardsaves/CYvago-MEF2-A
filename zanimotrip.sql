@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 05 mai 2025 à 00:36
--- Version du serveur : 8.0.41-0ubuntu0.22.04.1
+-- Généré le : lun. 12 mai 2025 à 23:40
+-- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -176,18 +176,18 @@ INSERT INTO `stage` (`id`, `text`, `travel`, `chronology`, `image`) VALUES
 (31, 'Trek dans les montagnes de l\'Altaï', 11, 1, 'img/trav/trekAltai.jpeg'),
 (32, 'Séjour nomade avec les éleveurs de yaks', 11, 2, 'img/trav/eleveursYaks.jpeg'),
 (33, 'Voyage en chameau à travers le désert de Gobi', 11, 3, 'img/trav/desertGobi.jpeg'),
-(35, 'Aventure dans la forêt de Wookiee', 12, 1, 'img/trav/foretWookie.jpeg'),
-(36, 'Voyage en vaisseau spatial à travers la galaxie', 12, 2, 'img/trav/VaisseauSpatial.jpeg'),
-(37, 'Atelier de fabrication d’armes et de gadgets Wookiee', 12, 3, 'img/trav/FabricationArmes.jpeg'),
-(38, 'Safari au parc national de Khao Yai', 13, 1, 'img/trav/SafariKhaiYai.jpeg'),
-(39, 'Séjour dans un sanctuaire d’éléphants', 13, 2, 'img/trav/SanctuaireElephants.jpeg'),
-(40, 'Baignade avec les éléphants dans la rivière de Chiang Mai', 13, 3, 'img/trav/BaignadeElephants.jpeg'),
-(41, 'Observation des renards à la caméra thermique', 14, 1, 'img/trav/observationRenards.jpeg'),
-(42, 'Randonnée au crépuscule dans les forêts enneigées', 14, 2, 'img/trav/randoFinlande.jpeg'),
-(43, 'Visite d’un centre de réhabilitation de la faune nordique', 14, 3, 'img/trav/centreFinlande.jpeg'),
-(44, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 15, 1, 'img/trav/randoMada.jpeg'),
-(45, 'Croisière sur le fleuve Tsiribihina', 15, 2, 'img/trav/croisiereMada.jpeg'),
-(46, 'Visite des réserves naturelles de l\'île Sainte-Marie', 15, 3, 'img/trav/reserveMada.jpeg');
+(34, 'Aventure dans la forêt de Wookiee', 12, 1, 'img/trav/foretWookie.jpeg'),
+(35, 'Voyage en vaisseau spatial à travers la galaxie', 12, 2, 'img/trav/VaisseauSpatial.jpeg'),
+(36, 'Atelier de fabrication d’armes et de gadgets Wookiee', 12, 3, 'img/trav/FabricationArmes.jpeg'),
+(37, 'Safari au parc national de Khao Yai', 13, 1, 'img/trav/SafariKhaiYai.jpeg'),
+(38, 'Séjour dans un sanctuaire d’éléphants', 13, 2, 'img/trav/SanctuaireElephants.jpeg'),
+(39, 'Baignade avec les éléphants dans la rivière de Chiang Mai', 13, 3, 'img/trav/BaignadeElephants.jpeg'),
+(40, 'Observation des renards à la caméra thermique', 14, 1, 'img/trav/observationRenards.jpeg'),
+(41, 'Randonnée au crépuscule dans les forêts enneigées', 14, 2, 'img/trav/randoFinlande.jpeg'),
+(42, 'Visite d’un centre de réhabilitation de la faune nordique', 14, 3, 'img/trav/centreFinlande.jpeg'),
+(43, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 15, 1, 'img/trav/randoMada.jpeg'),
+(44, 'Croisière sur le fleuve Tsiribihina', 15, 2, 'img/trav/croisiereMada.jpeg'),
+(45, 'Visite des réserves naturelles de l\'île Sainte-Marie', 15, 3, 'img/trav/reserveMada.jpeg');
 
 -- --------------------------------------------------------
 

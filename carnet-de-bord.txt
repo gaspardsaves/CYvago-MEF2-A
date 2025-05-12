@@ -71,3 +71,12 @@ Interface :
 - Possibilité de voir son mot de passe lors de la saisie
 - Récupération de l'adresse mail lorsqu'il y a une erreur de saisie sur le mot de passe
 - Tri dynamique des séjours
+
+10/05/25 :
+- Restructuration du README
+
+11/05/25 :
+- Correction de quelques visuels incorrects sur les formulaires et les voyages
+
+12/05/25 :
+- Correction d'une erreur d'index dans la base de données

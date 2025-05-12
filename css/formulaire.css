@@ -71,6 +71,7 @@
   font-size: 16px;
   font-family: "Inter Tight", serif;
   transition: all 0.3s ease;
+  margin-bottom: 8px;
 }
 
 .message-decon-ok {

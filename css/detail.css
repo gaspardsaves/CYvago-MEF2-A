@@ -108,7 +108,6 @@ main {
     overflow: hidden;
     box-shadow: 0 4px 8px var(--shadow-02);
     position: relative;
-    height: 220px;
     display: flex;
     flex-direction: column;
 
