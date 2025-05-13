@@ -8,7 +8,7 @@
 - [Gaspard Savès](https://github.com/gaspardsaves)
 
 ## 📄 Documentation du projet
-- [:scroll: Cahier des charges](Projet_Click_journeY_v1.3_PHASE3-1.pdf)  
+- [:scroll: Cahier des charges](Projet_Click_journeY_v1.4_PHASE4.pdf)  
 - [:credit_card: Interface de paiement CYBank](Projet_Click_journeY_preing2_2024_2025_CYBANK_v1.1-1.pdf)  
 - [:ledger: Rapport de projet](rapport-projet-click-journey-mef2-a.pdf)  
 - [:pushpin: Charte graphique](charte-graphique-click-journey-mef2-a.pdf)  

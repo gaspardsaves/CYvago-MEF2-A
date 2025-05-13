@@ -1,6 +1,6 @@
 <?php
 // Inclure le fichier de configuration de la base de données
-include 'config/db_config.php';
+include 'config.php';
 
 // Inclure le fichier de session
 include 'session.php';
