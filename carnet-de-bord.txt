@@ -80,3 +80,7 @@ Interface :
 
 12/05/25 :
 - Correction d'une erreur d'index dans la base de données
+
+13/05/25 :
+- Ajout du nombre de personnes qui participent au voyage et de la date de départ du voyage
+

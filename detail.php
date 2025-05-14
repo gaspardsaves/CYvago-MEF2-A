@@ -108,7 +108,7 @@ $sejour = [
                     
                     <h3>Prix hors option : <span class="base-price"><?= $sejour['price'] ?></span>€</h3>
                     <h4>Nombre de jours minimum : <?= $sejour['nbrdays'] ?></h4>
-                    <h4>Saison(s) de disponibilité : <?= $sejour['season'] ?></h4>
+                    <h4>Saison(s) recommandée(s) : <?= $sejour['season'] ?></h4>
                 </div>
             </section>
             
@@ -128,9 +128,13 @@ $sejour = [
                 </div>
             </section>
             
-            <!-- Section des activités (pleine largeur) -->
+            <section class="base-info">
+                    
+            </section>
+
+            <!-- Section de personnalisation des étapes et options (pleine largeur) -->
             <section class="activities-section">
-                <h2>Activités proposées</h2>
+                <h2>Personnalisez votre voyage</h2>
                 
                 <form action="personnalisationvoyage.php" method="GET" id="bookingForm">
                     <input type="hidden" name="destination" value="<?= htmlspecialchars($sejour['alt']) ?>">
@@ -138,55 +142,126 @@ $sejour = [
                     <input type="hidden" name="price" value="<?= htmlspecialchars($sejour['price']) ?>">
                     <input type="hidden" name="id" value="<?= $sejour['id'] ?>">
                     <input type="hidden" name="total_price" id="hiddenTotalPrice" value="<?= $sejour['price'] ?>">
+                    <input type="hidden" name="travel_id" value="<?= $sejour['id'] ?>">
+                    <input type="hidden" name="travel_title" value="<?= htmlspecialchars($sejour['alt']) ?>">
+                    <input type="hidden" name="travel_base_price" value="<?= $sejour['price'] ?>">
+                    <input type="hidden" name="travel_duration" value="<?= $sejour['nbrdays'] ?>">
                     
-                    <div class="activities-grid">
-                        <?php if (!empty($sejour['activities'])): ?>
-                            <?php foreach ($sejour['activities'] as $activity): ?>
-                                <div class="activity-card">
-                                    <?php if (!empty($activity['image'])): ?>
-                                        <img src="<?= $activity['image'] ?>" alt="<?= $activity['name'] ?>" />
-                                    <?php else: ?>
-                                        <img src="img/activity-default.jpg" alt="Activité" />
-                                    <?php endif; ?>
-                                    
-                                    <div class="activity-content">
-                                        <div class="activity-name"><?= htmlspecialchars($activity['name']) ?></div>
-                                        
-                                        <?php if (!empty($activity['extra_id']) && !empty($activity['extra_price'])): ?>
-                                            <div class="switch-container">
-                                                <span>Option: +<?= $activity['extra_price'] ?>€</span>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="extra_<?= $activity['extra_id'] ?>" 
-                                                           value="1" 
-                                                           data-price="<?= $activity['extra_price'] ?>" 
-                                                           data-name="<?= htmlspecialchars($activity['name']) ?>" 
-                                                           class="option-checkbox">
-                                                    <span class="slider"></span>
-                                                </label>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
+                    <div class="booking-details">
+                        <div class="booking-row">
+                            <label for="people">Nombre de personnes pour le voyage :</label>
+                            <div class="select-container">
+                                <select id="people" name="people" required>
+                                    <?php for ($i = 1; $i <= 10; $i++): ?>
+                                        <option value="<?= $i ?>"><?= $i ?> <?= $i > 1 ? 'personnes' : 'personne' ?></option>
+                                    <?php endfor; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="booking-row">
+                            <label for="date">Date de départ :</label>
+                            <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>" required>
+                        </div>
+                    </div>
+
+                    <h3>Étapes de votre voyage</h3>
+                    
+                    <?php
+                    // Regrouper les activités par ID d'étape
+                    $stages = [];
+                    foreach ($sejour['activities'] as $activity) {
+                        $stageId = $activity['id'];
+                        
+                        if (!isset($stages[$stageId])) {
+                            $stages[$stageId] = [
+                                'name' => $activity['name'],
+                                'image' => $activity['image'],
+                                'options' => []
+                            ];
+                        }
+                        
+                        if (!empty($activity['extra_id']) && !empty($activity['extra_price'])) {
+                            $stages[$stageId]['options'][] = [
+                                'extra_id' => $activity['extra_id'],
+                                'extra_title' => $activity['extra_title'],
+                                'extra_price' => $activity['extra_price']
+                            ];
+                        }
+                    }
+                    ?>
+                    
+                    <div class="stages-container">
+                        <?php foreach ($stages as $stageId => $stage): ?>
+                            <div class="stage-card">
+                                <div class="stage-header">
+                                    <h4><?= htmlspecialchars($stage['name']) ?></h4>
                                 </div>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>Aucune activité disponible pour ce voyage.</p>
-                        <?php endif; ?>
+                                
+                                <div class="stage-content">
+                                    <div class="stage-image-container">
+                                        <?php if (!empty($stage['image'])): ?>
+                                            <img src="<?= $stage['image'] ?>" alt="<?= htmlspecialchars($stage['name']) ?>" class="stage-image" />
+                                        <?php else: ?>
+                                            <img src="img/activity-default.jpg" alt="Activité" class="stage-image" />
+                                        <?php endif; ?>
+                                        <div class="stage-included">
+                                            <span class="included-tag">Inclus dans le forfait</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <?php if (!empty($stage['options'])): ?>
+                                        <div class="options-container">
+                                            <h5>Options disponibles pour cette étape :</h5>
+                                            
+                                            <?php foreach ($stage['options'] as $option): ?>
+                                                <div class="option-item">
+                                                    <div class="option-info">
+                                                        <span class="option-title"><?= htmlspecialchars($option['extra_title']) ?></span>
+                                                        <span class="option-description">
+                                                            <?= !empty($option['extra_description']) ? htmlspecialchars($option['extra_description']) : 'Option supplémentaire' ?>
+                                                        </span>
+                                                        <span class="option-price">+<?= $option['extra_price'] ?>€/pers.</span>
+                                                    </div>
+                                                    <div class="option-controls">
+                                                        <div class="option-people">
+                                                            <select name="extra_people_<?= $option['extra_id'] ?>" 
+                                                                    class="people-select" 
+                                                                    data-extra-id="<?= $option['extra_id'] ?>"
+                                                                    data-price="<?= $option['extra_price'] ?>">
+                                                                <option value="0">0 pers.</option>
+                                                                <?php for ($i = 1; $i <= 10; $i++): ?>
+                                                                    <option value="<?= $i ?>"><?= $i ?> pers.</option>
+                                                                <?php endfor; ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="no-options">
+                                            <p>Aucune option disponible pour cette étape</p>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     
                     <!-- Résumé du prix -->
                     <div class="price-summary">
                         <div class="total-row">
-                            <div class="total-label">Forfait de base</div>
+                            <div class="total-label">Forfait de base <span id="perPersonPrice" class="per-person-note"></span></div>
                             <div class="total-price base-price-display"><?= $sejour['price'] ?>€</div>
                         </div>
                         
                         <div class="total-row">
-                            <div class="total-label">Options sélectionnées</div>
+                            <div class="total-label">Options personnalisées</div>
                             <div class="total-price options-price">0€</div>
                         </div>
                         
                         <div class="option-list" id="selectedOptions">
-                            <!-- Les options sélectionnées s'afficheront ici -->
+                            <!-- Les options sélectionnées s'afficheront ici en détail -->
                         </div>
                         
                         <div class="total-row">
