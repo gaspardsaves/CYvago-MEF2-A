@@ -128,21 +128,47 @@ main {
     max-width: 500px;
     box-shadow: 0 4px 8px var(--shadow-03);
     transition: all .3s ease;
-    border: 1px solid rgba(233, 181, 47, .3)
+    border: 1px solid rgba(233, 181, 47, .3);
+    border-style: solid;
+    transition: border-width 0.3s ease, border-color 0.3s ease;
 }
 
-@keyframes pulse {
+/* Animation pour le changement de prix */
+@keyframes highlight-panel {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(233, 181, 47, .7);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(233, 181, 47, 0);
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(233, 181, 47, 0);
+    }
+}
+
+@keyframes highlight {
     0% {
-        box-shadow: 0 0 0 0 rgba(233, 181, 47, .7)
+        background-color: rgba(233, 181, 47, 0.3);
     }
-
-    70% {
-        box-shadow: 0 0 0 15px rgba(233, 181, 47, 0)
+    50% {
+        background-color: rgba(233, 181, 47, 0.5);
     }
-
     100% {
-        box-shadow: 0 0 0 0 rgba(233, 181, 47, 0)
+        background-color: transparent;
     }
+}
+
+.price-summary.updated {
+    animation: highlight-panel 1.5s ease;
+}
+
+.price-changed {
+    animation: highlight 1.5s ease;
+}
+
+.option-item-selected {
+    border-left: 4px solid var(--button1);
+    background-color: rgba(233, 181, 47, 0.1);
 }
 
 .total-row {
@@ -377,20 +403,6 @@ input[type=date] {
     font-size: 1.1rem
 }
 
-#people {
-    width: 60px;
-    text-align: center;
-    padding: 8px 0;
-    font-size: 16px;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, .2);
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
-    background-color: var(--shadow-02);
-    color: var(--white);
-    height: 36px;
-    box-sizing: border-box
-}
-
 input[type=date] {
     width: 100%;
     max-width: 280px;
@@ -411,19 +423,22 @@ input[type=date] {
 
 .select-container {
     position: relative;
-    max-width: 200px
+    max-width: 200px;
+    display: inline-block;
 }
 
-.option-people::after,
 .select-container::after {
-    content: '\25BC';
+    content: '';
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--button1);
     pointer-events: none;
-    color: var(--button1);
-    font-size: 12px
 }
 
 select {
@@ -433,11 +448,12 @@ select {
     width: 100%;
     padding: 10px 35px 10px 12px;
     font-size: 16px;
-    border: 1px solid rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     background-color: var(--shadow-02);
     color: var(--white);
-    cursor: pointer
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 select:focus {
@@ -456,17 +472,21 @@ select:focus {
     width: 100px
 }
 
+.option-people::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--button1);
+    pointer-events: none;
+}
+
 .people-select {
     font-size: 14px;
     padding: 8px 30px 8px 10px
-}
-
-@keyframes highlight {
-    0% {
-        background-color: rgba(233, 181, 47, .3)
-    }
-
-    100% {
-        background-color: transparent
-    }
 }

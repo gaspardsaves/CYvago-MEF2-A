@@ -1,160 +1,200 @@
 // Script for calculating and updating price in real time
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Script de calcul de prix initialisé");
+    console.log("Script de calcul de prix chargé");
     
-    // Récupération des éléments nécessaires
-    const basePrice = parseFloat(document.querySelector('.base-price').textContent.replace(/[^\d,.-]/g, '').replace(',', '.'));
+    // Récupérer les éléments du DOM
+    const basePriceElement = document.querySelector('.base-price');
+    if (!basePriceElement) {
+        console.error("Élément prix de base non trouvé");
+        return;
+    }
+    
+    // Convertir le prix de base en nombre
+    const basePriceText = basePriceElement.textContent.trim();
+    const basePrice = parseFloat(basePriceText.replace(/[^\d.,]/g, '').replace(',', '.'));
+    
+    console.log("Prix de base récupéré:", basePrice);
+    
+    // Autres éléments nécessaires
     const peopleSelectorOptions = document.querySelectorAll('.people-select');
-    const numberOfPeopleSelect = document.getElementById('people');
-    const basePriceDisplay = document.querySelector('.base-price-display');
+    const optionItems = document.querySelectorAll('.option-item');
     const optionsPriceElement = document.querySelector('.options-price');
     const finalTotalElement = document.getElementById('finalTotal');
     const hiddenTotalPrice = document.getElementById('hiddenTotalPrice');
     const selectedOptionsElement = document.getElementById('selectedOptions');
+    const priceSummary = document.querySelector('.price-summary');
+    const numberOfPeopleSelect = document.getElementById('people');
     const perPersonLabel = document.getElementById('perPersonPrice');
+    const basePriceDisplay = document.querySelector('.base-price-display');
     
-    // Vérification des éléments requis
-    if (!basePrice || isNaN(basePrice)) {
-        console.error("Prix de base invalide ou non trouvé");
+    // Vérification supplémentaire
+    if (!priceSummary) {
+        console.error("Résumé des prix non trouvé");
         return;
     }
     
-    console.log("Prix de base:", basePrice, "€");
-    console.log("Nombre de sélecteurs d'options:", peopleSelectorOptions.length);
-    
-    // Fonction de calcul et mise à jour du prix total
+    // Update total price
     function updateTotalPrice() {
-        // Nombre total de personnes pour le voyage
-        const totalPeople = parseInt(numberOfPeopleSelect.value) || 1;
-        console.log("Nombre de personnes pour le voyage:", totalPeople);
+        console.log("Mise à jour du prix total");
         
-        // Prix de base pour toutes les personnes
-        const totalBasePrice = basePrice * totalPeople;
-        console.log("Prix de base total:", totalBasePrice, "€");
-        
-        // Calcul du prix des options
         let optionsPrice = 0;
         let selectedOptionsHTML = '';
+        let numberOfPeople = parseInt(numberOfPeopleSelect.value) || 1; // Par défaut 1 personne
         
+        console.log("Nombre total de personnes:", numberOfPeople);
+        
+        // Reset selected class on all option items
+        optionItems.forEach(item => item.classList.remove('option-item-selected'));
+        
+        // Calculate prices for selected options
         peopleSelectorOptions.forEach(selector => {
-            const optionPeople = parseInt(selector.value) || 0;
-            if (optionPeople > 0) {
-                const optionPrice = parseFloat(selector.getAttribute('data-price'));
-                const optionId = selector.getAttribute('data-extra-id');
+            const peopleForOption = parseInt(selector.value) || 0;
+            
+            if (peopleForOption > 0) {
+                // Mark this option as selected
+                const optionItem = selector.closest('.option-item');
+                optionItem.classList.add('option-item-selected');
                 
-                if (isNaN(optionPrice)) {
-                    console.warn("Prix invalide pour l'option", optionId);
+                const extraId = selector.dataset.extraId;
+                const pricePerPerson = parseFloat(selector.dataset.price);
+                
+                if (isNaN(pricePerPerson)) {
+                    console.error("Prix invalide pour l'option", extraId);
                     return;
                 }
                 
-                const optionTitle = selector.closest('.option-item').querySelector('.option-title').textContent;
-                const optionTotalPrice = optionPrice * optionPeople;
+                const name = optionItem.querySelector('.option-title').textContent.trim();
                 
-                optionsPrice += optionTotalPrice;
+                const totalOptionPrice = pricePerPerson * peopleForOption;
+                optionsPrice += totalOptionPrice;
                 
-                console.log(`Option "${optionTitle}": ${optionPrice}€ × ${optionPeople} pers = ${optionTotalPrice}€`);
-                selectedOptionsHTML += `<div class="selected-option">• ${optionTitle} (${optionPrice}€ × ${optionPeople} pers. = ${optionTotalPrice}€)</div>`;
-                
-                // Marquer cette option comme sélectionnée
-                selector.closest('.option-item').classList.add('option-item-selected');
-            } else {
-                // Désélectionner cette option
-                selector.closest('.option-item').classList.remove('option-item-selected');
+                console.log(`Option ${name}: ${pricePerPerson}€ × ${peopleForOption} pers = ${totalOptionPrice}€`);
+                selectedOptionsHTML += `<div>• ${name} (${pricePerPerson}€ × ${peopleForOption} ${peopleForOption > 1 ? 'pers.' : 'pers.'} = ${totalOptionPrice}€)</div>`;
             }
         });
         
-        // Prix total
-        const totalPrice = totalBasePrice + optionsPrice;
-        console.log("Prix des options:", optionsPrice, "€");
-        console.log("Prix total:", totalPrice, "€");
+        // Calculer le prix du forfait de base
+        const basePriceTotal = basePrice * numberOfPeople;
+        const totalPrice = basePriceTotal + optionsPrice;
         
-        // Mise à jour de l'affichage
+        console.log("Prix de base total:", basePriceTotal);
+        console.log("Prix des options:", optionsPrice);
+        console.log("Prix total:", totalPrice);
+        
+        // Mettre à jour l'affichage
         if (basePriceDisplay) {
-            basePriceDisplay.textContent = totalBasePrice + '€';
+            basePriceDisplay.textContent = basePriceTotal + '€';
+            // Animer le changement
+            basePriceDisplay.classList.add('price-changed');
+            setTimeout(() => {
+                basePriceDisplay.classList.remove('price-changed');
+            }, 1500);
         }
         
+        // Afficher les détails des personnes du forfait de base
         if (perPersonLabel) {
-            perPersonLabel.textContent = `(${basePrice}€ × ${totalPeople} ${totalPeople > 1 ? 'personnes' : 'personne'})`;
+            perPersonLabel.textContent = `(${basePrice}€ × ${numberOfPeople} ${numberOfPeople > 1 ? 'personnes' : 'personne'})`;
+            perPersonLabel.style.display = 'inline';
         }
         
+        // Update option price display
         if (optionsPriceElement) {
             optionsPriceElement.textContent = optionsPrice + '€';
-            // Animation de mise en évidence
             optionsPriceElement.classList.add('price-changed');
-            setTimeout(() => optionsPriceElement.classList.remove('price-changed'), 1000);
+            setTimeout(() => {
+                optionsPriceElement.classList.remove('price-changed');
+            }, 1500);
         }
         
+        // Update final total
         if (finalTotalElement) {
             finalTotalElement.textContent = totalPrice + '€';
-            // Animation de mise en évidence
             finalTotalElement.classList.add('price-changed');
-            setTimeout(() => finalTotalElement.classList.remove('price-changed'), 1000);
+            setTimeout(() => {
+                finalTotalElement.classList.remove('price-changed');
+            }, 1500);
         }
         
         if (hiddenTotalPrice) {
             hiddenTotalPrice.value = totalPrice;
         }
         
+        // Update selected options list
         if (selectedOptionsElement) {
-            selectedOptionsElement.innerHTML = selectedOptionsHTML || '<div class="no-selected-option">Aucune option sélectionnée</div>';
+            selectedOptionsElement.innerHTML = selectedOptionsHTML || '<div>Aucune option sélectionnée</div>';
+        }
+        
+        // Visual effect for price summary panel
+        if (priceSummary) {
+            priceSummary.classList.remove('updated');
+            void priceSummary.offsetWidth;
+            priceSummary.classList.add('updated');
         }
     }
     
-    // Fonction pour ajuster les options disponibles en fonction du nombre de personnes
-    function adjustOptionSelectors() {
-        const totalPeople = parseInt(numberOfPeopleSelect.value) || 1;
-        
-        peopleSelectorOptions.forEach(selector => {
-            // Sauvegarder la valeur actuelle
-            const currentValue = parseInt(selector.value) || 0;
-            
-            // Vider le sélecteur
-            selector.innerHTML = '';
-            
-            // Option 0 personne
-            const option0 = document.createElement('option');
-            option0.value = '0';
-            option0.textContent = '0 pers.';
-            selector.appendChild(option0);
-            
-            // Options de 1 à N personnes
-            for (let i = 1; i <= totalPeople; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = `${i} pers.`;
-                selector.appendChild(option);
-            }
-            
-            // Rétablir la valeur si possible, ou mettre à 0
-            if (currentValue > totalPeople) {
-                selector.value = '0';
-            } else {
-                selector.value = currentValue.toString();
-            }
-        });
-        
-        // Mettre à jour le prix après ajustement
-        updateTotalPrice();
-    }
-    
-    // Ajout des écouteurs d'événements
-    if (numberOfPeopleSelect) {
-        numberOfPeopleSelect.addEventListener('change', function() {
-            console.log("Changement du nombre total de personnes:", this.value);
-            adjustOptionSelectors();
-        });
-    }
-    
+    // Event handlers for people selectors in options
     peopleSelectorOptions.forEach(selector => {
+        console.log("Initialisation d'un sélecteur d'option");
         selector.addEventListener('change', function() {
-            console.log("Option modifiée:", this.dataset.extraId, "Personnes:", this.value);
+            console.log("Changement du nombre de personnes pour une option:", this.value);
             updateTotalPrice();
         });
     });
     
-    // Initialisation
-    adjustOptionSelectors();
+    // Event handler for main people selector
+    if (numberOfPeopleSelect) {
+        console.log("Initialisation du sélecteur principal de personnes");
+        numberOfPeopleSelect.addEventListener('change', function() {
+            console.log("Changement du nombre total de personnes:", this.value);
+            validatePeopleCount();
+            updateTotalPrice();
+        });
+    }
+    
+    // Add validation - ensure option people count doesn't exceed total people
+    function validatePeopleCount() {
+        console.log("Validation du nombre de personnes pour les options");
+        const totalPeople = parseInt(numberOfPeopleSelect.value);
+        
+        peopleSelectorOptions.forEach(selector => {
+            // Reset options in the selector based on total people
+            let currentValue = parseInt(selector.value) || 0;
+            
+            // Clear all options
+            while (selector.firstChild) {
+                selector.removeChild(selector.firstChild);
+            }
+            
+            // Add "0 person" option
+            const zeroOption = document.createElement('option');
+            zeroOption.value = "0";
+            zeroOption.textContent = "0 pers.";
+            selector.appendChild(zeroOption);
+            
+            // Add options up to total people
+            for (let i = 1; i <= totalPeople; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${i} ${i > 1 ? 'pers.' : 'pers.'}`;
+                selector.appendChild(option);
+            }
+            
+            // Set the value back if it's valid, otherwise reset to 0
+            if (currentValue > totalPeople) {
+                selector.value = "0";
+            } else {
+                selector.value = currentValue.toString();
+            }
+        });
+    }
+    
+    // Initial setup
+    console.log("Configuration initiale");
+    validatePeopleCount();
+    
+    // Initial calculation
+    console.log("Calcul initial du prix");
     updateTotalPrice();
     
-    console.log("Script de calcul de prix chargé avec succès");
+    console.log("Script de calcul de prix initialisé avec succès");
 });

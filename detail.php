@@ -83,9 +83,8 @@ $sejour = [
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Détails du Voyage</title>
     <link rel="stylesheet" href="css/detail.css?v=<?php echo time(); ?>">
-    <script type='text/javascript' src='js/updateprice.js'></script>
-    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
+    <script type='text/javascript' src='js/updateprice.js?v=<?php echo time(); ?>'></script>    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>
@@ -136,7 +135,7 @@ $sejour = [
             <section class="activities-section">
                 <h2>Personnalisez votre voyage</h2>
                 
-                <form action="personnalisationvoyage.php" method="GET" id="bookingForm">
+                <form action="recapvoyage.php" method="POST" id="bookingForm">
                     <input type="hidden" name="destination" value="<?= htmlspecialchars($sejour['alt']) ?>">
                     <input type="hidden" name="description" value="<?= htmlspecialchars($sejour['description']) ?>">
                     <input type="hidden" name="price" value="<?= htmlspecialchars($sejour['price']) ?>">
