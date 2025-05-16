@@ -13,10 +13,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Admin</title>
-    <link rel="stylesheet" href="css/administrateur.css">
-    <script src="js/admin.js"></script>
+    <link rel="stylesheet" href="css/administrateur.css?v=<?php echo time(); ?>">
+    <script src="js/admin.js?v=<?php echo time(); ?>"></script>
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <!-- Barre de menu -->

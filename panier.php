@@ -153,7 +153,7 @@ if ($booking_id) {
     <title>ZanimoTrip Panier</title>
     <link rel="stylesheet" href="css/panier.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>

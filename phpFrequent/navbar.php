@@ -1,6 +1,3 @@
-<?php 
-    
-?>
     <nav class="nav-bar">
         <div class="logo">
             <a href="accueil.php"> <img src="img/ZanimoTripDef.png"> </a>
