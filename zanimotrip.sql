@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : sam. 17 mai 2025 à 23:22
+-- Généré le : dim. 18 mai 2025 à 00:11
 -- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -84,8 +84,8 @@ INSERT INTO `extra` (`id`, `stage`, `title`, `price`) VALUES
 (17, 17, 'Champagne à bord ', 270),
 (18, 18, 'Séance de cross dans les prairies magiques', 360),
 (19, 19, 'Nuit dans des lodges traditionnels Sherpa', 375),
-(20, 20, 'En présence de légendes de l’Himalaya', 50),
-(21, 21, 'Excursion en hélicoptère au-dessus de l\'Everest', 450),
+(20, 20, 'Atelier de cuisine locale', 50),
+(21, 21, 'Survol de l’Everest Base Camp depuis Katmandou', 450),
 (22, 22, 'Visite guidée du temple', 260),
 (23, 23, 'Exploration de grottes mystérieuses', 125),
 (24, 24, 'Exploration des légendes locales avec un guide', 180),
@@ -152,7 +152,9 @@ INSERT INTO `extra` (`id`, `stage`, `title`, `price`) VALUES
 (87, 42, 'Observation des animaux en cours de rémission depuis des plateformes discrètes', 315),
 (88, 43, 'Observation des indris avec un guide', 180),
 (89, 44, 'Nuit en bivouac sur une plage de sable au bord du fleuve', 400),
-(90, 45, 'Excursion d’observation des baleines avec un guide spécialisé', 475);
+(90, 45, 'Excursion d’observation des baleines avec un guide spécialisé', 475),
+(91, 21, 'Excursion en hélicoptère vers le Annapurna Base Camp', 350),
+(92, 20, 'En présence de chanteurs et de musiciens traditionnels', 50);
 
 -- --------------------------------------------------------
 
@@ -284,15 +286,17 @@ CREATE TABLE `users` (
   `firstname` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `role` tinyint NOT NULL
+  `role` tinyint NOT NULL,
+  `birth` date DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`) VALUES
-(1, 'Saves', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$ae681KhX7bsDOuYIFZYkp.XCp.rL.8vrpJ8/vstyt9uWTMR8Dmox2', 1);
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`, `birth`, `phone`) VALUES
+(1, 'Saves', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$ae681KhX7bsDOuYIFZYkp.XCp.rL.8vrpJ8/vstyt9uWTMR8Dmox2', 1, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -354,7 +358,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT pour la table `extra`
 --
 ALTER TABLE `extra`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT pour la table `payment`

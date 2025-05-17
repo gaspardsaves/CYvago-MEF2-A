@@ -13,7 +13,7 @@ body {
     background-color: var(--shadow-03);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px var(--shadow-03);
     margin: 20px auto;
 }
 
@@ -49,7 +49,7 @@ body {
 .trip-image img {
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--shadow-02);
 }
 
 .trip-info {
@@ -85,7 +85,7 @@ body {
 }
 
 .info-label {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--white);
 }
 
@@ -122,7 +122,7 @@ body {
 
 .option-title {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--white);
     margin-bottom: 5px;
 }
@@ -143,7 +143,7 @@ body {
     color: var(--white);
     padding: 6px 12px;
     border-radius: 20px;
-    font-weight: bold;
+    font-weight: 700;
     margin-left: 15px;
     min-width: 80px;
     text-align: center;
@@ -165,7 +165,7 @@ body {
 
 .total-row.final {
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
     padding-top: 15px;
     margin-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);

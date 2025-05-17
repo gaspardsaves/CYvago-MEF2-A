@@ -37,12 +37,11 @@ Les utilisateurs peuvent :
 | Rôle          | Adresse e-mail             | Mot de passe |
 |---------------|----------------------------|--------------|
 | Admin         | gs@gmail.com               | azerty       |
-| Admin         | maslankaje@cytech.fr       | Jas12345     |
-| Utilisateur   | AS@gmail.com               | hot          |
-| Utilisateur   | DonaldTrump@gmail.com      | qwerty       |
-| Utilisateur   | TB@gmail.com               | carrefour    |
+| Admin         | maslankaje@cy-tech.fr      | dinopolska   |
+| Utilisateur   | as@gmail.com               | hot          |
+| Utilisateur   | dt@gmail.com               | qwerty       |
+| Utilisateur   | tb@gmail.com               | carrefour    |
 
----
 
 ## 📁 Structure du projet
 

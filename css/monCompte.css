@@ -59,23 +59,6 @@
     margin: 5px 0;
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--link-profile);
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 2px solid var(--link-profile);
-    transition: 0.3s;
-}
-
-.back-link:hover {
-    background-color: var(--link-profile);
-    color: var(--profile-link-hover)
-}
-
 .message-con-ok {
     display: none;
     padding: 15px;
@@ -86,12 +69,12 @@
     border-radius: 8px;
     font-size: 18px;
     font-family: "Inter Tight", serif;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
-    box-shadow: 0px 4px 8px var(--shadow-03);
+    box-shadow: 0 4px 8px var(--shadow-03);
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity .5s ease, transform .5s ease
 }
 
 .message-con-ok.show {
