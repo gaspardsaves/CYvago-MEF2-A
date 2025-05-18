@@ -80,3 +80,21 @@ Interface :
 
 12/05/25 :
 - Correction d'une erreur d'index dans la base de données
+
+13/05/25 :
+- Ajout du nombre de personnes qui participent au voyage et de la date de départ du voyage
+
+14/05/25 :
+- Ajout des options 
+- Mise à jour du script permettant la mise à jour du prix
+
+15/05/25 :
+- Création de la page de récapitulatif de voyage pour préparer la réservation et le paiement
+
+16/05/25 :
+- Ajustements mineurs sur le CSS
+- Mise à jour de la base de données et préparation à l'implémentation de la réservation
+
+
+
+

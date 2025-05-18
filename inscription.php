@@ -32,7 +32,7 @@
                             $_SESSION['nom'] = $NOM;
                             $_SESSION['role'] = $role;
                             // Redirection dans le profil de ce nouvel utilisateur
-                            header("Location:monCompte.php?success=newok");
+                            header("Location:moncompte.php?success=newok");
                             exit();
                         }
                     else{
@@ -71,7 +71,7 @@
     <title>ZanimoTrip Inscription</title>
     <link rel="stylesheet" href="css/formulaire.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <!-- Barre de menu -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 12 mai 2025 à 23:40
+-- Généré le : dim. 18 mai 2025 à 00:11
 -- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -65,51 +65,96 @@ CREATE TABLE `extra` (
 --
 
 INSERT INTO `extra` (`id`, `stage`, `title`, `price`) VALUES
-(1, 1, 'Visite intérieur d\'une pyramide avec un guide', 500),
-(2, 2, 'Nuit sous une Tente de luxe', 250),
-(3, 3, 'Exploration des oasis', 50),
-(4, 4, 'Observation des pingouins.', 50),
-(5, 5, 'Excursions en bateau', 450),
-(6, 6, 'Visites de stations scientifiques', 150),
-(7, 7, 'Safari en jeep', 650),
-(8, 8, 'Visites de réserves naturelles', 75),
-(9, 9, 'Nuit sous les étoiles', 150),
-(10, 10, 'Excursion en bateau et snorkeling', 200),
-(11, 11, 'Kayak au coucher du soleil', 100),
-(12, 12, 'Randonnée et observation depuis la montagne ', 150),
-(13, 13, 'Visite du Centre de Recherche de Chengdu', 400),
-(14, 14, 'Randonnée dans la montagne de Qinling ', 200),
-(15, 15, 'Promenade en forêt de bambous ', 100),
-(16, 16, 'Safari magique en forêt enchantée', 450),
-(17, 17, 'Vol en montgolfière au-dessus des prairies arc-en-ciel', 270),
-(18, 18, 'Équitation avec les licornes', 200),
-(19, 19, 'Trekking au Mont Everest avec un guide Sherpa', 375),
-(20, 20, 'Veillée autour du feu avec les légendes de l’Himalaya', 50),
-(21, 21, 'Excursion en hélicoptère au-dessus de l\'Everest', 450),
-(22, 22, 'Exploration du Temple du Dragon', 150),
-(23, 23, 'Randonnée dans la Vallée des Dragons', 75),
-(24, 24, 'Croisière sur la rivière des Dragons', 250),
-(25, 25, 'Safari au cœur de la jungle amazonienne', 300),
-(26, 26, 'Randonnée à travers les marai', 75),
-(27, 27, 'Visite de réserves naturelles', 100),
-(28, 28, 'Safari dans le parc national de Grampians', 300),
-(29, 29, 'Promenade au lever du soleil dans la vallée de Flinders Ranges', 40),
-(30, 30, 'Nuit sous les étoiles en camping à Kangaroo Island', 250),
-(31, 31, 'Trek dans les montagnes de l Altaï', 175),
-(32, 32, 'Séjour nomade avec les éleveurs de yaks', 250),
-(33, 33, 'Voyage en chameau à travers le désert de Gobi ', 350),
-(34, 34, 'Aventure dans la forêt de Wookiee', 375),
-(35, 35, 'Voyage en vaisseau spatial à travers la galaxie', 550),
-(36, 36, 'Atelier de fabrication d’armes et de gadgets Wookiee  ', 150),
-(37, 37, 'Safari au parc national de Khao Yai', 175),
-(38, 38, 'Séjour dans un sanctuaire d’éléphants ', 350),
-(39, 39, 'Baignade avec les éléphants dans la rivière de Chiang Mai ', 150),
-(40, 40, 'Observation des renards à la caméra thermique', 200),
-(41, 41, 'Randonnée au crépuscule dans les forêts enneigées', 100),
-(42, 42, 'Visite d’un centre de réhabilitation de la faune nordique', 150),
-(43, 43, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 75),
-(44, 44, 'Croisière sur le fleuve Tsiribihina', 275),
-(45, 45, 'Visite des réserves naturelles de l\'île Sainte-Marie', 200);
+(1, 1, 'Visite avec un guide ', 500),
+(2, 2, 'Ciel ouvert avec vue sur les étoiles ', 300),
+(3, 3, 'Baignade dans une source naturelle ', 75),
+(4, 4, 'Accompagnement d\'un photographe animalier ', 100),
+(5, 5, 'Sortie en petit zodiac pour une exploration rapprochée', 450),
+(6, 6, 'Participation à une mini-expérience scientifique encadrée', 150),
+(7, 7, 'Arrêts photos aux meilleurs points de vue pendant le safari', 200),
+(8, 8, 'Atelier de conservation et de protection de la nature avec des experts', 75),
+(9, 9, 'Observation nocturne de la faune sauvage ', 200),
+(10, 10, 'Escale sur une île déserte pour un pique-nique et baignade', 200),
+(11, 11, 'Observation des oiseaux migrateurs pendant l\'excursion', 100),
+(12, 12, 'Randonnée à travers la forêt tropicale avec pauses pour découvrir la biodiversité', 150),
+(13, 13, 'Séance photo avec les pandas', 400),
+(14, 14, 'Nuit en bivouac sous les étoiles avec un guide local', 370),
+(15, 15, 'Séance de yoga dans l’ambiance paisible de la forêt de bambous', 200),
+(16, 16, 'Balade féerique en calèche tirée par des licornes ', 450),
+(17, 17, 'Champagne à bord ', 270),
+(18, 18, 'Séance de cross dans les prairies magiques', 360),
+(19, 19, 'Nuit dans des lodges traditionnels Sherpa', 375),
+(20, 20, 'Atelier de cuisine locale', 50),
+(21, 21, 'Survol de l’Everest Base Camp depuis Katmandou', 450),
+(22, 22, 'Visite guidée du temple', 260),
+(23, 23, 'Exploration de grottes mystérieuses', 125),
+(24, 24, 'Exploration des légendes locales avec un guide', 180),
+(25, 25, 'Excursion en canoë sur les rivières sinueuses', 300),
+(26, 26, 'Randonnée guidée avec un expert en écosystèmes marécageux', 175),
+(27, 27, 'Guide pour observer les plantes et arbres ', 250),
+(28, 28, 'Escalade d\'une montagne pour un panorama à 360°', 300),
+(29, 29, 'Observation des kangourous et émeus guidée au lever du soleil', 100),
+(30, 30, 'Observation des animaux nocturnes', 250),
+(31, 31, 'Découverte de la culture locale avec des arrêts dans des villages traditionnels', 375),
+(32, 32, 'Aider à la conduite des yaks dans les pâturages', 200),
+(33, 33, 'Visite de sites historiques et culturels le long du trajet', 350),
+(34, 34, 'Arrêts pour observer les célèbres cabanes Wookiee', 400),
+(35, 35, 'Rencontres avec des civilisations galactiques avancées', 650),
+(36, 36, 'Création de gadgets high-tech Wookiee', 150),
+(37, 37, 'Collecte de feuilles et de graines pour créer un carnet de nature', 175),
+(38, 38, 'Promenade avec les éléphants dans un environnement naturel', 350),
+(39, 39, 'Massage doux des éléphants après la baignade', 400),
+(40, 40, 'Exploration d\'autres animaux nocturnes à l’aide de la caméra thermique', 200),
+(41, 41, 'Observation des constellations avec un astronome', 100),
+(42, 42, 'Rencontre avec les soigneurs pour découvrir les soins apportés aux animaux', 375),
+(43, 43, 'Exploration de sentiers botaniques', 75),
+(44, 44, 'Arrêts baignade dans des piscines naturelles et sous des cascades', 275),
+(45, 45, 'Visite guidée d’une réserve communautaire', 200),
+(48, 1, 'Accès aux tombeaux', 400),
+(49, 2, 'Douches et toilettes privatives', 325),
+(50, 3, 'Pause sous les palmiers avec service de thé local', 60),
+(51, 4, 'Visite commentée par un guide spécialiste de la faune', 150),
+(52, 5, 'Balade encadrée sur la banquise', 350),
+(53, 6, 'Rencontre avec des chercheurs pour échanger sur leurs travaux', 200),
+(54, 7, 'Safari au lever du soleil pour une lumière magique', 300),
+(55, 8, 'Guide spécialisé dans la faune et la flore de la région', 250),
+(56, 9, 'Veillée autour d’un feu de camp avec musique locale', 250),
+(57, 10, 'Bateau à fond transparent pour observer les fonds marin', 150),
+(58, 11, 'Arrêt pour un cocktail sur une plage isolée au coucher du soleil', 140),
+(59, 12, 'Randonnée au lever du soleil pour admirer les premières lueurs sur les volcans', 180),
+(60, 13, 'Visite des installations où les pandas sont élevés ', 300),
+(61, 14, 'Arrêts photo pour capturer les paysages', 150),
+(62, 15, 'Observation des oiseaux et autres animaux vivant dans la forêt de bambous', 250),
+(63, 16, 'Séance photo avec les licornes sauvages  ', 500),
+(64, 17, 'Vol au lever du soleil ', 330),
+(65, 18, 'Séance de dressage sur les meilleures licornes du pays', 400),
+(66, 19, 'Repas traditionnels Sherpa lors des pauses', 225),
+(67, 22, 'Initiation aux rituels magiques du temple ', 350),
+(68, 23, 'Découverte de la faune et de la flore de la vallée', 165),
+(69, 24, 'Arrêts photo aux endroits où les dragons apparaissent ', 200),
+(70, 25, 'Safari nocturne pour observer la faune active la nuit', 500),
+(71, 26, 'Utilisation de jumelles et de télescopes pour observer les oiseaux et animaux distants', 100),
+(72, 27, 'Séance photo dans les paysages spectaculaires de la jungle', 150),
+(73, 28, 'Observation des plantes endémiques et des arbres anciens', 180),
+(74, 29, 'Pause café ou thé avec un petit déjeuner léger au milieu de la nature', 80),
+(75, 30, 'Séance de méditation sous les étoiles pour se reconnecter avec la nature', 200),
+(76, 31, 'Exploration de lacs glaciaires ou de rivières de montagne', 315),
+(77, 32, 'Participation à des soirées autour du feu', 150),
+(78, 33, 'Séance photo au coucher du soleil', 275),
+(79, 34, 'Excursion en speederbike pour une exploration rapide et palpitante', 500),
+(80, 35, 'Initiation au pilotage du vaisseau', 550),
+(81, 36, 'Customisation de pièces mécaniques', 100),
+(82, 37, 'Séance de méditation avec les bruits de la nature ', 200),
+(83, 38, 'Participation à la préparation des repas pour les éléphants', 350),
+(84, 39, 'Séance photo avec les éléphants dans la rivière ', 300),
+(85, 40, 'Pause dans un abri pour observer les renards de plus près', 250),
+(86, 41, 'Pause autour d\'un feu de camp en pleine forêt enneigée', 170),
+(87, 42, 'Observation des animaux en cours de rémission depuis des plateformes discrètes', 315),
+(88, 43, 'Observation des indris avec un guide', 180),
+(89, 44, 'Nuit en bivouac sur une plage de sable au bord du fleuve', 400),
+(90, 45, 'Excursion d’observation des baleines avec un guide spécialisé', 475),
+(91, 21, 'Excursion en hélicoptère vers le Annapurna Base Camp', 350),
+(92, 20, 'En présence de chanteurs et de musiciens traditionnels', 50);
 
 -- --------------------------------------------------------
 
@@ -143,10 +188,10 @@ CREATE TABLE `stage` (
 --
 
 INSERT INTO `stage` (`id`, `text`, `travel`, `chronology`, `image`) VALUES
-(1, 'Visite d\'une pyramide avec un guide ', 1, 1, 'img/trav/Pyramides-de-Gizeh.jpg'),
-(2, 'Nuit sous une Tente de luxe', 1, 2, 'img/trav/nuitTenteDesert.jpg'),
+(1, 'Visite d\'une pyramide', 1, 1, 'img/trav/Pyramides-de-Gizeh.jpg'),
+(2, 'Nuit sous une tente de luxe', 1, 2, 'img/trav/nuitTenteDesert.jpg'),
 (3, 'Exploration des oasis', 1, 3, 'img/trav/exploOasis.jpg'),
-(4, 'Observation des pingouins.', 2, 1, 'img/trav/observationPingouin.jpg'),
+(4, 'Observation des pingouins', 2, 1, 'img/trav/observationPingouin.jpg'),
 (5, 'Excursions en bateau', 2, 2, 'img/trav/excursionBateau.jpg'),
 (6, 'Visites de stations scientifiques', 2, 3, 'img/trav/stationScientifiques.jpeg'),
 (7, 'Safari en jeep', 3, 1, 'img/trav/safariJeep.jpeg'),
@@ -162,7 +207,7 @@ INSERT INTO `stage` (`id`, `text`, `travel`, `chronology`, `image`) VALUES
 (17, 'Vol en montgolfière au-dessus des prairies arc-en-ciel ', 6, 2, 'img/trav/montgolfiere.jpeg'),
 (18, 'Équitation avec les licornes', 6, 3, 'img/trav/EquitationLicorne.jpeg'),
 (19, 'Trekking au Mont Everest avec un guide Sherpa', 7, 1, 'img/trav/trekkingEverest.jpeg'),
-(20, 'Veillée autour du feu avec les légendes de l’Himalaya', 7, 2, 'img/trav/veilleeFeu.jpeg'),
+(20, 'Veillée autour du feu', 7, 2, 'img/trav/veilleeFeu.jpeg'),
 (21, 'Excursion en hélicoptère', 7, 3, 'img/trav/helicoEverest.jpeg'),
 (22, 'Exploration du Temple du Dragon', 8, 1, 'img/trav/TempleDragon.jpeg'),
 (23, 'Randonnée dans la Vallée des Dragons', 8, 2, 'img/trav/ValleeDragon.jpeg'),
@@ -184,7 +229,7 @@ INSERT INTO `stage` (`id`, `text`, `travel`, `chronology`, `image`) VALUES
 (39, 'Baignade avec les éléphants dans la rivière de Chiang Mai', 13, 3, 'img/trav/BaignadeElephants.jpeg'),
 (40, 'Observation des renards à la caméra thermique', 14, 1, 'img/trav/observationRenards.jpeg'),
 (41, 'Randonnée au crépuscule dans les forêts enneigées', 14, 2, 'img/trav/randoFinlande.jpeg'),
-(42, 'Visite d’un centre de réhabilitation de la faune nordique', 14, 3, 'img/trav/centreFinlande.jpeg'),
+(42, 'Visite d’un centre de soins de la faune nordique', 14, 3, 'img/trav/centreFinlande.jpeg'),
 (43, 'Randonnée dans le parc national d\'Andasibe-Mantadia ', 15, 1, 'img/trav/randoMada.jpeg'),
 (44, 'Croisière sur le fleuve Tsiribihina', 15, 2, 'img/trav/croisiereMada.jpeg'),
 (45, 'Visite des réserves naturelles de l\'île Sainte-Marie', 15, 3, 'img/trav/reserveMada.jpeg');
@@ -241,20 +286,17 @@ CREATE TABLE `users` (
   `firstname` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `role` tinyint NOT NULL
+  `role` tinyint NOT NULL,
+  `birth` date DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`) VALUES
-(1, 'Maslanka', 'Jean-Luc', 'maslankaje@cytech.fr', '$2y$12$xgNWFok2a8rNzr5VUVL.5eXNQqzphrcW/TcsWAxOvAZv9vl7uu9LS', 0),
-(2, 'Saves', 'Gaspard', 'gs@gmail.com', '$2y$12$f0.ITdKMgYLplWAQX98I6e1LYRpmr9TmYMHZqiFhjKEIodgupVxoa', 0),
-(3, 'Stashenko', 'Albina', 'AS@gmai.com', '$2y$12$HnniYl8JQgq05n8WuwFcreyK97YOh264tIL6Ilgaz5rN/vDQJrUrC', 1),
-(4, 'Trump', 'Donald', 'DonaldTrump@gmail.com', '$2y$12$9w9V5wG/pa6REDXXFzbCDO9p/GlxzU8Cm84TGxIUX6NA3LnIrkLwG', 1),
-(5, 'Banica', 'Teodor', 'TB@gmail.com', '$2y$12$3.NkSlqdQwgNM6NnJjxR3eW2d2IaGMuSfx4zAe1PjsbEa371kST/e', 1),
-(6, 'Saves', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$YwmRB6E8DVHfMM.Qupv8CO5DeetFfbPBOE61Zcb3sw3fw4P1EqOBy', 1);
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`, `birth`, `phone`) VALUES
+(1, 'Saves', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$ae681KhX7bsDOuYIFZYkp.XCp.rL.8vrpJ8/vstyt9uWTMR8Dmox2', 1, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -316,7 +358,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT pour la table `extra`
 --
 ALTER TABLE `extra`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT pour la table `payment`
@@ -340,7 +382,7 @@ ALTER TABLE `travel`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
