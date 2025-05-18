@@ -1,5 +1,8 @@
 <?php 
     include 'session.php';
+    if((!isset($_SESSION['email']))||($_SESSION['role']!=0)){
+        header("Location: pasadmin.php?");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -93,7 +96,7 @@
                             <label class="switch">
                                 <input type="checkbox" 
                                     class="vip-toggle" 
-                                    data-user-id="'. $ligne['id'] . '" ' . ($ligne["role"] == 2 ? 'checked' : '') . '>'.'
+                                    id="'. $ligne['id'] . '" ' . ($ligne["role"] == 2 ? 'checked' : '') . '>'.'
                                 <span class="slider"></span>
                             </label>
                         </td>

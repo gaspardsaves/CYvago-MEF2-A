@@ -1,6 +1,17 @@
 <?php
     session_start();
-    /*if(isset($_SESSION["mail"])){
-        echo $_SESSION["mail"];
-    }*/
+    include 'database.php';
+    if(isset($_SESSION["email"])){
+        $mail = $_SESSION["email"];
+        $commande = $database->prepare("SELECT role FROM users WHERE email=?");
+        $commande->bind_param("s", $mail);
+        $commande->execute();
+        $commande->bind_result($result);
+        $commande->fetch();
+        $commande->close();
+        echo $result;
+        if($result==(-1)){
+            header("Location: bannis.php");
+        }
+    }
 ?>
