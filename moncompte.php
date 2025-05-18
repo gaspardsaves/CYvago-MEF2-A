@@ -28,6 +28,8 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Mon Compte</title>
     <link rel="stylesheet" href="css/monCompte.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <!-- Barre de menu -->
@@ -88,7 +90,7 @@
                         <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
                         <input type="hidden" name="password" id="hidden-password" value="">
                     </p>
-                    <button type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
+                    <button class="button1" type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
                 </div>
             </form>
             <br/>

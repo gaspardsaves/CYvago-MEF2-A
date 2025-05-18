@@ -33,6 +33,5 @@
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
-    <script src="js/mode.js"></script>
 </body>
 </html>

@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 <?php 
     
 ?>
+=======
+>>>>>>> 14569665f98d2743c7f77a871561f605cf50df04
     <nav class="nav-bar">
         <div class="logo">
             <a href="accueil.php"> <img src="img/ZanimoTripDef.png"> </a>

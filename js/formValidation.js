@@ -4,11 +4,16 @@ function togglePasswordVisibility() {
     const toggleIcon = document.getElementById('togglePassword');
     if (passwordField.type === 'password') {
         passwordField.type = 'text';
-        toggleIcon.src = 'images/eye-open.svg'; 
+        toggleIcon.src = 'img/eye-open.png';
+        toggleIcon.alt = 'Masquer le mot de passe';
     } else {
         passwordField.type = 'password';
-        toggleIcon.src = 'images/eye-closed.svg'; 
+        toggleIcon.src = 'img/eye-close.png';
+        toggleIcon.alt = 'Voir le mot de passe';
     }
+    passwordField.focus();
+    const length = passwordField.value.length;
+    passwordField.setSelectionRange(length, length);
 }
 
 

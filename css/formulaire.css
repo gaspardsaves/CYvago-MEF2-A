@@ -58,13 +58,12 @@
 }
 
 /* Espace entre les boutons */
-.button-form input[type="reset"] {
-  margin-right: 30px;        
+.button1 {
+  margin-right: 10px;
 }
 
 .container-form input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="password"] {
   padding: 10px 13px;
-  margin-bottom: 15px;
   color: #2E3B4E;
   border: 2px solid var(--border-form);
   border-radius: 8px;
@@ -72,6 +71,7 @@
   font-size: 16px;
   font-family: "Inter Tight", serif;
   transition: all 0.3s ease;
+  margin-bottom: 8px;
 }
 
 .message-decon-ok {
@@ -120,4 +120,52 @@
   display: block;
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Key password visibility */
+.password-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Adjust lenth password container */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  box-sizing: border-box;
+}
+
+.password-visibility {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.password-visibility img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.password-visibility img:hover {
+  opacity: 1;
+}
+
+/* Password count */
+.password-count {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
