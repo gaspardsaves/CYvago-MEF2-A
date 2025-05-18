@@ -166,7 +166,7 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
     <title>ZanimoTrip Récapitulatif</title>
     <link rel="stylesheet" href="css/recapvoyage.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
+    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <?php require('phpFrequent/navbar.php'); ?>

@@ -1,121 +1,44 @@
-/* filepath: c:\wamp64\www\php\CYvago-MEF2-A\css\mode-clair.css */
-
-/* Mode sombre (par défaut) */
-@import url('def.css');
-/*
-body {
-    background: var(--blue-background); 
-    color: var(--text-light); 
+.container-form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-.button1 {
-    background: linear-gradient(135deg, var(--button1), var(--ba));
-    color: var(--text-light);
-}
-
-.button1:hover {
-    background: linear-gradient(135deg, var(--button1), var(--button2));
-}
-
-.link {
-    color: var(--text-light);
-}
-
-.link:hover {
-    color: var(--accent-color);
-}
-
-.search-bar input {
-    border-color: var(--text-light);
-    background-color: var(--search-bar);
-    color: var(--text-light);
-}
-
-.footer-end {
-    color: var(--text-light);
-    border-top: 1px solid var(--button-dark);
-}
-
-*/
-
+/* Styles spécifiques pour le mode clair */
 .light-mode-theme {
-    background: var(--background-light); /* Fond clair */
-    color: var(--text-dark); /* Texte sombre */
-}
-
-.light-mode-theme .nav-bar {
-    background: var(--nav-light); /* Couleur claire pour la barre de navigation */
-    color: var(--text-dark);
+    background: var(--button1);
 }
 
 .light-mode-theme .button1 {
-    background: linear-gradient(135deg, var(--background-light), var(--button-light));
-    color: var(--text-dark);
+    /* Inverser les dégradés pour le mode clair */
+    background: linear-gradient(135deg, var(--blue-nav), var(--search-bar));
+    color: var(--white);
 }
 
 .light-mode-theme .button1:hover {
-    background: linear-gradient(135deg, var(--button-light), var(--background-light));
+    background: linear-gradient(135deg, var(--search-bar), var(--blue-background));
 }
 
 .light-mode-theme .link {
-    color: var(--text-dark);
+    color: var(--blue-nav);
 }
 
 .light-mode-theme .link:hover {
-    color: var(--accent-color);
+    color: var(--button3);
 }
 
 .light-mode-theme .search-bar input {
-    border-color: var(--text-dark);
-    background-color: var(--background-light);
-    color: var(--text-dark);
+    border-color: var(--blue-nav);
+    background-color: var(--white);
+    color: var(--blue-nav);
 }
 
 .light-mode-theme .footer-end {
-    color: var(--text-dark);
-    border-top: 1px solid var(--button-light);
+    color: var(--blue-nav);
+    border-top: 1px solid var(--blue-background);
 }
 
 /* Amélioration des transitions pour un effet plus fluide */
-body, .nav-bar, .footer-bar, .search-bar, .button1, .link, input {
-    transition: all 0.4s ease-in-out;
-}
-
-/*
-.light-mode-theme {
-    background: var(--button1); 
-    color: var(--text-dark); 
-}
-
-.light-mode-theme .button1 {
-    background: linear-gradient(135deg, var(--button1), var(--button-light));
-    color: var(--text-light);
-}
-
-.light-mode-theme .button1:hover {
-    background: linear-gradient(135deg, var(--button-light), var(--background-light));
-}
-
-.light-mode-theme .link {
-    color: var(--text-dark);
-}
-
-.light-mode-theme .link:hover {
-    color: var(--accent-color);
-}
-
-.light-mode-theme .search-bar input {
-    border-color: var(--text-dark);
-    background-color: var(--background-light);
-    color: var(--text-dark);
-}
-
-.light-mode-theme .footer-end {
-    color: var(--text-dark);
-    border-top: 1px solid var(--button-light);
-}
-
-
 body, .nav-bar, .footer-bar, .search-bar, .button1, .link, input {
     transition: all 0.4s ease-in-out;
 }

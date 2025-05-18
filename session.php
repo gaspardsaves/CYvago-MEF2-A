@@ -9,7 +9,6 @@
         $commande->bind_result($result);
         $commande->fetch();
         $commande->close();
-        echo $result;
         if($result==(-1)){
             header("Location: bannis.php");
         }

@@ -14,7 +14,7 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Séjours</title>
     <link rel="stylesheet" href="css/sejours.css?v=<?php echo time(); ?>">
-    <script src="js/tri.js" defer></script>
+    <script src="js/tri.js?v=<?php echo time(); ?>" defer></script>
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
     <script src="js/mode.js?v=<?php echo time(); ?>"></script>
 </head>

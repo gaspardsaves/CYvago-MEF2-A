@@ -2,6 +2,7 @@
 include 'session.php';
 include 'database.php';
 
+/*
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     // Stocker les données du formulaire en session pour les récupérer après connexion
@@ -10,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
     // Rediriger vers la page de connexion
     header("Location: connexion.php?redirect=connexion.php");
     exit;
-}
+}*/
 
 // Récupérer l'ID du voyage depuis l'URL
 $id = isset($_GET['id']) ? $_GET['id'] : null;

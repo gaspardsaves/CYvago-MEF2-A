@@ -1,13 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const button = document.getElementById("Clair-sombre");
     const body = document.querySelector("body");
     const text = document.getElementById("text");
-
-    // Vérifier si les éléments HTML existent
-    if (!button || !body || !text) {
-        console.error("Un ou plusieurs éléments HTML nécessaires sont manquants.");
-        return;
-    }
 
     // Récupérer le mode actuel depuis le stockage local
     let lightmode = localStorage.getItem("light-mode");
@@ -34,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Gestionnaire d'événement pour le bouton
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
         lightmode = localStorage.getItem("light-mode");
         if (lightmode === "disabled") {
             enableLightMode();
