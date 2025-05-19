@@ -141,7 +141,7 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
         $database->commit();
         
         // Rediriger vers la page de paiement
-        header("Location: reservation.php?booking_id=$booking_id");
+        header("Location: https://www.plateforme-smc.fr/cybank/index.php?booking_id=$booking_id");
         exit;
         
     } catch (Exception $e) {
@@ -261,16 +261,21 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
                 <button class="button1" onclick="window.history.back();">Retour</button>
                 
                 <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
-                    <!-- Transférer toutes les données reçues dans des champs cachés -->
+                    <!-- Enregistrement dans la base de données -->
                     <input type="hidden" name="travel_id" value="<?= htmlspecialchars($travel_id) ?>">
                     <input type="hidden" name="travel_title" value="<?= htmlspecialchars($travel_title) ?>">
                     <input type="hidden" name="travel_base_price" value="<?= htmlspecialchars($travel_base_price) ?>">
                     <input type="hidden" name="people" value="<?= htmlspecialchars($people) ?>">
                     <input type="hidden" name="date" value="<?= htmlspecialchars($date) ?>">
-                    
                     <?php foreach ($selected_options as $extra_id => $num_people): ?>
                         <input type="hidden" name="extra_people_<?= $extra_id ?>" value="<?= htmlspecialchars($num_people) ?>">
                     <?php endforeach; ?>
+
+                    <input type='hidden' name='transaction' value="<?= htmlspecialchars($transaction) ?>">
+                    <input type='hidden' name='montant' value="<?= htmlspecialchars($montant) ?>">
+                    <input type='hidden' name='vendeur' value="<?= htmlspecialchars($vendeur) ?>">
+                    <input type='hidden' name='retour' value='retour_paiement.php?session=<?= htmlspecialchars($user_id) ?>'>
+                    <input type='hidden' name='control' value="<?= htmlspecialchars($control) ?>">
                     
                     <input type="hidden" name="confirm_booking" value="1">
                     <button type="submit" class="button1">Confirmer et payer</button>

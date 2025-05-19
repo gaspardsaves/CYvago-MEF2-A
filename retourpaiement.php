@@ -1,7 +1,7 @@
 <?php 
-    include 'session.php';
-?>
-<?php
+include 'session.php';
+include 'database.php';
+
 // Inclusion du fichier contenant la fonction getAPIKey
 require('getapikey.php');
 
@@ -15,7 +15,7 @@ if ($booking_id) {
     // Récupération des paramètres de l'URL de retour
     $transaction = $_GET['transaction'] ?? '';
     $montant = $_GET['montant'] ?? '';
-    $vendeur = $_GET['vendeur'] ?? '';
+    $vendeur = "MEF-2_A";
     $statut = $_GET['status'] ?? ''; // 'accepted' ou 'declined'
     $control = $_GET['control'] ?? '';
     
@@ -71,13 +71,13 @@ if ($booking_id) {
                 // Paiement accepté - redirection vers une page de confirmation
                 $_SESSION['payment_success'] = true;
                 $_SESSION['payment_message'] = "Votre paiement de " . number_format($montant, 2, ',', ' ') . " € a été accepté.";
-                header("Location: cgv.php?booking_id=" . $booking_id);
+                header("Location: confirmation.php?booking_id=" . $booking_id);
                 exit;
             } else {
                 // Paiement refusé - redirection vers une page d'erreur
                 $_SESSION['payment_error'] = true;
                 $_SESSION['payment_message'] = "Votre paiement a été refusé. Veuillez réessayer avec une autre carte ou contacter le service client.";
-                header("Location: cgu.php?booking_id=" . $booking_id);
+                header("Location: echec-paiement.php?booking_id=" . $booking_id);
                 exit;
             }
         } else {

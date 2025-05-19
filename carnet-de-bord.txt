@@ -96,3 +96,9 @@ Interface :
 16/05/25 :
 - Ajustements mineurs sur le CSS
 - Mise à jour de la base de données et préparation à l'implémentation de la réservation
+
+18/05/25 :
+- Implémentation de la réservation dans la base de données
+
+19/05/25 :
+- Implémentation du paiement

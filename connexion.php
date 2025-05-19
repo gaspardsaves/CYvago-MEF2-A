@@ -32,15 +32,16 @@
             $verification->close();
             var_dump($result);
             if($result==true){
-                $verification = $database->prepare("SELECT firstname, lastname, password, role FROM users WHERE email=?");
+                $verification = $database->prepare("SELECT id, firstname, lastname, password, role FROM users WHERE email=?");
                 $verification->bind_param("s", $EMAIL);
                 $verification->execute();
-                $verification->bind_result($prenom, $nomdefamille, $result, $role);
+                $verification->bind_result($user_id,$prenom, $nomdefamille, $result, $role);
                 $verification->fetch();
                 $verification->close();
                 if(password_verify($MDP, $result)){
                     echo "Connexion OK";
                     session_start();
+                    $_SESSION['user_id'] = $user_id;
                     $_SESSION['email'] = $EMAIL;
                     $_SESSION['prenom'] = $prenom;
                     $_SESSION['nomdefamille'] = $nomdefamille;

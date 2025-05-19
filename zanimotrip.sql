@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 18 mai 2025 à 00:11
+-- Généré le : lun. 19 mai 2025 à 13:23
 -- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -35,6 +35,13 @@ CREATE TABLE `booking` (
   `nbrperson` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `booking`
+--
+
+INSERT INTO `booking` (`id`, `user`, `travel`, `departuredate`, `nbrperson`) VALUES
+(1, 6, 2, '2025-05-31', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -42,10 +49,20 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `engagement` (
+  `id` int NOT NULL,
   `booking` int NOT NULL,
   `extra` int NOT NULL,
   `nbrperson` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `engagement`
+--
+
+INSERT INTO `engagement` (`id`, `booking`, `extra`, `nbrperson`) VALUES
+(1, 1, 51, 3),
+(2, 1, 52, 6),
+(3, 1, 53, 1);
 
 -- --------------------------------------------------------
 
@@ -296,7 +313,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`, `birth`, `phone`) VALUES
-(1, 'Saves', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$ae681KhX7bsDOuYIFZYkp.XCp.rL.8vrpJ8/vstyt9uWTMR8Dmox2', 1, NULL, NULL);
+(1, 'Maslanka', 'Jean-Luc', 'maslankaje@cy-tech.fr', '$2y$12$otC4EkyMoO/sywmjh.oUbOHEMDE511P0X.9f6Ugn7nfA3tM1UKJpO', 0, NULL, NULL),
+(2, 'Savès', 'Gaspard', 'gs@gmail.com', '$2y$12$znAisyEpXVR.nlRDqsBZLe98zmMwE2azXRMkIidU9/kPu8ogYyGKu', 0, NULL, NULL),
+(3, 'Stashenko', 'Albina', 'as@gmail.com', '$2y$12$OHaYsiFPiikxZ/IZxkFJouC0WPpldAvIGnOjto0grzoO0fpZ4xwA.', 1, NULL, NULL),
+(4, 'Trump', 'Donald', 'dt@gmail.com', '$2y$12$jrcXb9CRjwZxDJHVhn8S2u4AhrBJa0uldaKoSPkfmJAIfcFAgqXJi', 1, NULL, NULL),
+(5, 'Banica', 'Teodor', 'tb@gmail.com', '$2y$12$yRthDqmUcgjhl0tNSJkv6.n4p5Kl2DcNRGLvXlusIqfkU9J8djsv2', 1, NULL, NULL),
+(6, 'Savès', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$GOIGxcw8hYNsQWRrq5PQf.mF2MTdahNRKODH3XelIYFXVdxfdoei2', 1, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -312,7 +334,7 @@ ALTER TABLE `booking`
 -- Index pour la table `engagement`
 --
 ALTER TABLE `engagement`
-  ADD PRIMARY KEY (`booking`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `extra`
@@ -352,7 +374,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `engagement`
+--
+ALTER TABLE `engagement`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `extra`
@@ -382,7 +410,7 @@ ALTER TABLE `travel`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
