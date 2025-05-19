@@ -2,17 +2,26 @@
     
     include 'session.php';
    
+    $id = $_SESSION['user_id'];
+    $stmt = $database->prepare("SELECT lastname, firstname, email FROM users WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
     
-    
-    if(!isset($_SESSION['email']) && !isset($_SESSION['mail'])){
+    if(!isset($_SESSION['email'])){
         header("Location: connexion.php");
         exit();
     }
     
     // Vérifier que les variables de session nécessaires existent
-    $prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : "Utilisateur";
-    $nom = isset($_SESSION['nom']) ? $_SESSION['nom'] : "";
-    $email = isset($_SESSION['email']) ? $_SESSION['email'] : "non renseigné";
+    $prenom = isset($user['firstname']) ? $user['firstname'] : "Utilisateur";
+    $nom = isset($user['lastname']) ? $user['lastname'] : "";
+    $email = isset($user['email']) ? $user['email'] : "non renseigné";
+    $phone = isset($user['phone']) ? $user['phone'] : "";
+    
+    // Pour les messages de notification
+    $message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -40,16 +49,22 @@
     
     <!-- Contenu de la page -->
     <main>
-        <!-- Cas de la connexion classique -->
+        <!-- Messages de notification -->
         <?php if(isset($_GET['success']) && $_GET['success'] == 'true'): ?>
             <div class="message-con-ok show">
                 Bonjour <span id="nomUtilisateur"><?php echo htmlspecialchars($prenom); ?></span> !
             </div>
         <?php endif; ?>
-        <!-- Cas du nouvel utilisateur -->
+        
         <?php if(isset($_GET['success']) && $_GET['success'] == 'newok'): ?>
             <div class="message-con-ok show">
                 Bienvenue <span id="nomUtilisateur"><?php echo htmlspecialchars($prenom); ?></span> !
+            </div>
+        <?php endif; ?>
+        
+        <?php if(!empty($message)): ?>
+            <div class="message-con-ok show">
+                <?php echo htmlspecialchars($message); ?>
             </div>
         <?php endif; ?>
 
@@ -65,30 +80,33 @@
             <form id="profile-form" action="update_profile.php" method="POST">
                 <div class="profile-info">
                     <h2>Vos informations</h2>
-                    
+                    <p>
+                        <label for="prenom"><strong>👤 Prénom :</strong></label>
+                        <input type="text" name="firstname" id="prenom" value="<?= htmlspecialchars($prenom) ?>" disabled>
+                        <button type="button" class="edit-btn" data-target="prenom">✏️</button>
+                        <button type="button" class="save-btn" data-target="prenom" style="display:none;">✅</button>
+                        <button type="button" class="cancel-btn" data-target="prenom" style="display:none;">❌</button>
+                    </p>
                     <p>
                         <label for="nom"><strong>👤 Nom :</strong></label>
-                        <input type="text" id="nom" value="<?php echo htmlspecialchars($prenom . ' ' . $nom); ?>" disabled>
+                        <input type="text" name="lastname" id="nom" value="<?= htmlspecialchars($nom) ?>" disabled>
                         <button type="button" class="edit-btn" data-target="nom">✏️</button>
                         <button type="button" class="save-btn" data-target="nom" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="nom" style="display:none;">❌</button>
-                        <input type="hidden" name="nom" id="hidden-nom" value="<?php echo htmlspecialchars($prenom . ' ' . $nom); ?>">
                     </p>
                     <p>
                         <label for="email"><strong>📧 Email :</strong></label>
-                        <input type="email" id="email" value="<?php echo htmlspecialchars($email); ?>" disabled>
+                        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" disabled>
                         <button type="button" class="edit-btn" data-target="email">✏️</button>
                         <button type="button" class="save-btn" data-target="email" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="email" style="display:none;">❌</button>
-                        <input type="hidden" name="email" id="hidden-email" value="<?php echo htmlspecialchars($email); ?>">
                     </p>
                     <p>
                         <label for="password"><strong>🔑 Mot de passe :</strong></label>
-                        <input type="password" id="password" value="••••••••" disabled>
+                        <input type="password" name="password" id="password" placeholder="••••••••" disabled>
                         <button type="button" class="edit-btn" data-target="password">✏️</button>
                         <button type="button" class="save-btn" data-target="password" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
-                        <input type="hidden" name="password" id="hidden-password" value="">
                     </p>
                     <button class="button1" type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
                 </div>
@@ -109,6 +127,6 @@
     <?php require('phpFrequent/footer.php'); ?>
     
     <!-- Script JavaScript à charger après le DOM -->
-    <script src="js/moncompte.js"></script>
+    <script src="js/moncompte.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

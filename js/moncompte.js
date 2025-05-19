@@ -2,6 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Objet pour stocker les modifications
     const modifs = {};
 
+    // Vérifier si un message de notification est présent
+    const messageDiv = document.querySelector('.message-con-ok');
+    if (messageDiv) {
+        // Faire disparaître le message après 5 secondes
+        setTimeout(() => {
+            messageDiv.classList.remove('show');
+            setTimeout(() => messageDiv.style.display = 'none', 500);
+        }, 5000);
+    }
+
     // Gestion des boutons d'édition
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -17,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.style.display = 'none';
             document.querySelector(`.save-btn[data-target="${id}"]`).style.display = 'inline-block';
             document.querySelector(`.cancel-btn[data-target="${id}"]`).style.display = 'inline-block';
+            
+            // Cas particulier pour le mot de passe
+            if (id === 'password') {
+                input.value = ''; // Effacer les astérisques
+                input.placeholder = 'Nouveau mot de passe';
+            }
         });
     });
 
@@ -27,7 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const input = document.getElementById(id);
             
             // Restaurer la valeur originale et désactiver l'édition
-            input.value = input.dataset.original;
+            if (id === 'password') {
+                input.value = '';
+                input.placeholder = '••••••••';
+            } else {
+                input.value = input.dataset.original;
+            }
+            
             input.disabled = true;
 
             // Cacher les boutons de sauvegarde/annulation et afficher le bouton d'édition
@@ -47,6 +69,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = btn.dataset.target;
             const input = document.getElementById(id);
             
+            // Validation simple
+            if (id === 'email' && !validateEmail(input.value)) {
+                alert('Veuillez entrer un email valide');
+                return;
+            }
+            
+            if (id === 'password' && input.value.length > 0 && input.value.length < 8) {
+                alert('Le mot de passe doit contenir au moins 8 caractères');
+                return;
+            }
+            
+            if (id === 'phone' && input.value && !validatePhone(input.value)) {
+                alert('Veuillez entrer un numéro de téléphone valide');
+                return;
+            }
+            
             // Désactiver l'édition du champ
             input.disabled = true;
     
@@ -55,17 +93,28 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(`.cancel-btn[data-target="${id}"]`).style.display = 'none';
             document.querySelector(`.edit-btn[data-target="${id}"]`).style.display = 'inline-block';
     
-            // Stocker la modification et mettre à jour le champ caché
-            modifs[id] = input.value;
-            const hiddenInput = document.getElementById(`hidden-${id}`);
-            if (hiddenInput) {
-                hiddenInput.value = input.value;
+            // Stocker la modification
+            if (id === 'password' && input.value.length === 0) {
+                delete modifs[id]; // Ne pas envoyer de mot de passe vide
+            } else {
+                modifs[id] = input.value;
             }
     
             // Vérifier s'il faut afficher le bouton soumettre
             toggleSubmitButton();
         });
     });
+
+    // Fonction pour valider un email
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    // Fonction pour valider un numéro de téléphone
+    function validatePhone(phone) {
+        return phone.length >= 10;
+    }
 
     // Fonction pour afficher/masquer le bouton soumettre en fonction des modifications
     function toggleSubmitButton() {
