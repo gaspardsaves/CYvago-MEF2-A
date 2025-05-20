@@ -1,11 +1,3 @@
-<?php 
-    include 'session.php';
-    if((!isset($_SESSION['email']))||($_SESSION['role']!=0)){
-        header("Location: pasadmin.php?");
-    }
-?>
-<!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +9,8 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>ZanimoTrip Admin</title>
     <link rel="stylesheet" href="css/administrateur.css?v=<?php echo time(); ?>">
-    <script src="js/admin.js?v=<?php echo time(); ?>"></script>
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js?v=<?php echo time(); ?>"></script>
+    
 </head>
 <body>
     <!-- Barre de menu -->
@@ -47,38 +38,6 @@
             </thead>
             <tbody>
                 <?php 
-                /*<?php
-                $json = file_get_contents('json/comptes.json');
-                $utilisateurs = json_decode($json, true);
-
-                // vérification
-                if (!$utilisateurs) {
-                    echo "<tr><td colspan='6'>Erreur lors du chargement des utilisateurs.</td></tr>";
-                } else {
-                    // affichage utilisateurs dans tableaux
-                    foreach ($utilisateurs as $user) {
-                        echo "<tr>
-                                <td>$user{['id']}</td>
-                                <td>{$user['nom']}</td>
-                                <td>{$user['email']}</td>
-                                <td>{$user['statut']}</td>
-                                <td>
-                                    <label class='switch'>
-                                        <input type='checkbox' " . ($user['vip'] ? "checked" : "") . ">
-                                        <span class='slider'></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label class='switch'>
-                                        <input type='checkbox' " . ($user['banni'] ? "checked" : "") . ">
-                                        <span class='slider'></span>
-                                    </label>
-                                </td>
-                              </tr>";
-                    }
-                }
-                ?>
-                */
                 include 'database.php';
                 $NB_lignes = 20;
                 $requete = "SELECT * FROM users";
@@ -96,7 +55,7 @@
                             <label class="switch">
                                 <input type="checkbox" 
                                     class="vip-toggle" 
-                                    id="'. $ligne['id'] . '" ' . ($ligne["role"] == 2 ? 'checked' : '') . '>'.'
+                                    id="' . $ligne['id'] . '" ' . ($ligne["role"] == 2 ? 'checked' : '') . '>
                                 <span class="slider"></span>
                             </label>
                         </td>
@@ -104,7 +63,7 @@
                             <label class="switch">
                                 <input type="checkbox" 
                                     class="ban-toggle" 
-                                    data-user-id= ' . $ligne['id'] . '" ' . ($ligne["role"] == -1 ? 'checked' : '') . '>
+                                    data-user-id="' . $ligne['id'] . '" ' . ($ligne["role"] == -1 ? 'checked' : '') . '>
                                 <span class="slider"></span>
                             </label>
                         </td>
@@ -115,19 +74,16 @@
                         echo'<td></td><td></td>';
                     }
                     
+                    echo "</tr>";
                 }
-                if(isset($_REQUEST['requete']))
                 ?>
-                
             </tbody>
         </table>
     </main>
 
     <!-- Barre de pied de page -->
-    <?php require('phpFrequent/footer.php');
-    //header('Content-Type: text/html; charset=UTF-8');?>
-
+    <?php require('phpFrequent/footer.php'); ?>
     
-    
+    <script src="js/admin.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

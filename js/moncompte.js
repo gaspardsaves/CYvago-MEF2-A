@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const input = document.getElementById(id);
             
             // Activer l'édition du champ
-            input.disabled = false;
+            input.readOnly = false;
             input.dataset.original = input.value;
             input.focus();
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.value = input.dataset.original;
             }
             
-            input.disabled = true;
+            input.readOnly = true;
 
             // Cacher les boutons de sauvegarde/annulation et afficher le bouton d'édition
             btn.style.display = 'none';
@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Désactiver l'édition du champ
-            input.disabled = true;
+            // Désactiver l'édition du champ mais garder la valeur accessible pour l'envoi du formulaire
+            input.readOnly = true;
     
             // Cacher les boutons de sauvegarde/annulation et afficher le bouton d'édition
             btn.style.display = 'none';
@@ -125,4 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.style.display = 'none';
         }
     }
+    
+    // Gérer la soumission du formulaire
+    document.getElementById('profile-form').addEventListener('submit', function(e) {
+        // Activer tous les champs avant soumission pour qu'ils soient envoyés
+        document.querySelectorAll('input[readonly]').forEach(input => {
+            if (modifs[input.id]) {
+                input.readOnly = false;
+            }
+        });
+    });
 });
