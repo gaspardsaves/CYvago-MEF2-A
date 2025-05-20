@@ -77,33 +77,33 @@
                 <a href="moncompte.php" class="modify">📸 Changer de photo</a>
             </div>
 
-            <form id="profile-form" action="update_profile.php" method="POST">
+            <form action="update_profile.php" method="POST" id="profile-form">
                 <div class="profile-info">
                     <h2>Vos informations</h2>
                     <p>
                         <label for="prenom"><strong>👤 Prénom :</strong></label>
-                        <input type="text" name="firstname" id="prenom" value="<?= htmlspecialchars($prenom) ?>" disabled>
+                        <input type="text" name="firstname" id="prenom" value="<?= htmlspecialchars($prenom) ?>" readonly>
                         <button type="button" class="edit-btn" data-target="prenom">✏️</button>
                         <button type="button" class="save-btn" data-target="prenom" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="prenom" style="display:none;">❌</button>
                     </p>
                     <p>
                         <label for="nom"><strong>👤 Nom :</strong></label>
-                        <input type="text" name="lastname" id="nom" value="<?= htmlspecialchars($nom) ?>" disabled>
+                        <input type="text" name="lastname" id="nom" value="<?= htmlspecialchars($nom) ?>" readonly>
                         <button type="button" class="edit-btn" data-target="nom">✏️</button>
                         <button type="button" class="save-btn" data-target="nom" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="nom" style="display:none;">❌</button>
                     </p>
                     <p>
                         <label for="email"><strong>📧 Email :</strong></label>
-                        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" disabled>
+                        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
                         <button type="button" class="edit-btn" data-target="email">✏️</button>
                         <button type="button" class="save-btn" data-target="email" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="email" style="display:none;">❌</button>
                     </p>
                     <p>
                         <label for="password"><strong>🔑 Mot de passe :</strong></label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" disabled>
+                        <input type="password" name="password" id="password" placeholder="••••••••" readonly>
                         <button type="button" class="edit-btn" data-target="password">✏️</button>
                         <button type="button" class="save-btn" data-target="password" style="display:none;">✅</button>
                         <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
@@ -126,7 +126,7 @@
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
     
-    <!-- Script JavaScript à charger après le DOM -->
+    
     <script src="js/moncompte.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
