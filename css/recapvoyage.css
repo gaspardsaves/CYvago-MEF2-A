@@ -185,3 +185,20 @@ body {
         max-width: 100%;
     }
 }
+
+.recap-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    color: var(--white);
+    font-size: 15px;
+}
+
+.discount-row {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.discount-price {
+    color: #4CAF50;
+}

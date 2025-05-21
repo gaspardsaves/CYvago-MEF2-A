@@ -93,7 +93,7 @@ unset($_SESSION['payment_message']);
             </div>
             <?php endif; ?>
             
-            <div class="button">
+            <div class="buttons">
                 <form action="accueil.php">
                     <button class="button1" type="submit">Retour à l'accueil</button>
                 </form>

@@ -72,13 +72,21 @@ $stmt->bind_result($title, $description, $image, $price, $nbrdays);
 $stmt->fetch();
 $stmt->close();
 
-// Calcul du montant total
+// Application d'une remise de trois pourcent sur le prix pour les clients VIP (role = 2)
+$isVIP = isset($_SESSION['role']) && $_SESSION['role'] == 2;
+$discountRate = $isVIP ? 0.03 : 0;
+// Calcul du montant total sans remise
 $base_total = $price * $people;
 $options_total = 0;
 foreach ($option_details as $option) {
     $options_total += $option['price'] * $option['num_people'];
 }
-$total_amount = $base_total + $options_total;
+// Calculer le sous-total (avant remise)
+$subtotal = $base_total + $options_total;
+// Calculer la remise si applicable
+$discount = $isVIP ? $subtotal * $discountRate : 0;
+// Calculer le total avec remise
+$total_amount = $subtotal - $discount;
 
 // Si le formulaire est soumis pour confirmer la réservation
 if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
@@ -111,7 +119,7 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
         // Préparation des données pour le paiement
         // Transformation du prix au format correct pour le paiement
         $formatted_total = number_format((float)$total_amount, 2, '.', '');
-
+        
         $_SESSION['payment_data'] = [
             'booking_id' => $booking_id,
             'montant' => $formatted_total,
@@ -228,6 +236,18 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
                         <span><?= number_format($options_total, 2, ',', ' ') ?>€</span>
                     </div>
                 <?php endif; ?>
+
+                <div class="recap-row">
+                    <span>Sous-total</span>
+                    <span class="price"><?= number_format($subtotal, 2, ',', ' ') ?>€</span>
+                </div>
+
+                <?php if ($isVIP): ?>
+                <div class="recap-row discount-row">
+                    <span>Remise VIP (3%)</span>
+                    <span class="price discount-price">-<?= number_format($discount, 2, ',', ' ') ?>€</span>
+                </div>
+                <?php endif; ?>
                 
                 <div class="total-row final">
                     <span>TOTAL</span>
@@ -251,7 +271,7 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
                     
                     <!-- Eléments relatifs au paiement -->
                     <input type='hidden' name='transaction' value="<?= htmlspecialchars($transaction) ?>">
-                    <input type='hidden' name='montant' value="<?= htmlspecialchars($montant) ?>">
+                    <input type='hidden' name='montant' value="<?= number_format($total_amount, 2, '.', '') ?>">
                     <input type='hidden' name='vendeur' value="<?= htmlspecialchars($vendeur) ?>">
                     <input type='hidden' name='retour' value='retour_paiement.php?session=<?= htmlspecialchars($user_id) ?>'>
                     <input type='hidden' name='control' value="<?= htmlspecialchars($control) ?>">

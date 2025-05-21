@@ -75,10 +75,26 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Calculer le prix du forfait de base
         const basePriceTotal = basePrice * numberOfPeople;
-        const totalPrice = basePriceTotal + optionsPrice;
+        
+        // Calculer le sous-total
+        const subtotal = basePriceTotal + optionsPrice;
+        
+        // Vérifier si l'utilisateur est VIP
+        const isVIP = document.querySelector('input[name="is_vip"]')?.value === '1';
+        const discountRate = parseFloat(document.querySelector('input[name="discount_rate"]')?.value || 0);
+        
+        // Calculer la remise
+        const discountAmount = isVIP ? subtotal * discountRate : 0;
+        
+        // Calculer le prix total avec remise
+        const totalPrice = subtotal - discountAmount;
         
         console.log("Prix de base total:", basePriceTotal);
         console.log("Prix des options:", optionsPrice);
+        console.log("Sous-total:", subtotal);
+        if (isVIP) {
+            console.log("Remise VIP (3%):", discountAmount);
+        }
         console.log("Prix total:", totalPrice);
         
         // Mettre à jour l'affichage
@@ -106,9 +122,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1500);
         }
         
+        // Update subtotal price
+        const subtotalPriceElement = document.getElementById('subtotalPrice');
+        if (subtotalPriceElement) {
+            subtotalPriceElement.textContent = subtotal + '€';
+            subtotalPriceElement.classList.add('price-changed');
+            setTimeout(() => {
+                subtotalPriceElement.classList.remove('price-changed');
+            }, 1500);
+        }
+        
+        // Update discount price if VIP
+        if (isVIP) {
+            const discountPriceElement = document.querySelector('.discount-price');
+            if (discountPriceElement) {
+                discountPriceElement.textContent = '-' + discountAmount.toFixed(2).replace('.', ',') + '€';
+                discountPriceElement.classList.add('price-changed');
+                setTimeout(() => {
+                    discountPriceElement.classList.remove('price-changed');
+                }, 1500);
+            }
+        }
+        
         // Update final total
         if (finalTotalElement) {
-            finalTotalElement.textContent = totalPrice + '€';
+            finalTotalElement.textContent = totalPrice.toFixed(2).replace('.', ',') + '€';
             finalTotalElement.classList.add('price-changed');
             setTimeout(() => {
                 finalTotalElement.classList.remove('price-changed');
@@ -116,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (hiddenTotalPrice) {
-            hiddenTotalPrice.value = totalPrice;
+            hiddenTotalPrice.value = totalPrice.toFixed(2);
         }
         
         // Update selected options list

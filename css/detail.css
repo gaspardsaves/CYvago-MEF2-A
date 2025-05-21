@@ -490,3 +490,23 @@ select:focus {
     font-size: 14px;
     padding: 8px 30px 8px 10px
 }
+
+.subtotal-row {
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.discount-row {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.discount-price {
+    color: #4CAF50;
+}
+
+@keyframes price-highlight {
+    0% { background-color: rgba(76, 175, 80, 0.3); }
+    100% { background-color: transparent; }
+}
