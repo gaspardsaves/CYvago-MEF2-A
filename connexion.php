@@ -118,7 +118,7 @@
                     <label for="MotDePasse">Mot de Passe :</label>
                     <input type="password" id="MotDePasse" name="MotDePasse" maxlength="50" required placeholder="Champ obligatoire"/>
                     <div class="password-visibility">
-                        <img id="togglePassword" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility()">
+                        <img id="togglePassword" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility('MotDePasse', 'togglePassword')">
                     </div>
                 </div>
                 <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
