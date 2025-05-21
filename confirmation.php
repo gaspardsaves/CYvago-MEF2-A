@@ -93,9 +93,13 @@ unset($_SESSION['payment_message']);
             </div>
             <?php endif; ?>
             
-            <div class="buttons">
-                <a href="accueil.php" class="button1">Retour à l'accueil</a>
-                <a href="moncompte.php" class="button1">Voir mes réservations</a>
+            <div class="button">
+                <form action="accueil.php">
+                    <button class="button1" type="submit">Retour à l'accueil</button>
+                </form>
+                <form action="moncompte.php">
+                    <button class="button1" type="submit">Voir mes réservations</button>
+                </form>
             </div>
         </div>
     </main> 

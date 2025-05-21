@@ -44,11 +44,15 @@ unset($_SESSION['payment_message']);
             </div>
             
             <div class="buttons">
-                <a href="accueil.php" class="button1">Retour à l'accueil</a>
+                <form action="accueil.php">
+                    <button class="button1" type="submit">Retour à l'accueil</button>
+                </form>
                 <?php /* if ($booking_id): ?>
                 <a href="paiement.php?booking_id=<?= $booking_id ?>" class="button1">Réessayer le paiement</a>
                 <?php endif; */?>
-                <a href="moncompte.php" class="button1">Voir mes réservations</a>
+                <form action="moncompte.php">
+                    <button class="button1" type="submit">Voir mes réservations</button>
+                </form>
             </div>
         </div>
     </main>
