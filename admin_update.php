@@ -53,9 +53,6 @@ if (!in_array($action, ['vip', 'ban'])) {
     exit;
 }
 
-// Détermination du nouveau rôle en fonction de l'action et de la valeur
-$newRole = 1; // Rôle normal par défaut
-
 // Vérifier que l'utilisateur existe et n'est pas un admin
 $checkQuery = "SELECT role FROM users WHERE id = ?";
 $stmt = $database->prepare($checkQuery);
@@ -82,11 +79,39 @@ if ($userData['role'] == 0) {
     exit;
 }
 
-// Déterminer le nouveau rôle
+// Déterminer le nouveau rôle en fonction de l'action et de la valeur
+$newRole = 1; // Rôle normal par défaut
+
 if ($action === 'vip') {
-    $newRole = $value ? 2 : 1; // 2 pour VIP, 1 pour normal
+    if ($value) {
+        // Vérifie si l'utilisateur est banni avant de le mettre VIP
+        if ($userData['role'] == -1) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'Impossible de mettre en VIP un utilisateur banni.'
+            ]);
+            exit;
+        }
+        $newRole = 2; // 2 pour VIP
+    } else {
+        $newRole = 1; // 1 pour normal
+    }
 } else if ($action === 'ban') {
-    $newRole = $value ? -1 : 1; // -1 pour banni, 1 pour normal
+    if ($value) {
+        // Vérifie si l'utilisateur est VIP avant de le bannir
+        if ($userData['role'] == 2) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'Impossible de bannir un utilisateur VIP.'
+            ]);
+            exit;
+        }
+        $newRole = -1; // -1 pour banni
+    } else {
+        $newRole = 1; // 1 pour normal
+    }
 }
 
 // Mise à jour de la base de données
