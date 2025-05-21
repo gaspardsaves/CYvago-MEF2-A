@@ -1,138 +1,200 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Objet pour stocker les modifications
-    const modifs = {};
+document.addEventListener('DOMContentLoaded', function () {
+    const profileForm = document.getElementById('profile-form');
+    const firstnameField = document.getElementById('firstname');
+    const lastnameField = document.getElementById('lastname');
+    const nomUtilisateur = document.getElementById('nomUtilisateur');
 
-    // Vérifier si un message de notification est présent
-    const messageDiv = document.querySelector('.message-con-ok');
-    if (messageDiv) {
-        // Faire disparaître le message après 5 secondes
+    // Stocker les valeurs originales au chargement
+    let originalValues = {
+        firstname: firstnameField.value,
+        lastname: lastnameField.value
+    };
+
+    profileForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Vérifier si les valeurs ont changé
+        const currentValues = {
+            firstname: firstnameField.value.trim(),
+            lastname: lastnameField.value.trim()
+        };
+
+        if (currentValues.firstname === originalValues.firstname && 
+            currentValues.lastname === originalValues.lastname) {
+            showInfoMessage('Aucune modification détectée.');
+            return;
+        }
+
+        // Validation côté client
+        if (!currentValues.firstname || !currentValues.lastname) {
+            showErrorMessage('Les champs prénom et nom sont obligatoires.');
+            return;
+        }
+
+        // Désactiver le bouton de soumission pendant la requête
+        const submitButton = profileForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Mise à jour...';
+
+        const formData = new FormData(profileForm);
+        formData.append('action', 'update_profile');
+
+        fetch('update_profile.php', {
+            method: 'POST',
+            body: formData,
+            credentials: 'same-origin'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Mettre à jour les valeurs stockées avec les nouvelles valeurs
+                originalValues = {
+                    firstname: data.data.firstname,
+                    lastname: data.data.lastname
+                };
+
+                // Mettre à jour l'affichage du nom dans le titre
+                const nomUtilisateurElements = document.querySelectorAll('#nomUtilisateur, .nomUtilisateur, [data-user-name]');
+                nomUtilisateurElements.forEach(element => {
+                    element.textContent = data.data.firstname;
+                });
+
+                // Mettre à jour les valeurs des champs du formulaire
+                firstnameField.value = data.data.firstname;
+                lastnameField.value = data.data.lastname;
+
+                // Mettre à jour le titre de bienvenue s'il existe
+                const welcomeTitle = document.querySelector('h1');
+                if (welcomeTitle && welcomeTitle.textContent.includes('Bienvenue')) {
+                    welcomeTitle.textContent = `Bienvenue ${data.data.firstname} sur votre profil !`;
+                }
+
+                // Afficher un message de succès
+                showSuccessMessage(data.message);
+
+                console.log('Profil mis à jour avec succès:', data.data);
+            } else {
+                // En cas d'erreur, restaurer les valeurs précédentes
+                firstnameField.value = originalValues.firstname;
+                lastnameField.value = originalValues.lastname;
+                
+                showErrorMessage(data.message || 'Une erreur est survenue.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            
+            // En cas d'erreur de réseau, restaurer les valeurs précédentes
+            firstnameField.value = originalValues.firstname;
+            lastnameField.value = originalValues.lastname;
+            
+            showErrorMessage('Une erreur est survenue lors de la communication avec le serveur.');
+        })
+        .finally(() => {
+            // Réactiver le bouton de soumission
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        });
+    });
+
+    // Fonction pour afficher un message de succès
+    function showSuccessMessage(message) {
+        showMessage(message, 'message-con-ok', 4000);
+    }
+
+    // Fonction pour afficher un message d'erreur
+    function showErrorMessage(message) {
+        showMessage(message, 'message-con-error', 5000);
+    }
+
+    // Fonction pour afficher un message d'information
+    function showInfoMessage(message) {
+        showMessage(message, 'message-con-info', 3000);
+    }
+
+    // Fonction générique pour afficher les messages
+    function showMessage(message, className, duration) {
+        // Supprimer les anciens messages
+        removeExistingMessages();
+
+        const messageContainer = document.createElement('div');
+        messageContainer.className = `${className} show`;
+        messageContainer.textContent = message;
+        
+        const main = document.querySelector('main');
+        const profileContainer = document.querySelector('.profile-container');
+        main.insertBefore(messageContainer, profileContainer);
+
+        // Faire disparaître le message après la durée spécifiée
         setTimeout(() => {
-            messageDiv.classList.remove('show');
-            setTimeout(() => messageDiv.style.display = 'none', 500);
-        }, 5000);
+            messageContainer.classList.remove('show');
+            setTimeout(() => {
+                if (messageContainer.parentNode) {
+                    messageContainer.remove();
+                }
+            }, 300); // Attendre la fin de l'animation CSS
+        }, duration);
     }
 
-    // Gestion des boutons d'édition
-    document.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.target;
-            const input = document.getElementById(id);
-            
-            // Activer l'édition du champ
-            input.readOnly = false;
-            input.dataset.original = input.value;
-            input.focus();
-
-            // Cacher le bouton d'édition et afficher les boutons de sauvegarde/annulation
-            btn.style.display = 'none';
-            document.querySelector(`.save-btn[data-target="${id}"]`).style.display = 'inline-block';
-            document.querySelector(`.cancel-btn[data-target="${id}"]`).style.display = 'inline-block';
-            
-            // Cas particulier pour le mot de passe
-            if (id === 'password') {
-                input.value = ''; // Effacer les astérisques
-                input.placeholder = 'Nouveau mot de passe';
+    // Fonction pour supprimer les messages existants
+    function removeExistingMessages() {
+        const existingMessages = document.querySelectorAll('.message-con-ok, .message-con-error, .message-con-info');
+        existingMessages.forEach(msg => {
+            if (msg.parentNode) {
+                msg.remove();
             }
         });
-    });
+    }
 
-    // Gestion des boutons d'annulation
-    document.querySelectorAll('.cancel-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.target;
-            const input = document.getElementById(id);
+    // Validation en temps réel des champs
+    [firstnameField, lastnameField].forEach(field => {
+        field.addEventListener('input', function() {
+            // Supprimer les espaces en début et fin
+            const trimmedValue = this.value.trim();
             
-            // Restaurer la valeur originale et désactiver l'édition
-            if (id === 'password') {
-                input.value = '';
-                input.placeholder = '••••••••';
+            if (trimmedValue.length > 0) {
+                this.classList.remove('error');
             } else {
-                input.value = input.dataset.original;
+                this.classList.add('error');
             }
-            
-            input.readOnly = true;
+        });
 
-            // Cacher les boutons de sauvegarde/annulation et afficher le bouton d'édition
-            btn.style.display = 'none';
-            document.querySelector(`.save-btn[data-target="${id}"]`).style.display = 'none';
-            document.querySelector(`.edit-btn[data-target="${id}"]`).style.display = 'inline-block';
-
-            // Supprimer la modification de l'objet modifs et vérifier s'il faut afficher le bouton soumettre
-            delete modifs[id];
-            toggleSubmitButton();
+        // Restaurer la valeur originale si le champ est vidé
+        field.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                const fieldName = this.name;
+                this.value = originalValues[fieldName];
+                this.classList.remove('error');
+            }
         });
     });
 
-    // Gestion des boutons de sauvegarde
-    document.querySelectorAll('.save-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.target;
-            const input = document.getElementById(id);
-            
-            // Validation simple
-            if (id === 'email' && !validateEmail(input.value)) {
-                alert('Veuillez entrer un email valide');
-                return;
-            }
-            
-            if (id === 'password' && input.value.length > 0 && input.value.length < 8) {
-                alert('Le mot de passe doit contenir au moins 8 caractères');
-                return;
-            }
-            
-            if (id === 'phone' && input.value && !validatePhone(input.value)) {
-                alert('Veuillez entrer un numéro de téléphone valide');
-                return;
-            }
-            
-            // Désactiver l'édition du champ mais garder la valeur accessible pour l'envoi du formulaire
-            input.readOnly = true;
-    
-            // Cacher les boutons de sauvegarde/annulation et afficher le bouton d'édition
-            btn.style.display = 'none';
-            document.querySelector(`.cancel-btn[data-target="${id}"]`).style.display = 'none';
-            document.querySelector(`.edit-btn[data-target="${id}"]`).style.display = 'inline-block';
-    
-            // Stocker la modification
-            if (id === 'password' && input.value.length === 0) {
-                delete modifs[id]; // Ne pas envoyer de mot de passe vide
-            } else {
-                modifs[id] = input.value;
-            }
-    
-            // Vérifier s'il faut afficher le bouton soumettre
-            toggleSubmitButton();
-        });
-    });
-
-    // Fonction pour valider un email
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-    
-    // Fonction pour valider un numéro de téléphone
-    function validatePhone(phone) {
-        return phone.length >= 10;
-    }
-
-    // Fonction pour afficher/masquer le bouton soumettre en fonction des modifications
-    function toggleSubmitButton() {
-        const submitBtn = document.getElementById('submit-profile');
-        if (Object.keys(modifs).length > 0) {
-            submitBtn.style.display = 'block';
+    // Ajouter un indicateur visuel des modifications non sauvegardées
+    function checkForChanges() {
+        const hasChanges = firstnameField.value !== originalValues.firstname || 
+                          lastnameField.value !== originalValues.lastname;
+        
+        const submitButton = profileForm.querySelector('button[type="submit"]');
+        if (hasChanges) {
+            submitButton.classList.add('has-changes');
+            submitButton.textContent = 'Sauvegarder les modifications';
         } else {
-            submitBtn.style.display = 'none';
+            submitButton.classList.remove('has-changes');
+            submitButton.textContent = 'Mettre à jour';
         }
     }
-    
-    // Gérer la soumission du formulaire
-    document.getElementById('profile-form').addEventListener('submit', function(e) {
-        // Activer tous les champs avant soumission pour qu'ils soient envoyés
-        document.querySelectorAll('input[readonly]').forEach(input => {
-            if (modifs[input.id]) {
-                input.readOnly = false;
-            }
-        });
+
+    // Écouter les changements pour mettre à jour l'état du bouton
+    [firstnameField, lastnameField].forEach(field => {
+        field.addEventListener('input', checkForChanges);
     });
+
+    // Vérifier l'état initial
+    checkForChanges();
 });

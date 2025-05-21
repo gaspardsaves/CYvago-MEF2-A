@@ -23,7 +23,7 @@
             ?>
             <?php
             if(isset($_SESSION['email'])&&(isset($_SESSION['prenom']))&&(isset($_SESSION['nomdefamille']))&&(isset($_SESSION['role']))&&(isset($_SESSION['MDP']))&&($_SESSION['role'])==0){
-            echo '<form action="administrateur.php"><button class="button1" type="submit">Admin</button>';
+            echo '<form action="administrateur.php"><button class="button1" type="submit">Admin</button></form>';
             }
         ?>
         </div>

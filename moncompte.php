@@ -77,39 +77,14 @@
                 <a href="moncompte.php" class="modify">📸 Changer de photo</a>
             </div>
 
-            <form action="update_profile.php" method="POST" id="profile-form">
-                <div class="profile-info">
-                    <h2>Vos informations</h2>
-                    <p>
-                        <label for="prenom"><strong>👤 Prénom :</strong></label>
-                        <input type="text" name="firstname" id="prenom" value="<?= htmlspecialchars($prenom) ?>" readonly>
-                        <button type="button" class="edit-btn" data-target="prenom">✏️</button>
-                        <button type="button" class="save-btn" data-target="prenom" style="display:none;">✅</button>
-                        <button type="button" class="cancel-btn" data-target="prenom" style="display:none;">❌</button>
-                    </p>
-                    <p>
-                        <label for="nom"><strong>👤 Nom :</strong></label>
-                        <input type="text" name="lastname" id="nom" value="<?= htmlspecialchars($nom) ?>" readonly>
-                        <button type="button" class="edit-btn" data-target="nom">✏️</button>
-                        <button type="button" class="save-btn" data-target="nom" style="display:none;">✅</button>
-                        <button type="button" class="cancel-btn" data-target="nom" style="display:none;">❌</button>
-                    </p>
-                    <p>
-                        <label for="email"><strong>📧 Email :</strong></label>
-                        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
-                        <button type="button" class="edit-btn" data-target="email">✏️</button>
-                        <button type="button" class="save-btn" data-target="email" style="display:none;">✅</button>
-                        <button type="button" class="cancel-btn" data-target="email" style="display:none;">❌</button>
-                    </p>
-                    <p>
-                        <label for="password"><strong>🔑 Mot de passe :</strong></label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" readonly>
-                        <button type="button" class="edit-btn" data-target="password">✏️</button>
-                        <button type="button" class="save-btn" data-target="password" style="display:none;">✅</button>
-                        <button type="button" class="cancel-btn" data-target="password" style="display:none;">❌</button>
-                    </p>
-                    <button class="button1" type="submit" id="submit-profile" style="display: none;">💾 Enregistrer les modifications</button>
-                </div>
+            <form id="profile-form">
+                <label for="firstname">Prénom :</label>
+                <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($prenom); ?>" required>
+
+                <label for="lastname">Nom :</label>
+                <input type="text" id="lastname" name="lastname" value="<?php echo htmlspecialchars($nom); ?>" required>
+
+                <button type="submit">Mettre à jour</button>
             </form>
             <br/>
             <div class="buttons-nav">

@@ -1,8 +1,7 @@
-/* Importation des couleurs et des polices de caractères et des transitions */
 @import url('def.css');
-/* Importation du style général du site */
 @import url('designSite.css');
 
+/* Conteneur principal */
 .profile-container {
     max-width: 500px;
     margin: 50px auto;
@@ -13,6 +12,7 @@
     box-shadow: 0 4px 10px var(--shadow-03);
 }
 
+/* Carte de profil */
 .profile-card {
     display: flex;
     flex-direction: column;
@@ -40,25 +40,76 @@
     text-decoration: underline;
 }
 
-.profile-info {
-    background: var(--background-profile-shadow);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: left;
+/* Boutons stylisés */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Inter Tight", serif;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--button-dark), var(--button-light));
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--shadow-03);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--button-light), var(--button-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-03);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px var(--shadow-03);
+}
+
+/* Boutons dans la navigation */
+.buttons-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     margin-top: 20px;
 }
 
-.profile-info h2 {
-    font-size: 18px;
+.buttons-nav button {
+    flex: 1;
+}
+
+/* Formulaire de profil */
+#profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#profile-form label {
+    font-size: 14px;
+    font-weight: 600;
     color: var(--profile-h2);
-    margin-bottom: 10px;
 }
 
-.profile-info p {
+#profile-form input {
+    padding: 10px;
     font-size: 16px;
-    margin: 5px 0;
+    border: 1px solid var(--border-form);
+    border-radius: 8px;
+    background: var(--background-profile-shadow);
+    color: var(--text-dark);
+    transition: all 0.3s ease-in-out;
 }
 
+#profile-form input:focus {
+    border-color: var(--button-light);
+    outline: none;
+    box-shadow: 0 0 5px var(--button-light);
+}
+
+/* Messages de notification */
 .message-con-ok {
     display: none;
     padding: 15px;
@@ -74,7 +125,7 @@
     box-shadow: 0 4px 8px var(--shadow-03);
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity .5s ease, transform .5s ease
+    transition: opacity .5s ease, transform .5s ease;
 }
 
 .message-con-ok.show {
