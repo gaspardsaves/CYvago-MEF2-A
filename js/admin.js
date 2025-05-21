@@ -19,33 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isChecked = this.checked;
                 const actionType = selector === '.vip-toggle' ? 'vip' : 'ban';
                 
-                // Stocker une référence au toggle actuel pour y accéder dans la promesse
-                const currentToggle = this;
-                
-                // Vérification si le toggle est VIP et que le statut 'ban' est également activé
-                if (actionType === 'vip' && isChecked) {
-                    // Rechercher si l'utilisateur est banni (toggle ban correspondant à cet ID)
-                    const banToggle = document.querySelector(`.ban-toggle[data-user-id="${userId}"]`);
-                    if (banToggle && banToggle.checked) {
-                        // Si l'utilisateur est banni, désactiver le toggle ban
-                        banToggle.checked = false;
-                        // Informer l'utilisateur
-                        alert("Le statut VIP désactive automatiquement le bannissement de l'utilisateur.");
-                    }
-                }
-                
-                // De même, si on active le ban et que VIP est actif
-                if (actionType === 'ban' && isChecked) {
-                    // Rechercher le toggle VIP correspondant
-                    const vipToggle = document.getElementById(userId);
-                    if (vipToggle && vipToggle.checked) {
-                        // Désactiver le statut VIP
-                        vipToggle.checked = false;
-                        // Informer l'utilisateur
-                        alert("Le bannissement désactive automatiquement le statut VIP de l'utilisateur.");
-                    }
-                }
-                
                 // Appeler la fonction de mise à jour
                 callback(userId, isChecked, actionType);
             });
@@ -69,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showLoadingIndicator();
         
         // Envoyer la requête au serveur
-        fetch('update_user_status.php', {
+        fetch('admin_update.php', {  // Correction ici: 'update_user_status.php' -> 'admin_update.php'
             method: 'POST',
             body: formData
         })
@@ -124,32 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {string} text - Texte du message
      */
     function showMessage(type, text) {
-        // Créer une notification stylisée au lieu d'une alerte
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.textContent = text;
-        notification.style.position = 'fixed';
-        notification.style.top = '20px';
-        notification.style.right = '20px';
-        notification.style.padding = '15px 20px';
-        notification.style.borderRadius = '5px';
-        notification.style.zIndex = '1000';
-        
+        // Dans cette version simple, nous utilisons alert
         if (type === 'success') {
-            notification.style.backgroundColor = '#4CAF50';
-            notification.style.color = 'white';
+            alert(`✅ ${text}`);
         } else {
-            notification.style.backgroundColor = '#F44336';
-            notification.style.color = 'white';
+            alert(`❌ ${text}`);
         }
         
-        document.body.appendChild(notification);
-        
-        // Faire disparaître la notification après 3 secondes
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => notification.remove(), 500);
-        }, 3000);
     }
 });

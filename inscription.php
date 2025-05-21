@@ -12,7 +12,6 @@
         $role = 1;
         if($MDP==$VERIFMDP){
             if((!empty($PRENOM))&&(!empty($NOM))&&(!empty($EMAIL))&&(!empty($MDP))&&($MDP==$VERIFMDP)){ 
-                $sqlverif = "SELECT email FROM users WHERE email=:email";
                 $verifmail = $database->prepare("SELECT email FROM users WHERE email=?");
                 $verifmail->bind_param("s", $EMAIL);
                 $verifmail->execute();
@@ -24,21 +23,21 @@
                         'cost' => 12,
                     ];
                     $hashpass = password_hash($MDP, PASSWORD_BCRYPT, $options);
-                    $sql = "INSERT INTO users (lastname, firstname, email, password, role) VALUES ('$NOM', '$PRENOM', '$EMAIL', '$hashpass', '$role')";
-                    if($database->query($sql) == TRUE){
-                        // Création d'une session pour le nouvel utilisateur
-                            $_SESSION['email'] = $EMAIL;
-                            $_SESSION['prenom'] = $PRENOM;
-                            $_SESSION['nom'] = $NOM;
-                            $_SESSION['role'] = $role;
-                            // Redirection dans le profil de ce nouvel utilisateur
-                            header("Location:moncompte.php?success=newok");
+                    $sql = "INSERT INTO users (lastname, firstname, email, password, role) VALUES (?, ?, ?, ?, ?)";
+                    $inscription = $database->prepare($sql);
+                    $inscription->bind_param("ssssi", $NOM, $PRENOM, $EMAIL, $hashpass, $role);
+                    $result = $inscription->execute();
+                    echo $result;
+                    if($result == TRUE){
+                        
+                            header("Location:connexion.php?success=newok");
                             exit();
                         }
                     else{
                         header("Location:inscription.php?success=no");
                         exit();
                     }
+                        
                 }
                 else {
                     header("Location:connexion.php?error=alreadyUser");
