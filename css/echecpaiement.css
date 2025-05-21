@@ -1,0 +1,63 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+body {
+    font-family: "Inter Tight", sans-serif;
+}
+
+.error-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: var(--shadow-03);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px var(--shadow-03);
+    color: var(--white);
+}
+
+.error-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.error-header h1 {
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.error-header p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.error-icon {
+    text-align: center;
+    font-size: 80px;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    background-color: rgba(255, 107, 107, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.error-message p {
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.button1 {
+    padding: 12px 24px;
+}

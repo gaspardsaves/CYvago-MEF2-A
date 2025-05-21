@@ -2,18 +2,7 @@
 include 'session.php';
 include 'database.php';
 
-// Vérifier si l'utilisateur est connecté
-/*
-if (!isset($_SESSION['user_id'])) {
-    // Stocker les données du formulaire en session pour les récupérer après connexion
-    $_SESSION['pending_booking'] = $_POST;
-    
-    // Rediriger vers la page de connexion
-    header('Location: connexion.php?redirect=recapvoyage.php');
-    exit;
-}*/
-
-// Récupérer les données du formulaire par POST plutôt que GET pour plus de sécurité
+// Récupérer des données via la méthode POST
 $travel_id = filter_input(INPUT_POST, 'travel_id', FILTER_SANITIZE_NUMBER_INT);
 $travel_title = filter_input(INPUT_POST, 'travel_title', FILTER_SANITIZE_SPECIAL_CHARS);
 $travel_base_price = filter_input(INPUT_POST, 'travel_base_price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -21,23 +10,13 @@ $total_price = filter_input(INPUT_POST, 'total_price', FILTER_SANITIZE_NUMBER_FL
 $people = filter_input(INPUT_POST, 'people', FILTER_SANITIZE_NUMBER_INT);
 $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
 
-// Si on reçoit toujours par GET (compatibilité), convertir en variables POST
-if (!$travel_id && isset($_GET['id'])) {
-    $travel_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-    $travel_title = filter_input(INPUT_GET, 'destination', FILTER_SANITIZE_SPECIAL_CHARS);
-    $travel_base_price = filter_input(INPUT_GET, 'price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    $total_price = filter_input(INPUT_GET, 'total_price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    $people = filter_input(INPUT_GET, 'people', FILTER_SANITIZE_NUMBER_INT);
-    $date = filter_input(INPUT_GET, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
-}
-
-// Vérifier si on a les données nécessaires
+// Vérification de la présence des données nécessaires
 if (!$travel_id || !$travel_title || !$travel_base_price || !$people || !$date) {
     echo "<div class='error'>Informations de réservation incomplètes.</div>";
     exit;
 }
 
-// Collecter toutes les options sélectionnées (où extra_people_X > 0)
+// Récupération de toutes les options sélectionnées (c'est-à-dire nombre de personne > 0)
 $selected_options = [];
 foreach ($_POST as $key => $value) {
     if (preg_match('/^extra_people_(\d+)$/', $key, $matches) && intval($value) > 0) {
@@ -47,18 +26,7 @@ foreach ($_POST as $key => $value) {
     }
 }
 
-// Idem pour les données GET si nécessaire
-if (empty($selected_options)) {
-    foreach ($_GET as $key => $value) {
-        if (preg_match('/^extra_people_(\d+)$/', $key, $matches) && intval($value) > 0) {
-            $extra_id = $matches[1];
-            $num_people = intval($value);
-            $selected_options[$extra_id] = $num_people;
-        }
-    }
-}
-
-// Récupérer les détails des options choisies
+// Récupération du détail des options
 $option_details = [];
 if (!empty($selected_options)) {
     $option_ids = array_keys($selected_options);
@@ -96,7 +64,7 @@ if (!empty($selected_options)) {
     $stmt->close();
 }
 
-// Récupérer les informations du voyage
+// Récupération des informations du voyage
 $stmt = $database->prepare("SELECT title, text, image, price, nbrdays FROM travel WHERE id = ?");
 $stmt->bind_param("i", $travel_id);
 $stmt->execute();
@@ -104,7 +72,7 @@ $stmt->bind_result($title, $description, $image, $price, $nbrdays);
 $stmt->fetch();
 $stmt->close();
 
-// Calculer le montant total
+// Calcul du montant total
 $base_total = $price * $people;
 $options_total = 0;
 foreach ($option_details as $option) {
@@ -140,8 +108,18 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
         // Valider la transaction
         $database->commit();
         
-        // Rediriger vers la page de paiement
-        header("Location: https://www.plateforme-smc.fr/cybank/index.php?booking_id=$booking_id");
+        // Préparation des données pour le paiement
+        // Transformation du prix au format correct pour le paiement
+        $formatted_total = number_format((float)$total_amount, 2, '.', '');
+
+        $_SESSION['payment_data'] = [
+            'booking_id' => $booking_id,
+            'montant' => $formatted_total,
+            'travel_title' => $travel_title
+        ];
+                
+        // Rediriger vers la page intermédiaire de paiement
+        header("Location: paiement-redirect.php");
         exit;
         
     } catch (Exception $e) {
@@ -270,7 +248,8 @@ if (isset($_POST['confirm_booking']) && $_POST['confirm_booking'] == 1) {
                     <?php foreach ($selected_options as $extra_id => $num_people): ?>
                         <input type="hidden" name="extra_people_<?= $extra_id ?>" value="<?= htmlspecialchars($num_people) ?>">
                     <?php endforeach; ?>
-
+                    
+                    <!-- Eléments relatifs au paiement -->
                     <input type='hidden' name='transaction' value="<?= htmlspecialchars($transaction) ?>">
                     <input type='hidden' name='montant' value="<?= htmlspecialchars($montant) ?>">
                     <input type='hidden' name='vendeur' value="<?= htmlspecialchars($vendeur) ?>">

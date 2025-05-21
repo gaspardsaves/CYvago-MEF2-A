@@ -1,0 +1,59 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+body {
+    font-family: "Inter Tight", sans-serif;
+}
+
+.redirect-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+    margin: 100px auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-01);
+}
+
+.redirect-container h1 {
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+.redirect-container p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #4a5568;
+}
+
+.spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--shadow-01);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.reservation-details {
+    background-color: #edf2f7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.reservation-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #4a5568;
+}

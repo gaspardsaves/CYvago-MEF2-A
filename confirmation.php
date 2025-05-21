@@ -1,14 +1,9 @@
 <?php
-    echo 'Réservation et paiement confirmé';
-?>
-
-<?php
-/*
 include 'session.php';
 include 'database.php';
 
+// Récupérer l'ID de réservation et les messages
 $booking_id = $_GET['booking_id'] ?? null;
-$payment_success = $_SESSION['payment_success'] ?? false;
 $payment_message = $_SESSION['payment_message'] ?? "Votre paiement a été accepté.";
 
 // Si un ID de réservation est fourni, récupérer les détails
@@ -31,7 +26,7 @@ if ($booking_id) {
 // Effacer les messages temporaires
 unset($_SESSION['payment_success']);
 unset($_SESSION['payment_message']);
-
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,48 +39,22 @@ unset($_SESSION['payment_message']);
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Paiement confirmé - ZanimoTrip</title>
-    <link rel="stylesheet" href="css/designSite.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/confirmation.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
-    <style>
-        .confirmation-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: var(--shadow-03);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            color: var(--white);
-        }
-        
-        .confirmation-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .confirmation-header h1 {
-            color: var(--button2);
-            margin-bottom: 15px;
-        }
-        
-        .success-icon {
-            text-align: center;
-            font-size: 60px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        
-    </style>
+    <script src="js/mode.js<?php echo time(); ?>"></script>
 </head>
 <body>
+    <!-- Barre de menu -->
     <?php require('phpFrequent/navbar.php'); ?>
-    
+    <!-- Barre de recherche -->
+    <?php require('phpFrequent/searchbar.php'); ?>
     <main>
         <div class="confirmation-container">
             <div class="confirmation-header">
                 <div class="success-icon">✓</div>
                 <h1>Paiement confirmé</h1>
                 <p><?= htmlspecialchars($payment_message) ?></p>
+                <p>Votre réservation a été enregistrée avec succès.</p>
             </div>
             
             <?php if ($booking_details): ?>
@@ -97,19 +66,39 @@ unset($_SESSION['payment_message']);
                     <span>#<?= htmlspecialchars($booking_details['id']) ?></span>
                 </div>
                 
-                <!-- Autres détails de la réservation... -->
+                <div class="detail-row">
+                    <span class="detail-label">Destination:</span>
+                    <span><?= htmlspecialchars($booking_details['title']) ?></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Date de départ:</span>
+                    <span><?= date('d/m/Y', strtotime($booking_details['departuredate'])) ?></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Nombre de personnes:</span>
+                    <span><?= htmlspecialchars($booking_details['nbrperson']) ?></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Montant payé:</span>
+                    <span><?= number_format($booking_details['montant'], 2, ',', ' ') ?> €</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Date de paiement:</span>
+                    <span><?= date('d/m/Y à H:i', strtotime($booking_details['date'])) ?></span>
+                </div>
             </div>
             <?php endif; ?>
             
             <div class="buttons">
-                <a href="index.php" class="button1">Retour à l'accueil</a>
+                <a href="accueil.php" class="button1">Retour à l'accueil</a>
                 <a href="moncompte.php" class="button1">Voir mes réservations</a>
             </div>
         </div>
-    </main>
-    
+    </main> 
     <?php require('phpFrequent/footer.php'); ?>
 </body>
 </html>
-*/
-?>

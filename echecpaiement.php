@@ -1,20 +1,13 @@
 <?php
-    echo 'Echec de paiement';
-?>
-
-<?php
-/*
 include 'session.php';
 include 'database.php';
 
 $booking_id = $_GET['booking_id'] ?? null;
-$payment_error = $_SESSION['payment_error'] ?? false;
 $payment_message = $_SESSION['payment_message'] ?? "Votre paiement a été refusé.";
-
 // Effacer les messages temporaires
 unset($_SESSION['payment_error']);
 unset($_SESSION['payment_message']);
-
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,15 +20,15 @@ unset($_SESSION['payment_message']);
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Paiement échoué - ZanimoTrip</title>
-    <link rel="stylesheet" href="css/designSite.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/echecpaiement.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
-    <script src="js/mode.js"></script>
-    <style>
-    </style>
+    <script src="js/mode.js<?php echo time(); ?>"></script>
 </head>
 <body>
+    <!-- Barre de menu -->
     <?php require('phpFrequent/navbar.php'); ?>
-    
+    <!-- Barre de recherche -->
+    <?php require('phpFrequent/searchbar.php'); ?>
     <main>
         <div class="error-container">
             <div class="error-header">
@@ -46,14 +39,16 @@ unset($_SESSION['payment_message']);
             
             <div class="error-message">
                 <p><?= htmlspecialchars($payment_message) ?></p>
-                <p>Votre réservation est enregistrée mais n'est pas encore confirmée. Veuillez réessayer le paiement.</p>
+                <p>Votre réservation est enregistrée mais n'est pas encore confirmée.</p>
+                <p>Vous pouvez réessayer le paiement maintenant ou plus tard depuis votre espace personnel.</p>
             </div>
             
             <div class="buttons">
-                <a href="index.php" class="button1">Retour à l'accueil</a>
-                <?php if ($booking_id): ?>
+                <a href="accueil.php" class="button1">Retour à l'accueil</a>
+                <?php /* if ($booking_id): ?>
                 <a href="paiement.php?booking_id=<?= $booking_id ?>" class="button1">Réessayer le paiement</a>
-                <?php endif; ?>
+                <?php endif; */?>
+                <a href="moncompte.php" class="button1">Voir mes réservations</a>
             </div>
         </div>
     </main>
@@ -61,5 +56,3 @@ unset($_SESSION['payment_message']);
     <?php require('phpFrequent/footer.php'); ?>
 </body>
 </html>
-*/
-?>
