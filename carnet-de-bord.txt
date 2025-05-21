@@ -102,3 +102,10 @@ Interface :
 
 19/05/25 :
 - Implémentation du paiement
+
+20/05/25 :
+- Page de confirmation et d'échec de paiement
+
+21/05/25 :
+- Amélioration des fonctionnalités
+- Refonte du README

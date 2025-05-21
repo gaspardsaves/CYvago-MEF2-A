@@ -34,13 +34,15 @@ Les utilisateurs peuvent :
 
 3. **Comptes de démonstration** :
 
-| Rôle          | Adresse e-mail             | Mot de passe |
-|---------------|----------------------------|--------------|
-| Admin         | gs@gmail.com               | azerty       |
-| Admin         | maslankaje@cy-tech.fr      | dinopolska   |
-| Utilisateur   | as@gmail.com               | hot          |
-| Utilisateur   | dt@gmail.com               | qwerty       |
-| Utilisateur   | tb@gmail.com               | carrefour    |
+| Rôle            | Adresse e-mail             | Mot de passe |
+|-----------------|----------------------------|--------------|
+| Admin           | gs@gmail.com               | azerty       |
+| Admin           | maslankaje@cy-tech.fr      | dinopolska   |
+| Utilisateur     | as@gmail.com               | hot          |
+| Utilisateur     | dt@gmail.com               | qwerty       |
+| Utilisateur     | tb@gmail.com               | carrefour    |
+| Utilisateur VIP | saves.gaspard@gmail.com    | azerty       |
+| Utilisateur     | iv@gmail.com               | qsdfghjk     |
 
 
 ## 📁 Structure du projet
@@ -48,80 +50,89 @@ Les utilisateurs peuvent :
 ```bash
 CYvago-MEF2-A/
 │
-├── css/                     # Feuilles de style CSS
-│   ├── accueil.css          # Styles de la page d'accueil
-│   ├── administrateur.css   # Styles du panneau d'administration
-│   ├── def.css              # Définitions des variables CSS (couleurs, polices, transitions)
-│   ├── designSite.css       # Styles communs à tout le site (mise en page, header, footer)
-│   ├── detail.css           # Styles pour la page détaillée des séjours
-│   ├── formulaire.css       # Styles pour les formulaires (connexion, inscription)
-│   ├── legal.css            # Styles pour les pages légales
-│   ├── mode-clair.css       # Styles pour le thème clair (dark/light mode)
-│   ├── monCompte.css        # Styles pour la page de profil utilisateur
-│   ├── panier.css           # Styles pour le panier d'achat
-│   ├── personnalisation.css # Styles pour la page de personnalisation des voyages
-│   ├── presentation.css     # Styles pour la page de présentation de l'agence
-│   └── sejours.css          # Styles pour la liste des séjours
+├── css/                      # Feuilles de style CSS
+│   ├── accueil.css           # Styles de la page d'accueil
+│   ├── administrateur.css    # Styles du panneau d'administration
+│   ├── confirmation.css      # Styles de la page de confirmation du séjour
+│   ├── def.css               # Définitions des variables CSS (couleurs, polices, transitions)
+│   ├── designSite.css        # Styles communs à tout le site (mise en page, header, footer)
+│   ├── detail.css            # Styles pour la page détaillée des séjours
+│   ├── echecpaiement.css     # Styles de la page d'échec de paiement
+│   ├── formulaire.css        # Styles pour les formulaires (connexion, inscription)
+│   ├── legal.css             # Styles pour les pages légales
+│   ├── mode-clair.css        # Styles pour le thème clair (dark/light mode)
+│   ├── monCompte.css         # Styles pour la page de profil utilisateur
+│   ├── paiement-redirect.css # Styles de la page de redirection
+│   ├── panier.css            # Styles pour le panier d'achat
+│   ├── personnalisation.css  # Styles pour la page de personnalisation des voyages
+│   ├── presentation.css      # Styles pour la page de présentation de l'agence
+│   ├── recapvoyage.css       # Styles pour la page de récapitulatif du voyage
+│   └── sejours.css           # Styles pour la liste des séjours
 │
-├── favicon/                 # Fichiers favicon pour navigateurs et systèmes
+├── favicon/                  # Fichiers favicon pour navigateurs et systèmes
 │
-├── img/                     # Images du site (photos, illustrations, logos)
-│   ├── footer/              # Images utilisées dans le pied de page
-│   ├── trav/                # Images des destinations de voyage
-│   └── ...                  # Autres images utilisées sur le site
+├── img/                      # Images du site (photos, illustrations, logos)
+│   ├── footer/               # Images utilisées dans le pied de page
+│   ├── trav/                 # Images des destinations de voyage
+│   └── ...                   # Autres images utilisées sur le site
 │   
 │
-├── js/                      # Fichiers JavaScript
-│   ├── admin.js             # Fonctionnalités du panneau administrateur
-│   ├── formValidation.js    # Validation des formulaires côté client
-│   ├── mode.js              # Gestion du changement de thème clair/sombre
-│   ├── moncompte.js         # Fonctionnalités interactives de la page profil
-│   ├── tri.js               # Filtrage et tri des séjours sur la page séjours
-│   └── updateprice.js       # Mise à jour dynamique des prix selon les options
+├── js/                       # Fichiers JavaScript
+│   ├── administrateur.js              # Fonctionnalités du panneau administrateur
+│   ├── formValidation.js     # Validation des formulaires côté client
+│   ├── mode.js               # Gestion du changement de thème clair/sombre
+│   ├── moncompte.js          # Fonctionnalités interactives de la page profil
+│   ├── paiement-redirect.js  # Redirection vers la page de paiement
+│   ├── tri.js                # Filtrage et tri des séjours sur la page séjours
+│   └── updateprice.js        # Mise à jour dynamique des prix selon les options
 │
-├── phpFrequent/             # Composants PHP réutilisables
-│   ├── footer.php           # Pied de page commun à toutes les pages
-│   ├── navbar.php           # Barre de navigation principale
-│   └── searchbar.php        # Barre de recherche commune à toutes les pages
+├── phpFrequent/              # Composants PHP réutilisables
+│   ├── footer.php            # Pied de page commun à toutes les pages
+│   ├── navbar.php            # Barre de navigation principale
+│   └── searchbar.php         # Barre de recherche commune à toutes les pages
 │
-├── exampleconfig.php        # Modèle de configuration pour la base de données
+├── exampleconfig.php         # Modèle de configuration pour la base de données
 │
-├── scheme-database.svg      # Schéma visuel de la base de données
-├── zanimotrip.sql           # Script SQL pour initialiser la base de données
+├── structure-database.svg    # Schéma visuel de la base de données
+├── zanimotrip.sql            # Script SQL pour initialiser la base de données
 │
-├── Projet_Click_journeY_v1.3_PHASE3-1.pdf          # Cahier des charges du projet
+├── Projet_Click_journeY_v1.4_PHASE4.pdf          # Cahier des charges du projet
 ├── Projet_Click_journeY_preing2_2024_2025_CYBANK_v1.1-1.pdf # Documentation API paiement
 ├── rapport-projet-click-journey-mef2-a.pdf         # Rapport technique du projet
 ├── charte-graphique-click-journey-mef2-a.pdf       # Charte graphique du site
 ├── carnet-de-bord.txt                              # Journal de développement
 ├── clipZanimoTrip.mp4                              # Vidéo promotionnelle
 │
-├── accueil.php              # Page d'accueil
-├── administrateur.php       # Interface administrateur (gestion des utilisateurs)
-├── cgu.php                  # Conditions générales d'utilisation
-├── cgv.php                  # Conditions générales de vente
-├── confidentialite.php      # Politique de confidentialité
-├── connexion.php            # Page de connexion utilisateur
-├── database.php             # Centralisation des connexions à la base de données
-├── detail.php               # Affichage détaillé d'un séjour avec options
-├── getapikey.php            # API pour code de paiement CYBank
-├── inscription.php          # Formulaire d'inscription utilisateur
-├── logout.php               # Script de déconnexion utilisateur
-├── mentions-legales.php     # Mentions légales du site
-├── monCompte.php            # Gestion du profil et historique des réservations
-├── newaccount.php           # Création d'un nouveau compte après inscription
-├── panier.php               # Gestion du panier d'achat
-├── parametres.php           # Page de paramètres utilisateur (thème, préférences)
-├── personnalisationvoyage.php # Personnalisation des options de voyage
-├── presentation.php         # Page de présentation de l'agence ZanimoTrip
-├── reservation.php          # Processus de réservation et paiement
-├── retourpaiement.php       # Page de retour après paiement (succès/échec)
-├── sejours.php              # Catalogue des séjours avec filtres
-├── session.php              # Gestion des sessions utilisateur
-├── update_profile.php       # Mise à jour des informations de profil
-└── verifconnexion.php       # Vérification des identifiants de connexion
+├── accueil.php               # Page d'accueil
+├── admin_update.php          # Mise à jour du statut de l'utilisateur dans la base de données
+├── administrateur.php        # Interface administrateur (gestion des utilisateurs)
+├── bannis.php                # Page de bannissement
+├── cgu.php                   # Conditions générales d'utilisation
+├── cgv.php                   # Conditions générales de vente
+├── confidentialite.php       # Politique de confidentialité
+├── confirmation.php          # Page de confirmation du séjour
+├── connexion.php             # Page de connexion utilisateur
+├── database.php              # Centralisation des connexions à la base de données
+├── detail.php                # Affichage détaillé d'un séjour avec options
+├── echecpaiement.php         # Page d'échec de paiement du séjour
+├── getapikey.php             # API pour code de paiement CYBank
+├── inscription.php           # Formulaire d'inscription utilisateur
+├── logout.php                # Script de déconnexion utilisateur
+├── mentions-legales.php      # Mentions légales du site
+├── moncompte.php             # Gestion du profil et historique des réservations
+├── newaccount.php            # Création d'un nouveau compte après inscription
+├── paiement-redirect.php     # Page de redirection du paiement
+├── parametre.php             # Page de paramètre utilisateur (thème, préférences)
+├── pasadmin.php              # Page pour signaler à un utilisateur qu'il n'a pas le droit d'accéder à une page
+├── presentation.php          # Page de présentation de l'agence ZanimoTrip
+├── recapvoyage.php           # Page de récapitulatif du voyage
+├── retourpaiement.php        # Page de retour après paiement (succès/échec)
+├── sejours.php               # Catalogue des séjours avec filtres
+├── session.php               # Gestion des sessions utilisateur
+├── update_profile.php        # Mise à jour des informations de profil
+└── verifconnexion.php        # Vérification des identifiants de connexion
 ```
 
 ## Schéma de base de données
 
-![Schéma de la base de données](scheme-database.svg)
+![Schéma de la base de données](structure-database.svg)
