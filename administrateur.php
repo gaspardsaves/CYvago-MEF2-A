@@ -14,6 +14,7 @@
 </head>
 <body>
     <!-- Barre de menu -->
+    <?php include 'session.php'; ?>
     <?php require('phpFrequent/navbar.php'); ?>
     
     <!-- Barre de recherche -->
@@ -41,8 +42,10 @@
                 include 'database.php';
                 $NB_lignes = 20;
                 $requete = "SELECT * FROM users";
-                $res = $database->query($requete);
-                while($ligne=$res->fetch_assoc()){
+                $prep = $database->prepare($requete);
+                $prep->execute();
+                $res = $prep->get_result();
+                while($ligne = $res->fetch_assoc()){
                     echo "<tr>";
                     echo "<td>".$ligne["id"]."</td>";
                     echo "<td>".$ligne["lastname"]."</td>";
