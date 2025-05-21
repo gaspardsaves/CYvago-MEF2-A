@@ -1,7 +1,7 @@
 
-function togglePasswordVisibility() {
-    const passwordField = document.getElementById('MotDePasse');
-    const toggleIcon = document.getElementById('togglePassword');
+function togglePasswordVisibility(fieldId, iconId) {
+    const passwordField = document.getElementById(fieldId);
+    const toggleIcon = document.getElementById(iconId);
     if (passwordField.type === 'password') {
         passwordField.type = 'text';
         toggleIcon.src = 'img/eye-open.png';
@@ -72,3 +72,9 @@ document.getElementById('MotDePasse').addEventListener('input', function() {
 
 
 document.addEventListener('DOMContentLoaded', checkLoginError);
+
+if (document.getElementById('togglePassword')) {
+    document.getElementById('togglePassword').onclick = function() {
+        togglePasswordVisibility('MotDePasse', 'togglePassword');
+    };
+}

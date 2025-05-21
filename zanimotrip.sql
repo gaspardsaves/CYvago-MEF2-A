@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 19 mai 2025 à 13:23
+-- Généré le : mer. 21 mai 2025 à 22:26
 -- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -32,15 +32,74 @@ CREATE TABLE `booking` (
   `user` int NOT NULL,
   `travel` int NOT NULL,
   `departuredate` date NOT NULL,
-  `nbrperson` int NOT NULL
+  `nbrperson` int NOT NULL,
+  `status` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `booking`
 --
 
-INSERT INTO `booking` (`id`, `user`, `travel`, `departuredate`, `nbrperson`) VALUES
-(1, 6, 2, '2025-05-31', 6);
+INSERT INTO `booking` (`id`, `user`, `travel`, `departuredate`, `nbrperson`, `status`) VALUES
+(1, 6, 2, '2025-05-31', 6, ''),
+(2, 6, 2, '2025-05-31', 5, ''),
+(3, 6, 2, '2025-05-19', 1, ''),
+(4, 6, 5, '2025-05-31', 5, ''),
+(5, 6, 1, '2025-05-19', 1, ''),
+(6, 6, 1, '2025-05-31', 4, ''),
+(7, 6, 1, '2025-05-19', 1, ''),
+(8, 6, 1, '2025-05-19', 1, ''),
+(9, 6, 2, '2025-05-31', 6, ''),
+(10, 6, 2, '2025-05-31', 5, ''),
+(11, 6, 2, '2025-05-19', 1, ''),
+(12, 6, 2, '2025-05-19', 1, ''),
+(13, 6, 2, '2025-05-19', 1, ''),
+(14, 6, 2, '2025-05-19', 1, ''),
+(15, 6, 1, '2025-05-19', 7, ''),
+(16, 6, 1, '2025-05-20', 1, ''),
+(17, 6, 1, '2025-05-20', 1, ''),
+(18, 6, 2, '2025-05-20', 6, ''),
+(19, 6, 2, '2025-05-20', 6, ''),
+(20, 6, 2, '2025-05-20', 6, ''),
+(21, 6, 2, '2025-05-20', 6, ''),
+(22, 6, 2, '2025-05-20', 1, ''),
+(23, 6, 2, '2025-05-20', 1, ''),
+(24, 6, 2, '2025-05-20', 1, ''),
+(25, 6, 2, '2025-05-20', 1, ''),
+(26, 6, 2, '2025-05-20', 1, ''),
+(27, 6, 2, '2025-05-20', 1, ''),
+(28, 6, 2, '2025-05-20', 1, ''),
+(29, 6, 2, '2025-05-20', 1, ''),
+(30, 6, 2, '2025-05-20', 5, ''),
+(31, 6, 2, '2025-05-20', 5, ''),
+(32, 6, 1, '2025-05-20', 1, ''),
+(33, 6, 2, '2025-05-20', 1, ''),
+(34, 6, 1, '2025-05-20', 4, ''),
+(35, 6, 1, '2025-05-20', 1, ''),
+(36, 6, 1, '2025-05-20', 1, ''),
+(37, 6, 1, '2025-05-20', 1, ''),
+(38, 6, 1, '2025-05-20', 1, ''),
+(39, 6, 1, '2025-05-20', 1, ''),
+(40, 6, 1, '2025-05-20', 1, ''),
+(41, 6, 1, '2025-05-20', 1, ''),
+(42, 6, 2, '2025-05-20', 1, NULL),
+(43, 6, 2, '2025-05-20', 4, 'confirmed'),
+(44, 6, 2, '2025-05-20', 1, 'confirmed'),
+(45, 6, 1, '2025-05-20', 5, NULL),
+(46, 6, 2, '2025-05-20', 4, 'confirmed'),
+(47, 6, 3, '2025-05-20', 7, 'confirmed'),
+(48, 6, 2, '2025-05-20', 1, NULL),
+(49, 6, 2, '2025-05-20', 1, NULL),
+(50, 6, 2, '2025-05-20', 1, NULL),
+(51, 6, 2, '2025-05-20', 1, NULL),
+(52, 6, 2, '2025-05-20', 1, NULL),
+(53, 6, 2, '2025-05-21', 9, 'confirmed'),
+(54, 6, 2, '2025-05-21', 1, NULL),
+(55, 6, 2, '2025-05-21', 1, 'confirmed'),
+(56, 6, 7, '2025-05-21', 1, NULL),
+(57, 6, 3, '2025-05-21', 1, NULL),
+(58, 6, 2, '2025-05-21', 4, 'confirmed'),
+(59, 6, 2, '2025-05-21', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +121,76 @@ CREATE TABLE `engagement` (
 INSERT INTO `engagement` (`id`, `booking`, `extra`, `nbrperson`) VALUES
 (1, 1, 51, 3),
 (2, 1, 52, 6),
-(3, 1, 53, 1);
+(3, 1, 53, 1),
+(4, 2, 51, 3),
+(5, 2, 4, 1),
+(6, 2, 5, 3),
+(7, 2, 6, 1),
+(8, 3, 51, 1),
+(9, 3, 52, 1),
+(10, 3, 6, 1),
+(11, 4, 60, 4),
+(12, 4, 61, 4),
+(13, 4, 62, 4),
+(14, 5, 48, 1),
+(15, 5, 1, 1),
+(16, 5, 3, 1),
+(17, 6, 48, 3),
+(18, 6, 2, 2),
+(19, 9, 51, 3),
+(20, 9, 5, 4),
+(21, 9, 6, 3),
+(22, 10, 51, 3),
+(23, 10, 4, 2),
+(24, 10, 52, 1),
+(25, 10, 53, 4),
+(26, 11, 51, 1),
+(27, 11, 52, 1),
+(28, 11, 6, 1),
+(29, 12, 53, 1),
+(30, 15, 1, 4),
+(31, 15, 49, 5),
+(32, 15, 50, 2),
+(33, 16, 49, 1),
+(34, 16, 50, 1),
+(35, 17, 49, 1),
+(36, 17, 50, 1),
+(37, 18, 51, 3),
+(38, 18, 52, 4),
+(39, 18, 53, 3),
+(40, 19, 51, 3),
+(41, 19, 52, 4),
+(42, 19, 53, 3),
+(43, 20, 51, 3),
+(44, 20, 52, 4),
+(45, 20, 53, 3),
+(46, 21, 51, 3),
+(47, 21, 52, 4),
+(48, 21, 53, 3),
+(49, 28, 51, 1),
+(50, 28, 52, 1),
+(51, 28, 6, 1),
+(52, 29, 51, 1),
+(53, 29, 52, 1),
+(54, 29, 6, 1),
+(55, 30, 51, 2),
+(56, 30, 5, 2),
+(57, 30, 6, 5),
+(58, 31, 51, 2),
+(59, 31, 5, 2),
+(60, 31, 6, 5),
+(61, 32, 1, 1),
+(62, 34, 50, 4),
+(63, 43, 51, 2),
+(64, 43, 52, 3),
+(65, 43, 6, 1),
+(66, 45, 48, 3),
+(67, 45, 1, 2),
+(68, 47, 54, 2),
+(69, 47, 7, 2),
+(70, 53, 52, 4),
+(71, 53, 53, 4),
+(72, 57, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -183,8 +311,27 @@ CREATE TABLE `payment` (
   `id` int NOT NULL,
   `reservation` int NOT NULL,
   `montant` float NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `payment`
+--
+
+INSERT INTO `payment` (`id`, `reservation`, `montant`, `date`, `status`) VALUES
+(1, 41, 1200, '2025-05-20 09:49:41', 'accepted'),
+(2, 43, 11500, '2025-05-20 09:59:17', 'accepted'),
+(3, 44, 2500, '2025-05-20 10:01:33', 'accepted'),
+(4, 45, 8200, '2025-05-20 23:00:32', 'denied'),
+(5, 46, 10000, '2025-05-20 23:21:51', 'accepted'),
+(6, 47, 13600, '2025-05-20 23:29:19', 'accepted'),
+(7, 53, 24700, '2025-05-21 13:35:48', 'accepted'),
+(8, 53, 24700, '2025-05-21 13:48:32', 'accepted'),
+(9, 55, 2500, '2025-05-21 13:50:13', 'accepted'),
+(10, 56, 3000, '2025-05-21 14:06:52', 'denied'),
+(11, 58, 10000, '2025-05-21 16:36:48', 'accepted'),
+(12, 59, 2500, '2025-05-21 16:37:53', 'denied');
 
 -- --------------------------------------------------------
 
@@ -318,7 +465,8 @@ INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`,
 (3, 'Stashenko', 'Albina', 'as@gmail.com', '$2y$12$OHaYsiFPiikxZ/IZxkFJouC0WPpldAvIGnOjto0grzoO0fpZ4xwA.', 1, NULL, NULL),
 (4, 'Trump', 'Donald', 'dt@gmail.com', '$2y$12$jrcXb9CRjwZxDJHVhn8S2u4AhrBJa0uldaKoSPkfmJAIfcFAgqXJi', 1, NULL, NULL),
 (5, 'Banica', 'Teodor', 'tb@gmail.com', '$2y$12$yRthDqmUcgjhl0tNSJkv6.n4p5Kl2DcNRGLvXlusIqfkU9J8djsv2', 1, NULL, NULL),
-(6, 'Savès', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$GOIGxcw8hYNsQWRrq5PQf.mF2MTdahNRKODH3XelIYFXVdxfdoei2', 1, NULL, NULL);
+(6, 'Savès', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$GOIGxcw8hYNsQWRrq5PQf.mF2MTdahNRKODH3XelIYFXVdxfdoei2', 1, NULL, NULL),
+(8, 'Vasilyev', 'Ioann', 'iv@gmail.com', '$2y$12$PjZ2gRYOdweRP2SnuEsLEOz1iX4ai1c0XMkSp/cCxD37/1cu/A7bq', 1, '1986-12-12', '0569584359');
 
 --
 -- Index pour les tables déchargées
@@ -374,13 +522,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT pour la table `engagement`
 --
 ALTER TABLE `engagement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT pour la table `extra`
@@ -392,7 +540,7 @@ ALTER TABLE `extra`
 -- AUTO_INCREMENT pour la table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `stage`
@@ -410,7 +558,7 @@ ALTER TABLE `travel`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

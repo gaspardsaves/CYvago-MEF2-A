@@ -78,6 +78,10 @@ $sejour = [
     "hotelImage" => $hotelImage ?: "",
     "meals" => $meals ?: "Repas non inclus"
 ];
+
+// Application d'une remise de trois pourcent sur le prix pour les clients VIP (role = 2)
+$isVIP = isset($_SESSION['role']) && $_SESSION['role'] == 2;
+$discountRate = $isVIP ? 0.03 : 0;
 ?>
 
 <!DOCTYPE html>
@@ -156,6 +160,9 @@ $sejour = [
                     <input type="hidden" name="travel_title" value="<?= htmlspecialchars($sejour['alt']) ?>">
                     <input type="hidden" name="travel_base_price" value="<?= $sejour['price'] ?>">
                     <input type="hidden" name="travel_duration" value="<?= $sejour['nbrdays'] ?>">
+                    <input type="hidden" name="is_vip" value="<?= $isVIP ? '1' : '0' ?>">
+                    <input type="hidden" name="discount_rate" value="<?= $discountRate ?>">
+                    <input type="hidden" name="total_price" id="hiddenTotalPrice" value="<?= $sejour['price'] * (1 - $discountRate) ?>">
                     
                     <div class="booking-details">
                         <div class="booking-row">
@@ -274,9 +281,23 @@ $sejour = [
                             <!-- Les options sélectionnées s'afficheront ici en détail -->
                         </div>
                         
+                        <div class="total-row subtotal-row">
+                            <div class="total-label">Sous-total</div>
+                            <div class="total-price" id="subtotalPrice"><?= $sejour['price'] ?>€</div>
+                        </div>
+                        
+                        <?php if ($isVIP): ?>
+                        <div class="total-row discount-row">
+                            <div class="total-label">Remise VIP (3%)</div>
+                            <div class="total-price discount-price">-<?= number_format($sejour['price'] * $discountRate, 2, ',', ' ') ?>€</div>
+                        </div>
+                        <?php endif; ?>
+                        
                         <div class="total-row">
                             <div class="total-label final-total">TOTAL</div>
-                            <div class="total-price final-total" id="finalTotal"><?= $sejour['price'] ?>€</div>
+                            <div class="total-price final-total" id="finalTotal">
+                                <?= number_format($sejour['price'] * (1 - $discountRate), 2, ',', ' ') ?>€
+                            </div>
                         </div>
                     </div>
                     

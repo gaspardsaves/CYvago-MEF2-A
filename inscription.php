@@ -6,7 +6,18 @@
         $EMAIL = $_POST["mail"];
         $NOM = $_POST["nom"];
         $DATE = $_POST["date"];
+        // Conversion au format MySQL
+        if (!empty($DATE)) {
+            try {
+                $dateObj = new DateTime($DATE);
+                $DATE = $dateObj->format('Y-m-d');
+            } catch (Exception $e) {
+                error_log("Erreur de conversion de date: " . $e->getMessage());
+            }
+        }
         $TEL = $_POST["tel"];
+        // Conversion du numéro de téléphone au bon format
+        $TEL = preg_replace('/[^0-9]/', '', $_POST["tel"]);
         $MDP = $_POST["mdp"];
         $VERIFMDP = $_POST["verifmdp"];
         $role = 1;
@@ -23,9 +34,9 @@
                         'cost' => 12,
                     ];
                     $hashpass = password_hash($MDP, PASSWORD_BCRYPT, $options);
-                    $sql = "INSERT INTO users (lastname, firstname, email, password, role) VALUES (?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO users (lastname, firstname, email, password, role, birth, phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
                     $inscription = $database->prepare($sql);
-                    $inscription->bind_param("ssssi", $NOM, $PRENOM, $EMAIL, $hashpass, $role);
+                    $inscription->bind_param("ssssiss", $NOM, $PRENOM, $EMAIL, $hashpass, $role, $DATE, $TEL);
                     $result = $inscription->execute();
                     echo $result;
                     if($result == TRUE){
@@ -71,6 +82,7 @@
     <link rel="stylesheet" href="css/formulaire.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/mode-clair.css?v=<?php echo time(); ?>">
     <script src="js/mode.js?v=<?php echo time(); ?>"></script>
+    <script src="js/formValidation.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <!-- Barre de menu -->
@@ -112,11 +124,24 @@
                 <label for="mail"> Adresse Mail : </label> <input type="email" name="mail" placeholder="xavier.dupont@mail.com" required> <br />
                 <div id="emailError" class="error-message"></div> <!-- Message d'erreur pour l'email -->
 
-                <label for="mdp">Mot de Passe : </label> <input type="password" name="mdp" placeholder="Mot de passe" required> <br />
-                <div id="passwordError" class="error-message"></div> <!-- Message d'erreur pour le mot de passe -->
-            
-                <label for="mdp">Confirmation du Mot de Passe : </label> <input type="password" name="verifmdp" placeholder="Mot de passe" required> <br />
-                <div id="confirmPasswordError" class="error-message"></div> <!-- Message d'erreur pour la confirmation du mot de passe -->
+                <div class="password-container">
+                    <label for="mdp">Mot de Passe : </label>
+                    <input type="password" id="mdp" name="mdp" placeholder="Mot de passe" maxlength="50" required>
+                    <div class="password-visibility">
+                        <img id="togglePassword1" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility('mdp', 'togglePassword1')">
+                    </div>
+                </div>
+                <div id="passwordError" class="error-message"></div>
+                <div id="passwordCount" class="password-count"></div>
+
+                <div class="password-container">
+                    <label for="verifmdp">Confirmation du Mot de Passe : </label>
+                    <input type="password" id="verifmdp" name="verifmdp" placeholder="Mot de passe" maxlength="50" required>
+                    <div class="password-visibility">
+                        <img id="togglePassword2" src="img/eye-close.png" alt="Voir le mot de passe" onclick="togglePasswordVisibility('verifmdp', 'togglePassword2')">
+                    </div>
+                </div>
+                <div id="confirmPasswordError" class="error-message"></div>
                 
                 <label for="date"> Date de naissance : </label> <input type="date" name="date" required> <br />
                 <label for="tel"> Téléphone : </label> <input type="tel" name="tel" placeholder="05.69.13.00.01" required> <br />
@@ -133,6 +158,5 @@
 
     <!-- Barre de pied de page -->
     <?php require('phpFrequent/footer.php'); ?>
-    <script src="js/formValidation.js"></script>
 </body>
 </html>
