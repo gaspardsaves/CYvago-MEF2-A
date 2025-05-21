@@ -1,0 +1,76 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+body {
+    font-family: "Inter Tight", sans-serif;
+}
+
+.confirmation-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: var(--shadow-03);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: var(--white);
+}
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.confirmation-header h1 {
+    color: var(--button2);
+    margin-bottom: 15px;
+}
+
+.confirmation-header p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.success-icon {
+    text-align: center;
+    font-size: 80px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.booking-details {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.booking-details h2 {
+    color: var(--button2);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-label {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.button1 {
+    padding: 12px 24px;
+}

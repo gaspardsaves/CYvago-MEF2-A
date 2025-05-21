@@ -11,12 +11,6 @@ if (!isset($_SESSION['payment_data'])) {
 // Récupérer les données de paiement
 $booking_id = $_SESSION['payment_data']['booking_id'];
 $montant = $_SESSION['payment_data']['montant'];
-if(is_numeric($montant)){
-    echo 'Valeur OK';
-}
-else {
-    echo 'Non';
-}
 
 $travel_title = $_SESSION['payment_data']['travel_title'];
 
