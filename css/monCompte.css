@@ -1,6 +1,11 @@
 @import url('def.css');
 @import url('designSite.css');
 
+body {
+    font-family: "Inter Tight", sans-serif;
+    color: var(--white);
+}
+
 /* Conteneur principal */
 .profile-container {
     max-width: 500px;

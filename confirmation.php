@@ -97,7 +97,7 @@ unset($_SESSION['payment_message']);
                 <form action="accueil.php">
                     <button class="button1" type="submit">Retour à l'accueil</button>
                 </form>
-                <form action="moncompte.php">
+                <form action="mesreservations.php">
                     <button class="button1" type="submit">Voir mes réservations</button>
                 </form>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 21 mai 2025 à 22:26
+-- Généré le : jeu. 22 mai 2025 à 03:33
 -- Version du serveur : 8.0.42-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.21
 
@@ -41,15 +41,12 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `user`, `travel`, `departuredate`, `nbrperson`, `status`) VALUES
-(1, 6, 2, '2025-05-31', 6, ''),
-(2, 6, 2, '2025-05-31', 5, ''),
 (3, 6, 2, '2025-05-19', 1, ''),
 (4, 6, 5, '2025-05-31', 5, ''),
 (5, 6, 1, '2025-05-19', 1, ''),
 (6, 6, 1, '2025-05-31', 4, ''),
 (7, 6, 1, '2025-05-19', 1, ''),
 (8, 6, 1, '2025-05-19', 1, ''),
-(9, 6, 2, '2025-05-31', 6, ''),
 (10, 6, 2, '2025-05-31', 5, ''),
 (11, 6, 2, '2025-05-19', 1, ''),
 (12, 6, 2, '2025-05-19', 1, ''),
@@ -99,7 +96,17 @@ INSERT INTO `booking` (`id`, `user`, `travel`, `departuredate`, `nbrperson`, `st
 (56, 6, 7, '2025-05-21', 1, NULL),
 (57, 6, 3, '2025-05-21', 1, NULL),
 (58, 6, 2, '2025-05-21', 4, 'confirmed'),
-(59, 6, 2, '2025-05-21', 1, NULL);
+(59, 6, 2, '2025-05-21', 1, NULL),
+(60, 6, 2, '2025-05-21', 2, NULL),
+(61, 6, 2, '2025-05-21', 2, 'confirmed'),
+(62, 6, 2, '2025-05-21', 2, 'confirmed'),
+(63, 3, 2, '2025-05-21', 1, NULL),
+(64, 3, 2, '2025-05-21', 1, 'confirmed'),
+(65, 6, 1, '2025-05-22', 1, 'confirmed'),
+(66, 6, 2, '2025-05-22', 1, 'confirmed'),
+(67, 6, 1, '2025-05-22', 1, 'confirmed'),
+(68, 6, 9, '2025-05-28', 3, 'confirmed'),
+(69, 6, 12, '2025-05-22', 2, 'confirmed');
 
 -- --------------------------------------------------------
 
@@ -119,13 +126,6 @@ CREATE TABLE `engagement` (
 --
 
 INSERT INTO `engagement` (`id`, `booking`, `extra`, `nbrperson`) VALUES
-(1, 1, 51, 3),
-(2, 1, 52, 6),
-(3, 1, 53, 1),
-(4, 2, 51, 3),
-(5, 2, 4, 1),
-(6, 2, 5, 3),
-(7, 2, 6, 1),
 (8, 3, 51, 1),
 (9, 3, 52, 1),
 (10, 3, 6, 1),
@@ -137,9 +137,6 @@ INSERT INTO `engagement` (`id`, `booking`, `extra`, `nbrperson`) VALUES
 (16, 5, 3, 1),
 (17, 6, 48, 3),
 (18, 6, 2, 2),
-(19, 9, 51, 3),
-(20, 9, 5, 4),
-(21, 9, 6, 3),
 (22, 10, 51, 3),
 (23, 10, 4, 2),
 (24, 10, 52, 1),
@@ -190,7 +187,10 @@ INSERT INTO `engagement` (`id`, `booking`, `extra`, `nbrperson`) VALUES
 (69, 47, 7, 2),
 (70, 53, 52, 4),
 (71, 53, 53, 4),
-(72, 57, 9, 1);
+(72, 57, 9, 1),
+(73, 62, 53, 2),
+(74, 67, 3, 1),
+(75, 68, 70, 3);
 
 -- --------------------------------------------------------
 
@@ -331,7 +331,18 @@ INSERT INTO `payment` (`id`, `reservation`, `montant`, `date`, `status`) VALUES
 (9, 55, 2500, '2025-05-21 13:50:13', 'accepted'),
 (10, 56, 3000, '2025-05-21 14:06:52', 'denied'),
 (11, 58, 10000, '2025-05-21 16:36:48', 'accepted'),
-(12, 59, 2500, '2025-05-21 16:37:53', 'denied');
+(12, 59, 2500, '2025-05-21 16:37:53', 'denied'),
+(13, 61, 4850, '2025-05-21 23:12:50', 'accepted'),
+(14, 62, 5238, '2025-05-21 23:14:54', 'accepted'),
+(15, 64, 2500, '2025-05-21 23:25:30', 'accepted'),
+(16, 65, 1164, '2025-05-22 00:09:42', 'accepted'),
+(17, 66, 2425, '2025-05-22 00:51:03', 'accepted'),
+(18, 67, 1236.75, '2025-05-22 01:15:19', 'accepted'),
+(19, 68, 5820, '2025-05-22 01:44:13', 'accepted'),
+(20, 68, 5820, '2025-05-22 01:44:25', 'denied'),
+(21, 68, 0, '2025-05-22 02:08:51', 'accepted'),
+(22, 69, 1940, '2025-05-22 02:18:39', 'denied'),
+(23, 69, 1940, '2025-05-22 02:27:37', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -465,7 +476,7 @@ INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `password`, `role`,
 (3, 'Stashenko', 'Albina', 'as@gmail.com', '$2y$12$OHaYsiFPiikxZ/IZxkFJouC0WPpldAvIGnOjto0grzoO0fpZ4xwA.', 1, NULL, NULL),
 (4, 'Trump', 'Donald', 'dt@gmail.com', '$2y$12$jrcXb9CRjwZxDJHVhn8S2u4AhrBJa0uldaKoSPkfmJAIfcFAgqXJi', 1, NULL, NULL),
 (5, 'Banica', 'Teodor', 'tb@gmail.com', '$2y$12$yRthDqmUcgjhl0tNSJkv6.n4p5Kl2DcNRGLvXlusIqfkU9J8djsv2', 1, NULL, NULL),
-(6, 'Savès', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$GOIGxcw8hYNsQWRrq5PQf.mF2MTdahNRKODH3XelIYFXVdxfdoei2', 1, NULL, NULL),
+(6, 'Savès', 'Gaspard', 'saves.gaspard@gmail.com', '$2y$12$GOIGxcw8hYNsQWRrq5PQf.mF2MTdahNRKODH3XelIYFXVdxfdoei2', 2, NULL, NULL),
 (8, 'Vasilyev', 'Ioann', 'iv@gmail.com', '$2y$12$PjZ2gRYOdweRP2SnuEsLEOz1iX4ai1c0XMkSp/cCxD37/1cu/A7bq', 1, '1986-12-12', '0569584359');
 
 --
@@ -522,13 +533,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT pour la table `engagement`
 --
 ALTER TABLE `engagement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT pour la table `extra`
@@ -540,7 +551,7 @@ ALTER TABLE `extra`
 -- AUTO_INCREMENT pour la table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `stage`

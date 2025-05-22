@@ -47,10 +47,13 @@ unset($_SESSION['payment_message']);
                 <form action="accueil.php">
                     <button class="button1" type="submit">Retour à l'accueil</button>
                 </form>
-                <?php /* if ($booking_id): ?>
-                <a href="paiement.php?booking_id=<?= $booking_id ?>" class="button1">Réessayer le paiement</a>
-                <?php endif; */?>
-                <form action="moncompte.php">
+                <?php if ($booking_id): ?>
+                    <form action="paiement.php" method="POST">
+                        <input type='hidden' name='booking_id' value="<?= htmlspecialchars($booking_id) ?>">
+                        <button class="button1" type="submit">Réessayer le paiement</button>
+                    </form>
+                <?php endif; ?>
+                <form action="mesreservations.php">
                     <button class="button1" type="submit">Voir mes réservations</button>
                 </form>
             </div>

@@ -1,0 +1,288 @@
+/* Importation des couleurs et des polices de caractères et des transitions */
+@import url('def.css');
+/* Importation du style général du site */
+@import url('designSite.css');
+
+body {
+    font-family: "Inter Tight", sans-serif;
+    color: var(--white);
+}
+
+.reservations-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--button2);
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.no-reservations {
+    text-align: center;
+    background-color: var(--shadow-03);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.no-reservations p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.reservation-card {
+    background-color: var(--shadow-03);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.past-reservation {
+    opacity: 0.7;
+}
+
+.reservation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reservation-id {
+    font-weight: bold;
+    color: var(--button1);
+}
+
+.reservation-status {
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-paid {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.status-pending {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+}
+
+.status-refused {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+}
+
+.reservation-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.travel-image {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.travel-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.travel-details {
+    flex-grow: 1;
+}
+
+.travel-details h2 {
+    color: var(--button2);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.travel-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+    margin-bottom: 15px;
+}
+
+.travel-info p {
+    margin: 0;
+}
+
+.options-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.options-section h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--button1);
+}
+
+.options-section ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.options-section li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-total {
+    font-size: 18px;
+}
+
+.price-total span {
+    color: var(--button2);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.payment-info {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+}
+
+.reservation-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.button-cancel {
+    background-color: transparent;
+    color: var(--button1);
+    border: 1px solid var(--button1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.button-cancel:hover {
+    background-color: var(--button1);
+    color: var(--white);
+}
+
+.back-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .reservation-content {
+        flex-direction: column;
+    }
+    
+    .travel-image {
+        width: 100%;
+    }
+    
+    .travel-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .price-section, .reservation-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .button-cancel, .button2 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .reservation-actions {
+        padding: 15px;
+    }
+}
+
+/* Animation pour les nouvelles réservations */
+@keyframes highlight {
+    0% { background-color: rgba(233, 181, 47, 0.3); }
+    100% { background-color: var(--shadow-03); }
+}
+
+.new-reservation {
+    animation: highlight 2s ease-out forwards;
+}
+
+.success-message, .error-message {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.success-message {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.error-message {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #F44336;
+    color: #F44336;
+}
+
+.success-icon, .error-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

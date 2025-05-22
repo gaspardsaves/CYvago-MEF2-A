@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        // Fonction pour mettre à jour le nom dans la barre de navigation
+        function updateNavbarName(firstname) {
+            const navbarButton = document.querySelector('.nav-bar .buttons-nav form[action="moncompte.php"] button.button1');
+            if (navbarButton) {
+                navbarButton.textContent = firstname;
+            }
+        }
+
         // Désactiver le bouton de soumission pendant la requête
         const submitButton = profileForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
@@ -69,11 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 firstnameField.value = data.data.firstname;
                 lastnameField.value = data.data.lastname;
 
-                // Mettre à jour le titre de bienvenue s'il existe
-                const welcomeTitle = document.querySelector('h1');
-                if (welcomeTitle && welcomeTitle.textContent.includes('Bienvenue')) {
-                    welcomeTitle.textContent = `Bienvenue ${data.data.firstname} sur votre profil !`;
-                }
+                // Mettre à jour la navbar
+                updateNavbarName(data.data.firstname);
 
                 // Afficher un message de succès
                 showSuccessMessage(data.message);

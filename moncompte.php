@@ -84,12 +84,12 @@
                 <label for="lastname">Nom :</label>
                 <input type="text" id="lastname" name="lastname" value="<?php echo htmlspecialchars($nom); ?>" required>
 
-                <button type="submit">Mettre à jour</button>
+                <button type="submit" class="button1">Mettre à jour</button>
             </form>
             <br/>
             <div class="buttons-nav">
-                <form action="panier.php" method="GET">
-                    <button class="button1" type="submit">🛍️ Panier</button>
+                <form action="mesreservations.php" method="GET">
+                    <button class="button1" type="submit">🛍️ Mes réservations</button>
                 </form>
                 <form action="logout.php" method="GET">
                     <button class="button1" type="submit">⬅️ Déconnexion</button>

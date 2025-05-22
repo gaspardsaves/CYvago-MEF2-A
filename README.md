@@ -60,9 +60,11 @@ CYvago-MEF2-A/
 │   ├── echecpaiement.css     # Styles de la page d'échec de paiement
 │   ├── formulaire.css        # Styles pour les formulaires (connexion, inscription)
 │   ├── legal.css             # Styles pour les pages légales
+│   ├── mesreservations.css   # Styles pour la page d'historique des réservations
 │   ├── mode-clair.css        # Styles pour le thème clair (dark/light mode)
 │   ├── monCompte.css         # Styles pour la page de profil utilisateur
 │   ├── paiement-redirect.css # Styles de la page de redirection
+│   ├── paiement.css          # Style de la page permettant de refaire un paiement lorsqu'il a échoué
 │   ├── panier.css            # Styles pour le panier d'achat
 │   ├── personnalisation.css  # Styles pour la page de personnalisation des voyages
 │   ├── presentation.css      # Styles pour la page de présentation de l'agence
@@ -107,6 +109,7 @@ CYvago-MEF2-A/
 ├── admin_update.php          # Mise à jour du statut de l'utilisateur dans la base de données
 ├── administrateur.php        # Interface administrateur (gestion des utilisateurs)
 ├── bannis.php                # Page de bannissement
+├── cancelbooking.php         # Permet l'annulation d'une réservation
 ├── cgu.php                   # Conditions générales d'utilisation
 ├── cgv.php                   # Conditions générales de vente
 ├── confidentialite.php       # Politique de confidentialité
@@ -119,9 +122,11 @@ CYvago-MEF2-A/
 ├── inscription.php           # Formulaire d'inscription utilisateur
 ├── logout.php                # Script de déconnexion utilisateur
 ├── mentions-legales.php      # Mentions légales du site
+├── mesreservations.php      # Permet de voir l'historique des voyages du client
 ├── moncompte.php             # Gestion du profil et historique des réservations
 ├── newaccount.php            # Création d'un nouveau compte après inscription
 ├── paiement-redirect.php     # Page de redirection du paiement
+├── paiement.php              # Permet de refaire le paiement lorsqu'il a été refusé
 ├── parametre.php             # Page de paramètre utilisateur (thème, préférences)
 ├── pasadmin.php              # Page pour signaler à un utilisateur qu'il n'a pas le droit d'accéder à une page
 ├── presentation.php          # Page de présentation de l'agence ZanimoTrip
