@@ -80,7 +80,7 @@ CYvago-MEF2-A/
 │   
 │
 ├── js/                       # Fichiers JavaScript
-│   ├── administrateur.js              # Fonctionnalités du panneau administrateur
+│   ├── admin.js              # Fonctionnalités du panneau administrateur
 │   ├── formValidation.js     # Validation des formulaires côté client
 │   ├── mode.js               # Gestion du changement de thème clair/sombre
 │   ├── moncompte.js          # Fonctionnalités interactives de la page profil
